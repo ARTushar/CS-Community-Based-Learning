@@ -1,0 +1,634 @@
+<div>
+    <p>
+        <a name="page1"></a>
+    </p>
+    <p align="center">
+        <strong>Java</strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <strong><em>I/O</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page2"></a>
+        File
+    </p>
+    <p>
+        • Long-term storage of large amounts of data
+    </p>
+    <p>
+        • Persistent data exists after termination of program
+    </p>
+    <p>
+        • Files stored on secondary storage devices
+    </p>
+    <p>
+        – Magnetic disks
+    </p>
+    <p>
+        – Optical disks
+    </p>
+    <p>
+        – Magnetic tapes
+    </p>
+    <p>
+        • Sequential and random access files
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 2
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page3"></a>
+        File Class
+    </p>
+    <p>
+        • Provides useful information about a file or directory
+    </p>
+    <p>
+        • Does not open files or process files
+    </p>
+    <p>
+        • To obtain or manipulate path, time, date, permissions etc
+    </p>
+    <p>
+        • Constructor
+    </p>
+    <p>
+        – File(String directoryPath)
+    </p>
+    <p>
+        – File(String directoryPath, String fileName)
+    </p>
+    <p>
+        – File(File dirObj, String fileName)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: FileDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 3
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page4"></a>
+        Directory Class
+    </p>
+    <p>
+        • Directories are also files
+    </p>
+    <p>
+        • Contains list of files and directories
+    </p>
+    <p>
+        • For Directory isDirectory() returns true <em>String</em>[] list()
+    </p>
+    <p>
+        – returns an array of strings that gives the files and directories
+        contained
+    </p>
+    <p>
+        <em>File[] listFiles()</em>
+    </p>
+    <p>
+        – Returns array of File objects
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: DirectoryDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 4
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page5"></a>
+        Stream Classes
+    </p>
+    <p>
+        • Java views a File as a stream of bytes.
+    </p>
+    <p>
+        – File ends with end-of-file marker or a specific byte number
+    </p>
+    <p>
+        – File as a stream of bytes associated with an object.
+    </p>
+    <p>
+        – Java also associates streams with devices
+    </p>
+    <p>
+        • System.in, System.out, and System.err
+    </p>
+    <p>
+        – Streams can be redirected
+    </p>
+    <p>
+        • Stream is an abstraction that either produces or consumes information
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 5
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page6"></a>
+        Stream Classes
+    </p>
+    <p>
+        • Java’s stream-based I/O is built upon four abstract classes.
+    </p>
+    <p>
+        – InputStream, OutputStream (for byte streams)
+    </p>
+    <p>
+        – Reader, Writer (for character streams)
+    </p>
+    <p>
+        • They form separate hierarchies
+    </p>
+    <p>
+        • Use the character stream classes when working with characters or
+        strings
+    </p>
+    <p>
+        • Use the byte stream classes when working with bytes or other binary
+        objects
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 6
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page7"></a>
+        Byte Stream Classes
+    </p>
+    <p>
+• Byte-Stream classes are topped by<strong><em>InputStream</em></strong> and        <strong><em>OutputStream </em></strong>classes
+    </p>
+    <p>
+        • <strong><em>InputStream </em></strong>is an abstract class that
+        defines Java’s<strong><em> </em></strong>model of streaming byte input.
+    </p>
+    <p>
+        <em>int available()</em>
+        <em>void close()</em>
+        <em>int read()</em>
+    </p>
+    <p align="center">
+        <em>int read(byte buff[])</em>
+        <em>int read(byte buff[], int off, int num)</em>
+    </p>
+    <p>
+        • <strong><em>OutputStream </em></strong>is an abstract class that
+        defines Java’s<strong><em> </em></strong>model of streaming byte
+        output.
+    </p>
+    <p>
+        <em>void flush()</em>
+        <em>void close() void write(int b)</em>
+    </p>
+    <p>
+        <em>
+            void write(byte buff[]) void write(byte buff[], int off, int num)
+        </em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 7
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page8"></a>
+        FileInputStream
+    </p>
+    <p>
+• <strong><em>FileInputStream </em></strong>class creates an        <strong><em> InputStream </em></strong>that<strong><em> </em></strong>
+        you can use to read bytes from a file
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – FileInputStream(String filePath)
+    </p>
+    <p>
+        – FileInputStream(File fileObj)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: FileInputStreamDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 8
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page9"></a>
+        FileOutputStream
+    </p>
+    <p>
+• <strong><em>FileOutputStream </em></strong>class creates an        <strong><em> OutputStream </em></strong>that you can use to write bytes
+        to a file
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – FileOutputStream(String filePath)
+    </p>
+    <p>
+        – FileOutputStream(File fileObj)
+    </p>
+    <p>
+        – FileOutputStream(String path, boolean append)
+    </p>
+    <p>
+        – FileOutputStream(File obj, boolean append)
+    </p>
+    <p>
+• <strong><em>Example</em></strong>        <em>: FileOutputStreamDemo.java, FileCopyDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 9
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page10"></a>
+        Character Streams
+    </p>
+    <p>
+• Character Stream classes are topped by        <strong><em>Reader</em></strong> and <strong><em>Writer </em></strong>
+        class
+    </p>
+    <p>
+        • <strong><em>Reader </em></strong>is an abstract class that defines
+        Java’s model<strong><em> </em></strong>of streaming character input
+    </p>
+    <p>
+        <em>void close()</em>
+        <em>int read() int read(char buff[])</em>
+    </p>
+    <p>
+        <em>int read(char buff[], int off, int num)</em>
+    </p>
+    <p>
+        • <strong><em>Writer </em></strong>is an abstract class that defines
+        Java’s model<strong><em> </em></strong>of streaming character output
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="785" colspan="2" valign="bottom">
+                    <p>
+                        <em>void flush() void close() void write(int ch)</em>
+                    </p>
+                </td>
+                <td width="17" valign="bottom">
+                </td>
+                <td width="0" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="785" colspan="2" valign="bottom">
+                    <p>
+                        <em>
+                            void write(char buff[]) void write(char buff[], int
+                            off, int num)
+                        </em>
+                    </p>
+                </td>
+                <td width="17" valign="bottom">
+                </td>
+                <td width="0" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="265" valign="bottom">
+                    <p>
+                        <em>void write(String s)</em>
+                    </p>
+                </td>
+                <td width="520" valign="bottom">
+                    <p>
+                        <em>void write(String s, int off, int num)</em>
+                    </p>
+                </td>
+                <td width="17" rowspan="2" valign="bottom">
+                    <p align="right">
+                        10
+                    </p>
+                </td>
+                <td width="0" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="265" valign="bottom">
+                </td>
+                <td width="520" valign="bottom">
+                    <p>
+                        Prepared By - Rifat Shahriyar
+                    </p>
+                </td>
+                <td width="0" valign="bottom">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page11"></a>
+        FileReader
+    </p>
+    <p>
+• <strong><em>FileReader </em></strong>class creates a<strong><em> Reader </em></strong>that you can use to        <strong><em> </em></strong>read the contents of a file
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – FileReader(String filePath)
+    </p>
+    <p>
+        – FileReader(File fileObj)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: FileReaderDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 11
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page12"></a>
+        FileWriter
+    </p>
+    <p>
+• <strong><em>FileWriter </em></strong>class creates a<strong><em> Writer </em></strong>that you can use to        <strong><em> </em></strong>write to a file
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – FileWriter(String filePath)
+    </p>
+    <p>
+        – FileWriter(File fileObj)
+    </p>
+    <p>
+        – FileWriter(String path, boolean append)
+    </p>
+    <p>
+        – FileWriter(File obj, boolean append)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: FileWriterDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 12
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page13"></a>
+        BufferedReader
+    </p>
+    <p>
+• <strong><em>BufferedReader </em></strong>is a        <strong><em> Reader </em></strong>that buffers input
+    </p>
+    <p>
+        • It improves performance by reducing the number of times data us
+        actually physically read from the input stream
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – BufferedReader(Reader reader)
+    </p>
+    <p>
+        – BufferedReader(Reader reader, int buffSize)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: BufferedReaderDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 13
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page14"></a>
+        BufferedWriter
+    </p>
+    <p>
+• <strong><em>BufferedWriter </em></strong>is a        <strong><em> Writer </em></strong>that buffers output
+    </p>
+    <p>
+        • It improves performance by reducing the number of times data actually
+        physically written to the output stream
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – BufferedWriter(Writer writer)
+    </p>
+    <p>
+        – BufferedWriter(Writer writer, int buffSize)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: BufferedWriterDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 14
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page15"></a>
+        Serialization
+    </p>
+    <p>
+        • Serialization is the process of writing the state of an object to a
+        byte stream
+    </p>
+    <p>
+        – This is useful when you want to save the state of your program to a
+        persistent storage such as file
+    </p>
+    <p>
+        – Later these objects can be restored by using the process of
+        deserialization
+    </p>
+    <p>
+• Serialization can be achieved by implementing        <strong><em>Serializable </em></strong>interface
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 15
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page16"></a>
+        Object(Input/Output)Stream
+    </p>
+    <p>
+• <strong><em>ObjectInputStream </em></strong>class extends the        <strong><em> InputStream </em></strong>class
+    </p>
+    <p>
+        • It is responsible for reading objects from a stream
+    </p>
+    <p>
+• <strong><em>ObjectOutputStream </em></strong>class extends the        <strong><em> OutputStream </em></strong>class
+    </p>
+    <p>
+        • It is responsible for writing objects to a stream
+    </p>
+    <p>
+• <strong><em>Example</em></strong>        <em>: ObjectSerializationDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 16
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page17"></a>
+    </p>
+    <p align="center">
+        <strong>Self Study</strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page18"></a>
+        Data(Input/Output)Stream
+    </p>
+    <p>
+• <strong><em>DataInputStream </em></strong>&amp;<strong><em> DataOutputStream </em></strong>enable to        <strong><em> </em></strong>write or read primitive data to or from a
+        stream
+    </p>
+    <p>
+• They implement the <strong><em>DataOutput</em></strong> &amp;        <strong><em>DataInput</em></strong> interfaces respectively
+    </p>
+    <p>
+        • Constructors
+    </p>
+    <p>
+        – DataOutputStream(OutputStream os)
+    </p>
+    <p>
+        – DataInputStream(InputStream is)
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: DataIODemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 18
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p align="center">
+        <a name="page19"></a>
+        Console
+    </p>
+    <p>
+        • It is used to read and write to the console
+    </p>
+    <p>
+• It supplies no constructor. A Console object is obtained by calling        <strong><em>System.console()</em></strong>
+    </p>
+    <p>
+        • Important Methods
+    </p>
+    <p>
+        – printf
+    </p>
+    <p>
+        – readLine
+    </p>
+    <p>
+        – readPassword
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: ConsoleDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<p>
+    Prepared By - Rifat Shahriyar 19
+</p>

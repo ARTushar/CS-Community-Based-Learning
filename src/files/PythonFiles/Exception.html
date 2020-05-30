@@ -1,0 +1,875 @@
+<p>
+    Python provides two very important features to handle any unexpected error
+    in your Python programs and to add debugging capabilities in them −
+</p>
+<ul>
+    <li>
+        <p>
+            Exception Handling − This would be covered in this tutorial. Here
+            is a list standard Exceptions available in Python −
+            <a
+                href="https://www.tutorialspoint.com/python3/python_exceptions.htm#standard_exceptions"
+            >
+                Standard Exceptions
+            </a>
+            .
+        </p>
+    </li>
+    <li>
+        <p>
+            Assertions − This would be covered in
+            <a
+                href="https://www.tutorialspoint.com/python3/python_exceptions.htm#assertion_python"
+            >
+                Assertions in Python 3
+            </a>
+            tutorial.
+        </p>
+    </li>
+</ul>
+<h2>
+    <a name="standard_exceptions">Standard Exceptions</a>
+</h2>
+<p>
+    Here is a list of Standard Exceptions available in Python. −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                Exception Name &amp; Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <p>
+                    Exception
+                </p>
+                <p>
+                    Base class for all exceptions
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <p>
+                    StopIteration
+                </p>
+                <p>
+                    Raised when the next() method of an iterator does not point
+                    to any object.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <p>
+                    SystemExit
+                </p>
+                <p>
+                    Raised by the sys.exit() function.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                <p>
+                    StandardError
+                </p>
+                <p>
+                    Base class for all built-in exceptions except StopIteration
+                    and SystemExit.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                <p>
+                    ArithmeticError
+                </p>
+                <p>
+                    Base class for all errors that occur for numeric
+                    calculation.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                <p>
+                    OverflowError
+                </p>
+                <p>
+                    Raised when a calculation exceeds maximum limit for a
+                    numeric type.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>
+                <p>
+                    FloatingPointError
+                </p>
+                <p>
+                    Raised when a floating point calculation fails.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                8
+            </td>
+            <td>
+                <p>
+                    ZeroDivisonError
+                </p>
+                <p>
+                    Raised when division or modulo by zero takes place for all
+                    numeric types.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9
+            </td>
+            <td>
+                <p>
+                    AssertionError
+                </p>
+                <p>
+                    Raised in case of failure of the Assert statement.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                10
+            </td>
+            <td>
+                <p>
+                    AttributeError
+                </p>
+                <p>
+                    Raised in case of failure of attribute reference or
+                    assignment.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                11
+            </td>
+            <td>
+                <p>
+                    EOFError
+                </p>
+                <p>
+                    Raised when there is no input from either the raw_input()
+                    or input() function and the end of file is reached.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12
+            </td>
+            <td>
+                <p>
+                    ImportError
+                </p>
+                <p>
+                    Raised when an import statement fails.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                13
+            </td>
+            <td>
+                <p>
+                    KeyboardInterrupt
+                </p>
+                <p>
+                    Raised when the user interrupts program execution, usually
+                    by pressing Ctrl+c.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                14
+            </td>
+            <td>
+                <p>
+                    LookupError
+                </p>
+                <p>
+                    Base class for all lookup errors.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                15
+            </td>
+            <td>
+                <p>
+                    IndexError
+                </p>
+                <p>
+                    Raised when an index is not found in a sequence.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                16
+            </td>
+            <td>
+                <p>
+                    KeyError
+                </p>
+                <p>
+                    Raised when the specified key is not found in the
+                    dictionary.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                17
+            </td>
+            <td>
+                <p>
+                    NameError
+                </p>
+                <p>
+                    Raised when an identifier is not found in the local or
+                    global namespace.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                18
+            </td>
+            <td>
+                <p>
+                    UnboundLocalError
+                </p>
+                <p>
+                    Raised when trying to access a local variable in a function
+                    or method but no value has been assigned to it.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                19
+            </td>
+            <td>
+                <p>
+                    EnvironmentError
+                </p>
+                <p>
+                    Base class for all exceptions that occur outside the Python
+                    environment.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                20
+            </td>
+            <td>
+                <p>
+                    IOError
+                </p>
+                <p>
+                    Raised when an input/ output operation fails, such as the
+                    print statement or the open() function when trying to open
+                    a file that does not exist.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                21
+            </td>
+            <td>
+                <p>
+                    OSError
+                </p>
+                <p>
+                    Raised for operating system-related errors.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                22
+            </td>
+            <td>
+                <p>
+                    SyntaxError
+                </p>
+                <p>
+                    Raised when there is an error in Python syntax.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                23
+            </td>
+            <td>
+                <p>
+                    IndentationError
+                </p>
+                <p>
+                    Raised when indentation is not specified properly.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                24
+            </td>
+            <td>
+                <p>
+                    SystemError
+                </p>
+                <p>
+                    Raised when the interpreter finds an internal problem, but
+                    when this error is encountered the Python interpreter does
+                    not exit.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                25
+            </td>
+            <td>
+                <p>
+                    SystemExit
+                </p>
+                <p>
+                    Raised when Python interpreter is quit by using the
+                    sys.exit() function. If not handled in the code, causes the
+                    interpreter to exit.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                26
+            </td>
+            <td>
+                <p>
+                    TypeError
+                </p>
+                <p>
+                    Raised when an operation or function is attempted that is
+                    invalid for the specified data type.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                27
+            </td>
+            <td>
+                <p>
+                    ValueError
+                </p>
+                <p>
+                    Raised when the built-in function for a data type has the
+                    valid type of arguments, but the arguments have invalid
+                    values specified.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                28
+            </td>
+            <td>
+                <p>
+                    RuntimeError
+                </p>
+                <p>
+                    Raised when a generated error does not fall into any
+                    category.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                29
+            </td>
+            <td>
+                <p>
+                    NotImplementedError
+                </p>
+                <p>
+                    Raised when an abstract method that needs to be implemented
+                    in an inherited class is not actually implemented.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    <a name="assertion_python">Assertions in Python</a>
+</h2>
+<p>
+    An assertion is a sanity-check that you can turn on or turn off when you
+    are done with your testing of the program.
+</p>
+<ul>
+    <li>
+        <p>
+            The easiest way to think of an assertion is to liken it to a
+            raise-ifstatement (or to be more accurate, a raise-if-not
+            statement). An expression is tested, and if the result comes up
+            false, an exception is raised.
+        </p>
+    </li>
+    <li>
+        <p>
+            Assertions are carried out by the assert statement, the newest
+            keyword to Python, introduced in version 1.5.
+        </p>
+    </li>
+    <li>
+        <p>
+            Programmers often place assertions at the start of a function to
+            check for valid input, and after a function call to check for valid
+            output.
+        </p>
+    </li>
+</ul>
+<h3>
+    The assert Statement
+</h3>
+<p>
+    When it encounters an assert statement, Python evaluates the accompanying
+    expression, which is hopefully true. If the expression is false, Python
+    raises an <em>AssertionError</em> exception.
+</p>
+<p>
+    The syntax for assert is −
+</p>
+<pre>assert Expression[, Arguments]
+</pre>
+<p>
+    If the assertion fails, Python uses ArgumentExpression as the argument for
+    the AssertionError. AssertionError exceptions can be caught and handled
+    like any other exception, using the try-except statement. If they are not
+    handled, they will terminate the program and produce a traceback.
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    Here is a function that converts a given temperature from degrees Kelvin to
+    degrees Fahrenheit. Since 0° K is as cold as it gets, the function bails
+    out if it sees a negative temperature −
+</p>
+<pre>#!/usr/bin/python3
+def KelvinToFahrenheit(Temperature):
+   assert (Temperature &gt;= 0),"Colder than absolute zero!"
+   return ((Temperature-273)*1.8)+32
+
+print (KelvinToFahrenheit(273))
+print (int(KelvinToFahrenheit(505.78)))
+print (KelvinToFahrenheit(-5))</pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>32.0
+451
+Traceback (most recent call last):
+File "test.py", line 9, in &lt;module&gt;
+print KelvinToFahrenheit(-5)
+File "test.py", line 4, in KelvinToFahrenheit
+assert (Temperature &gt;= 0),"Colder than absolute zero!"
+AssertionError: Colder than absolute zero!
+</pre>
+<h2>
+    What is Exception?
+</h2>
+<p>
+    An exception is an event, which occurs during the execution of a program
+    that disrupts the normal flow of the program's instructions. In general,
+    when a Python script encounters a situation that it cannot cope with, it
+    raises an exception. An exception is a Python object that represents an
+    error.
+</p>
+<p>
+    When a Python script raises an exception, it must either handle the
+    exception immediately otherwise it terminates and quits.
+</p>
+<h2>
+    Handling an exception
+</h2>
+<p>
+    If you have some <em>suspicious</em> code that may raise an exception, you
+    can defend your program by placing the suspicious code in a try: block.
+    After the try: block, include an except: statement, followed by a block of
+    code which handles the problem as elegantly as possible.
+</p>
+<h3>
+    Syntax
+</h3>
+<p>
+    Here is simple syntax of <em>try....except...else</em> blocks −
+</p>
+<pre>try:
+   You do your operations here
+   ......................
+except ExceptionI:
+   If there is ExceptionI, then execute this block.
+except ExceptionII:
+   If there is ExceptionII, then execute this block.
+   ......................
+else:
+   If there is no exception then execute this block. </pre>
+<p>
+    Here are few important points about the above-mentioned syntax −
+</p>
+<ul>
+    <li>
+        <p>
+            A single try statement can have multiple except statements. This is
+            useful when the try block contains statements that may throw
+            different types of exceptions.
+        </p>
+    </li>
+    <li>
+        <p>
+            You can also provide a generic except clause, which handles any
+            exception.
+        </p>
+    </li>
+    <li>
+        <p>
+            After the except clause(s), you can include an else-clause. The
+            code in the else-block executes if the code in the try: block does
+            not raise an exception.
+        </p>
+    </li>
+    <li>
+        <p>
+            The else-block is a good place for code that does not need the try:
+            block's protection.
+        </p>
+    </li>
+</ul>
+<h3>
+    Example
+</h3>
+<p>
+    This example opens a file, writes content in the, file and comes out
+    gracefully because there is no problem at all −
+</p>
+<pre>#!/usr/bin/python3
+
+try:
+   fh = open("testfile", "w")
+   fh.write("This is my test file for exception handling!!")
+except IOError:
+   print ("Error: can\'t find file or read data")
+else:
+   print ("Written content in the file successfully")
+   fh.close()</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Written content in the file successfully
+</pre>
+<h3>
+    Example
+</h3>
+<p>
+    This example tries to open a file where you do not have the write
+    permission, so it raises an exception −
+</p>
+<pre>#!/usr/bin/python3
+
+try:
+   fh = open("testfile", "r")
+   fh.write("This is my test file for exception handling!!")
+except IOError:
+   print ("Error: can\'t find file or read data")
+else:
+   print ("Written content in the file successfully")</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Error: can't find file or read data
+</pre>
+<h2>
+    The except Clause with No Exceptions
+</h2>
+<p>
+    You can also use the except statement with no exceptions defined as follows
+    −
+</p>
+<pre>try:
+   You do your operations here
+   ......................
+except:
+   If there is any exception, then execute this block.
+   ......................
+else:
+   If there is no exception then execute this block. </pre>
+<p>
+    This kind of a try-except statement catches all the exceptions that occur.
+    Using this kind of try-except statement is not considered a good
+    programming practice though, because it catches all exceptions but does not
+    make the programmer identify the root cause of the problem that may occur.
+</p>
+<h2>
+    The except Clause with Multiple Exceptions
+</h2>
+<p>
+    You can also use the same <em>except</em> statement to handle multiple
+    exceptions as follows −
+</p>
+<pre>try:
+   You do your operations here
+   ......................
+except(Exception1[, Exception2[,...ExceptionN]]]):
+   If there is any exception from the given exception list, 
+   then execute this block.
+   ......................
+else:
+   If there is no exception then execute this block. </pre>
+<h2>
+    The try-finally Clause
+</h2>
+<p>
+    You can use a finally: block along with a try: block. The finally: block is
+    a place to put any code that must execute, whether the try-block raised an
+    exception or not. The syntax of the try-finally statement is this −
+</p>
+<pre>try:
+   You do your operations here;
+   ......................
+   Due to any exception, this may be skipped.
+finally:
+   This would always be executed.
+   ......................</pre>
+<p>
+    Note − You can provide except clause(s), or a finally clause, but not both.
+    You cannot use <em>else</em> clause as well along with a finally clause.
+</p>
+<h3>
+    Example
+</h3>
+<pre>#!/usr/bin/python3
+
+try:
+   fh = open("testfile", "w")
+   fh.write("This is my test file for exception handling!!")
+finally:
+   print ("Error: can\'t find file or read data")
+   fh.close()</pre>
+<p>
+    If you do not have permission to open the file in writing mode, then this
+    will produce the following result −
+</p>
+<pre>Error: can't find file or read data
+</pre>
+<p>
+    Same example can be written more cleanly as follows −
+</p>
+<pre>#!/usr/bin/python3
+
+try:
+   fh = open("testfile", "w")
+   try:
+      fh.write("This is my test file for exception handling!!")
+   finally:
+      print ("Going to close the file")
+      fh.close()
+except IOError:
+   print ("Error: can\'t find file or read data")</pre>
+<p>
+    When an exception is thrown in the <em>try</em> block, the execution
+    immediately passes to the <em>finally</em> block. After all the statements
+    in the <em>finally</em> block are executed, the exception is raised again
+    and is handled in the <em>except</em>statements if present in the next
+    higher layer of the <em>try-except</em> statement.
+</p>
+<h2>
+    Argument of an Exception
+</h2>
+<p>
+    An exception can have an <em>argument</em>, which is a value that gives
+    additional information about the problem. The contents of the argument vary
+    by exception. You capture an exception's argument by supplying a variable
+    in the except clause as follows −
+</p>
+<pre>try:
+   You do your operations here
+   ......................
+except ExceptionType as Argument:
+   You can print value of Argument here...</pre>
+<p>
+    If you write the code to handle a single exception, you can have a variable
+    follow the name of the exception in the except statement. If you are
+    trapping multiple exceptions, you can have a variable follow the tuple of
+    the exception.
+</p>
+<p>
+    This variable receives the value of the exception mostly containing the
+    cause of the exception. The variable can receive a single value or multiple
+    values in the form of a tuple. This tuple usually contains the error
+    string, the error number, and an error location.
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example for a single exception −
+</p>
+<pre>#!/usr/bin/python3
+
+# Define a function here.
+def temp_convert(var):
+   try:
+      return int(var)
+   except ValueError as Argument:
+      print ("The argument does not contain numbers\n", Argument)
+
+# Call above function here.
+temp_convert("xyz")</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>The argument does not contain numbers
+invalid literal for int() with base 10: 'xyz'
+</pre>
+<h2>
+    Raising an Exception
+</h2>
+<p>
+    You can raise exceptions in several ways by using the raise statement. The
+    general syntax for the raise statement is as follows −
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>raise [Exception [, args [, traceback]]]</pre>
+<p>
+    Here, <em>Exception</em> is the type of exception (for example, NameError)
+    and <em>argument</em> is a value for the exception argument. The argument
+    is optional; if not supplied, the exception argument is None.
+</p>
+<p>
+    The final argument, traceback, is also optional (and rarely used in
+    practice), and if present, is the traceback object used for the exception.
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    An exception can be a string, a class or an object. Most of the exceptions
+    that the Python core raises are classes, with an argument that is an
+    instance of the class. Defining new exceptions is quite easy and can be
+    done as follows −
+</p>
+<pre>def functionName( level ):
+   if level &lt;1:
+      raise Exception(level)
+      # The code below to this would not be executed
+      # if we raise the exception
+   return level</pre>
+<p>
+    Note − In order to catch an exception, an "except" clause must refer to the
+    same exception thrown either as a class object or a simple string. For
+    example, to capture the above exception, we must write the except clause as
+    follows −
+</p>
+<pre>try:
+   Business Logic here...
+except Exception as e:
+   Exception handling here using e.args...
+else:
+   Rest of the code here...</pre>
+<p>
+    The following example illustrates the use of raising an exception −
+</p>
+<pre>#!/usr/bin/python3
+def functionName( level ):
+   if level &lt;1:
+      raise Exception(level)
+      # The code below to this would not be executed
+      # if we raise the exception
+   return level
+
+try:
+   l = functionName(-10)
+   print ("level = ",l)
+except Exception as e:
+   print ("error in level argument",e.args[0])</pre>
+<p>
+    This will produce the following result
+</p>
+<pre>error in level argument -10
+</pre>
+<h2>
+    User-Defined Exceptions
+</h2>
+<p>
+    Python also allows you to create your own exceptions by deriving classes
+    from the standard built-in exceptions.
+</p>
+<p>
+    Here is an example related to <em>RuntimeError</em>. Here, a class is
+    created that is subclassed from <em>RuntimeError</em>. This is useful when
+    you need to display more specific information when an exception is caught.
+</p>
+<p>
+    In the try block, the user-defined exception is raised and caught in the
+except block. The variable e is used to create an instance of the class    <em>Networkerror</em>.
+</p>
+<pre>class Networkerror(RuntimeError):
+   def __init__(self, arg):
+      self.args = arg</pre>
+<p>
+    So once you have defined the above class, you can raise the exception as
+    follows −
+</p>
+<pre>try:
+   raise Networkerror("Bad hostname")
+except Networkerror,e:
+   print e.args</pre>

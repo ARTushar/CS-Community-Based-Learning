@@ -1,0 +1,263 @@
+<header class="entry-header"><header class="entry-header">
+<h1 class="entry-title">Loops in C++</h1>
+<div class="divclass"><a title="Basic" href="https://www.geeksforgeeks.org/basic/"><span class="articleRating alignright level-1">1.3</span></a></div>
+</header>
+<div class="entry-content">
+<p>Loops in programming comes into use when we need to repeatedly execute a block of statements. For example: Suppose we want to print &ldquo;Hello World&rdquo; 10 times. This can be done in two ways as shown below:</p>
+<p align="center"><strong>Iterative Method</strong></p>
+<p>Iterative method to do this is to write the printf() statement 10 times.</p>
+<div>
+<div id="highlighter_433729" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to illustrate need of loops</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number18 index17 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p align="center"><strong>Using Loops</strong></p>
+<p>In Loop, the statement needs to be written only once and the loop will be executed 10 times as shown below.<br />In computer programming, a loop is a sequence of instructions that is repeated until a certain condition is reached.</p>
+<ul>
+<li>An operation is done, such as getting an item of data and changing it, and then some condition is checked such as whether a counter has reached a prescribed number.</li>
+<li><strong>Counter not Reached:&nbsp;</strong>If the counter has not reached the desired number, the next instruction in the sequence returns&nbsp;to the first instruction in the sequence and repeat it.</li>
+<li><strong>Counter reached:</strong>&nbsp;If the condition has been reached, the next instruction &ldquo;falls through&rdquo; to the next sequential instruction or branches outside the loop.</li>
+</ul>
+<p>There are mainly two types of loops:</p>
+<ol>
+<li><strong>Entry Controlled loops</strong>: In this type of loops the test condition is tested before entering the loop body.&nbsp;<strong>For Loop</strong>&nbsp;and&nbsp;<strong>While Loop</strong>&nbsp;are entry controlled loops.</li>
+<li><strong>Exit Controlled Loops</strong>: In this type of loops the test condition is tested or evaluated at the end of loop body. Therefore, the loop body will execute atleast once, irrespective of whether the test condition is true or false.&nbsp;<strong>do &ndash; while loop</strong>&nbsp;is exit controlled loop.</li>
+</ol>
+<p><strong>for Loop</strong></p>
+<p>A for loop is a repetition control structure which allows us to write a loop that is executed a specific number of times. The loop enables us to perform n number of steps together in one line.<br /><strong>Syntax:</strong></p>
+<pre>for (initialization expr; test expr; update expr)
+{    
+     // body of the loop
+     // statements we want to execute
+}
+</pre>
+<p>In for loop, a loop variable is used to control the loop. First initialize this loop variable to some value, then check whether this variable is less than or greater than counter value. If &nbsp;statement is&nbsp;true, then loop body is executed and loop variable gets updated . Steps are repeated till &nbsp;exit condition comes.</p>
+<ul>
+<li><strong>Initialization Expression</strong>: In this expression we have to initialize the loop counter to some value. for example: int i=1;</li>
+<li><strong>Test Expression</strong>: In this expression we have to test the condition. If the condition evaluates to true then we will execute the body of loop and go to update expression otherwise we will exit from the for loop. For example: i &lt;= 10;</li>
+<li><strong>Update Expression</strong>: After executing loop body this expression increments/decrements the loop variable by some value. for example: i++;</li>
+</ul>
+<div>
+<div id="highlighter_907198" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to illustrate for loop</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code> <code class="cpp plain">(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 1; i &lt;= 10; i++)</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number13 index12 alt2"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>The equivalent flow diagram of syntax of for loop:<br /><a href="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Screenshot-421.png"><img class="aligncenter size-full wp-image-155387" src="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Screenshot-421.png" alt="Screenshot (42)" width="500" height="500" /></a></p>
+<p><strong>Image Reference</strong>:<a href="https://upload.wikimedia.org/wikipedia/commons/0/06/For-loop-diagram.png">https://upload.wikimedia.org/wikipedia/commons/0/06/For-loop-diagram.png</a></p>
+<p>&nbsp;</p>
+<p align="center"><strong>While Loop</strong></p>
+<p>While studying&nbsp;<strong>for loop</strong>&nbsp;we have seen that the number of iterations is known beforehand, i.e. the number of times the loop body is needed to be executed is known to us. &nbsp;while loops are used in situations where we do not know the exact number of iterations of loop beforehand. The loop execution is terminated on the basis of test condition.</p>
+<p><strong>Syntax</strong>:<br />We have already stated that a loop is mainly consisted of three statements &ndash; initialization expression, test expression, update expression. The syntax of the three loops &ndash; For, while and do while mainly differs on the placement of these three statements.</p>
+<pre><strong>initialization expression;</strong>
+while (<strong>test_expression</strong>)
+{
+   // statements
+ 
+  <strong>update_expression;</strong>
+}
+</pre>
+<div>
+<div id="highlighter_901148" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to illustrate for loop</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// initialization expression</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 1;</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// test expression</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code> <code class="cpp plain">(i &lt; 6)</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number14 index13 alt1">&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// update expression</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">i++;</code></div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number18 index17 alt1">&nbsp;</div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number20 index19 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Hello World
+Hello World
+Hello World
+Hello World
+Hello World
+</pre>
+<p><strong>Flow Diagram</strong>:<br /><img class="aligncenter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/While-loop-diagram.svg/271px-While-loop-diagram.svg.png" width="271" height="343" /><br /><strong>Image Reference</strong>&nbsp;:<a href="https://en.wikipedia.org/wiki/While_loop#/media/File:While-loop-diagram.svg">https://en.wikipedia.org/wiki/While_loop#/media/File:While-loop-diagram.svg</a></p>
+<p align="center"><strong>do while loop</strong></p>
+<p>In do while loops also the loop execution is terminated on the basis of test condition. The main difference between do while loop and while loop is in do while loop the condition is tested at the end of loop body, i.e do while loop is exit controlled whereas the other two loops are entry controlled loops.<br /><strong>Note</strong>: In do while loop the loop body will execute at least once irrespective of test condition.</p>
+<p><strong>Syntax</strong>:</p>
+<pre><strong>initialization expression;</strong>
+do
+{
+   // statements
+
+   <strong>update_expression;</strong>
+} while (<strong>test_expression</strong>);
+</pre>
+<p><strong>Note</strong>: Notice the semi &ndash; colon(&ldquo;;&rdquo;) in the end of loop.</p>
+<div>
+<div id="highlighter_931404" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to illustrate do-while loop</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 2; </code><code class="cpp comments">// Initialization expression</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">do</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// loop body</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Hello World\n"</code><code class="cpp plain">;</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// update expression</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">i++;</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}&nbsp; </code><code class="cpp keyword bold">while</code> <code class="cpp plain">(i &lt; 1);&nbsp;&nbsp; </code><code class="cpp comments">// test expression</code></div>
+<div class="line number18 index17 alt1">&nbsp;</div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number20 index19 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Hello World
+</pre>
+<p>In the above program the test condition (i&lt;1) evaluates to false. But still as the loop is exit &ndash; controlled the loop body will execute once.</p>
+<p><strong>Flow Diagram</strong>:<br /><img class="aligncenter" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Do-while-loop-diagram.svg/220px-Do-while-loop-diagram.svg.png" width="220" height="416" /><br /><strong>Image Reference</strong>&nbsp;:&nbsp;<a href="https://upload.wikimedia.org/wikipedia/commons/9/92/Do-while-loop-diagram.svg">https://upload.wikimedia.org/wikipedia/commons/9/92/Do-while-loop-diagram.svg</a></p>
+<p><strong>What about an Infinite Loop?</strong></p>
+<p>An infinite loop (sometimes called an&nbsp;endless loop&nbsp;) is a piece of coding that lacks a functional exit so that it repeats indefinitely. An infinite loop occurs when a condition always evaluates to true. Usually, this is an error.</p>
+<div>
+<div id="highlighter_853320" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to demonstrate infinite loops</code></div>
+<div class="line number2 index1 alt1"><code class="cpp comments">// using for and while</code></div>
+<div class="line number3 index2 alt2"><code class="cpp comments">// Uncomment the&nbsp; sections to see the output</code></div>
+<div class="line number4 index3 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number6 index5 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main ()</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i;</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// This is an infinite for loop as the condition</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// expression is blank</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">for</code> <code class="cpp plain">( ; ; )</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"This loop will run forever.\n"</code><code class="cpp plain">;</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// This is an infinite for loop as the condition</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// given in while loop will keep repeating infinitely</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/*</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">while (i != 0)</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">{</code></div>
+<div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">i-- ;</code></div>
+<div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">cout &lt;&lt; "This loop will run forever.\n";</code></div>
+<div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">}</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">*/</code></div>
+<div class="line number26 index25 alt1">&nbsp;</div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// This is an infinite for loop as the condition</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// given in while loop is "true"</code></div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">/*</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">while (true)</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">{</code></div>
+<div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">cout &lt;&lt; "This loop will run forever.\n";</code></div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">}</code></div>
+<div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">*/</code></div>
+<div class="line number35 index34 alt2"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>This loop will run forever.
+This loop will run forever.
+................... </pre>
+<p><strong>Important Points:</strong></p>
+<ul>
+<li>Use for loop when&nbsp;number of iterations is known beforehand, i.e. the number of times the loop body is needed to be executed is known.</li>
+<li>Use while loops where&nbsp;exact number of iterations is not known but the loop termination condition is known.</li>
+<li>Use do while loop if the code needs to be executed at least once like in Menu driven programs</li>
+</ul>
+</div>
+</header>

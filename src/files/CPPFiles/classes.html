@@ -1,0 +1,69 @@
+<header class="entry-header">
+<h1 class="entry-title">Basic Concepts of Object Oriented Programming using C++</h1>
+<div class="divclass"><a title="Basic" href="https://www.geeksforgeeks.org/basic/"><span class="articleRating alignright level-1">1.7</span></a></div>
+</header>
+<div class="entry-content">
+<p>Object oriented programming &ndash; As the name suggests uses&nbsp;<a href="https://www.geeksforgeeks.org/basic-concepts-of-object-oriented-programming-using-c/#objects">objects</a>&nbsp;in programming. Object oriented programming aims to implement real world entities like inheritance, hiding, polymorphism etc in programming. The main aim of OOP is to bind together the data and the functions that operates on them so that no other part of code can access this data except that function.<br />Let us learn about different characteristics of an Object Oriented Programming language:<br /><strong>Object:&nbsp;</strong>Objects are basic run-time entities in an object oriented system, objects are instances of a class these are defined user defined data types.<br />ex:</p>
+<div>
+<div id="highlighter_535951" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c keyword bold">class</code> <code class="c plain">person</code></div>
+<div class="line number2 index1 alt1"><code class="c plain">{</code></div>
+<div class="line number3 index2 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c color1 bold">char</code> <code class="c plain">name[20];</code></div>
+<div class="line number4 index3 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c color1 bold">int</code> <code class="c plain">id;</code></div>
+<div class="line number5 index4 alt2"><code class="c keyword bold">public</code><code class="c plain">:</code></div>
+<div class="line number6 index5 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">void</code> <code class="c plain">getdetails(){}</code></div>
+<div class="line number7 index6 alt2"><code class="c plain">};</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="c color1 bold">int</code> <code class="c plain">main()</code></div>
+<div class="line number10 index9 alt1"><code class="c plain">{</code></div>
+<div class="line number11 index10 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;</code><code class="c plain">person p1; </code><code class="c comments">//p1 is a object </code></div>
+<div class="line number12 index11 alt1"><code class="c plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Object take up space in memory and have an associated address like a record in pascal or structure or union in C.</p>
+<p>When a program is executed the objects interact by sending messages to one another.</p>
+<p>Each object contains data and code to manipulate the data. Objects can interact without having to know details of each others data or code, it is sufficient to know the type of message accepted and type of response returned by the objects.</p>
+<p><br /><br /><strong>Class:</strong>&nbsp;Class is a blueprint of data and functions or methods. Class does not take any space.</p>
+<p>syntax for class:</p>
+<div>
+<div id="highlighter_91668" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">class_name</code></div>
+<div class="line number2 index1 alt1"><code class="cpp plain">{</code></div>
+<div class="line number3 index2 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">private</code><code class="cpp plain">:</code></div>
+<div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//data members and member functions declarations</code></div>
+<div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//data members and member functions declarations</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">protected</code><code class="cpp plain">:</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//data members and member functions declarations</code></div>
+<div class="line number9 index8 alt2"><code class="cpp plain">};</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Class is a user defined data type like structures and unions in C.</p>
+<p>By default class variables are private but in case of structure it is public. in above example person is a class.</p>
+<p><br /><br /><strong>Encapsulation and Data abstraction:</strong>&nbsp;Wrapping up(combing) of data and functions into a single unit is known as encapsulation. The data is not accessible to the outside world and only those functions which are wrapping in the class can access it. This insulation of the data from direct access by the program is called data hiding or information hiding.</p>
+<p>Data abstraction refers to, providing only needed information to the outside world and hiding implementation details. For example, consider a class Complex with public functions as getReal() and getImag(). We may implement the class as an array of size 2 or as two variables. The advantage of abstractions is, we can change implementation at any point, users of Complex class wont&rsquo;t be affected as out method interface remains same. Had our implementation be public, we would not have been able to change it.</p>
+<p><br /><br /><strong>Inheritance:</strong>&nbsp;inheritance is the process by which objects of one class acquire the properties of objects of another class. It supports the concept of hierarchical classification. Inheritance provides re usability. This means that we can add additional features to an existing class without modifying it.</p>
+<p><br /><br /><strong>Polymorphism:</strong>&nbsp;polymorphism means ability to take more than one form. An operation may exhibit different behaviors in different instances. The behavior depends upon the types of data used in the operation.<br />C++ supports operator overloading and function overloading.<br />Operator overloading is the process of making an operator to exhibit different behaviors in different instances is known as operator overloading.<br />Function overloading is using a single function name to perform different types of tasks.<br />polymorphism is extensively used in implementing inheritance.</p>
+<p><br /><br /><strong>Dynamic Binding:</strong>&nbsp;In dynamic binding, the code to be executed in response to function call is decided at runtime. C++ has&nbsp;<a href="https://www.geeksforgeeks.org/virtual-functions-and-runtime-polymorphism-in-c-set-1-introduction/">virtual functions</a>&nbsp;to support this.</p>
+<p><br /><br /><strong>Message Passing:</strong>&nbsp;Objects communicate with one another by sending and receiving information to each other. A message for an object is a request for execution of a procedure and therefore will invoke a function in the receiving object that generates the desired results. Message passing involves specifying the name of the object, the name of the function and the information to be sent.</p>
+</div>

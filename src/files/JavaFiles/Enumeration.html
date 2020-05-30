@@ -1,0 +1,320 @@
+<div>
+    <p>
+        <a name="page1"></a>
+    </p>
+    <p align="center">
+        <strong>Java</strong>
+    </p>
+    <p align="center">
+        <strong><em>Enumeration, Type</em></strong>
+    </p>
+    <p align="center">
+        <strong><em>Wrappers and Autoboxing</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page2"></a>
+    </p>
+    <p align="center">
+        Enumeration
+    </p>
+    <p>
+        • An enumeration is a list of named constants
+    </p>
+    <p>
+        • Java enumerations is similar to enumerations in other languages with
+        some differences
+    </p>
+    <p>
+        • In Java, an enumeration defines a class type
+    </p>
+    <p>
+        • In Java, an enumeration can have constructors, methods, and instance
+        variables
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: EnumDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 2
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page3"></a>
+    </p>
+    <p align="center">
+        Enumeration
+    </p>
+    <p>
+        • All enumerations automatically contain two predefined methods:
+    </p>
+    <p>
+        <strong><em>public static enum-type [ ] values( )</em></strong>
+    </p>
+    <p>
+        – Returns an array that contains a list of the enumeration constants
+    </p>
+    <p>
+        <strong><em>public static enum-type valueOf(String s)</em></strong>
+    </p>
+    <p>
+        – Returns the enumeration constant whose value corresponds to the
+        string passed in s
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: EnumDemo2.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 3
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page4"></a>
+    </p>
+    <p align="center">
+        Enumeration
+    </p>
+    <p>
+        • Java enumeration is a class type
+    </p>
+    <p>
+        – Although you can’t instantiate an enum using new
+    </p>
+    <p>
+        • Enumeration can have constructors, instance variables and methods
+    </p>
+    <p>
+        – Each enumeration constant is an object of its enumeration type
+    </p>
+    <p>
+        – The constructor is called when each enumeration constant is created
+    </p>
+    <p>
+        – Each enumeration constant has its own copy of any instance variables
+        defined by the enumeration
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: EnumDemo3.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 4
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page5"></a>
+    </p>
+    <p align="center">
+        Type Wrappers
+    </p>
+    <p>
+        • Despite the performance benefit offered by the primitive types, there
+        are times when you will need an object representation
+    </p>
+    <p>
+        – you can’t pass a primitive type by reference to a method
+    </p>
+    <p>
+        – many of the standard data structures implemented by Java operate on
+        objects, which means that you can’t use these data structures to store
+        primitive types
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 5
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page6"></a>
+    </p>
+    <p align="center">
+        Type Wrappers
+    </p>
+    <p>
+        • Java provides <strong><em>type wrappers</em></strong>
+    </p>
+    <p>
+        – classes that encapsulate a primitive type within an object
+    </p>
+    <p>
+        • The type wrappers are:
+    </p>
+    <p>
+        – Character
+    </p>
+    <p>
+        – Boolean
+    </p>
+    <p>
+        – Double, Float, Long, Integer, Short, Byte
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 6
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page7"></a>
+    </p>
+    <p align="center">
+        Type Wrappers
+    </p>
+    <p>
+        <img
+            width="497"
+            height="179"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg"
+        />
+    </p>
+    <p>
+• The process of encapsulating a value within an object is called        <strong><em>boxing</em></strong>
+    </p>
+    <p>
+        <em>Integer iOb = new Integer(100);</em>
+    </p>
+    <p>
+• The process of extracting a value from a type wrapper is called        <strong><em>unboxing</em></strong>
+    </p>
+    <p>
+        <em>int i = iOb.intValue();</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 7
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page8"></a>
+    </p>
+    <p align="center">
+        Auto (boxing/unboxing)
+    </p>
+    <p>
+        • <strong><em>Autoboxing</em></strong>
+    </p>
+    <p>
+        – the process by which a primitive type is automatically encapsulated
+        into its equivalent type wrapper whenever an object of that type is
+        needed
+    </p>
+    <p>
+        – There is no need to explicitly construct an object
+    </p>
+    <p>
+        • <strong><em>Auto-unboxing</em></strong>
+    </p>
+    <p>
+        – the process by which the value of a boxed object is automatically
+        extracted from a type wrapper when its value is needed
+    </p>
+    <p>
+        – There is no need to call a method such as intValue() or doubleValue()
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 8
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page9"></a>
+    </p>
+    <p align="center">
+        Autoboxing
+    </p>
+    <p>
+        • With autoboxing, it is no longer necessary to manually construct an
+        object in order to wrap a primitive type
+    </p>
+    <p>
+        • You need only assign that value to a type-wrapper reference
+    </p>
+    <p>
+        • Java automatically constructs the object for you
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="541" valign="bottom">
+                    <p>
+                        <strong>
+                            <em>Integer iOb = 100; // autobox an int</em>
+                        </strong>
+                    </p>
+                </td>
+                <td width="120" valign="bottom">
+                    <p align="right">
+                        <strong><em>100</em></strong>
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <p>
+        • Notice that the object is not explicitly created through the use of
+        new. Java handles this for you, automatically
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared by - Rifat Shahriyar 9
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page10"></a>
+    </p>
+    <p align="center">
+        Auto-unboxing
+    </p>
+    <p>
+        • To unbox an object, simply assign that object reference to a
+        primitive-type variable
+    </p>
+    <p>
+        <strong><em>int i = iOb; // auto-unbox</em></strong>
+    </p>
+    <p>
+        • Java handles the details for you
+    </p>
+    <p>
+• <strong><em>Example</em></strong>        <em>: AutoBoxingUnboxingDemo.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<p>
+    Prepared by - Rifat Shahriyar 10
+</p>

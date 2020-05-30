@@ -1,0 +1,987 @@
+1.
+Getting java.io.InvalidClassException: local class incompatible: even with serialVersionUID
+
+A developer declared this in a class which implements Serializable interface.
+
+XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(namespace = "http://employer.webservicedto.dto.com", name = employerRequestDTO")
+public class EmployerRequestDTO implements Serializable{
+
+ private static final long serialVersionUID = -3956940714175091216L;
+ // all private instance variables with getters & setters
+
+}
+and the stacktrace says -
+
+decodeRequestData - Exception in decodeReqData() : java.io.InvalidClassException: EmployerRequestDTO; local class incompatible: stream classdesc serialVersionUID = -3551130751187195282, local class serialVersionUID = -3956940714175091216
+
+/**
+     * This method de-serializes user's request-data to return respective DTOs
+     */
+    public static Object decodeRequestData(String requestData, String userType){
+        Object userRequestDTO = null;
+        try{
+            byte[] b = Base64.decode(requestData);
+            ByteArrayInputStream bi = new ByteArrayInputStream(b);
+            ObjectInputStream si = new ObjectInputStream(bi);
+
+
+Answer:
+
+It looks like the class was serialized with the serialVersionUID value set to -3551130751187195282 then the class was updated in source and serialVersionUID was set to -3956940714175091216. So now the source of the class is not compatible with the version that was serialized. You can try setting serialVersionUID back to -3551130751187195282 - but i would be careful with that. Try to find out why this value was changed - maybe there where other changes in the class source which makes it not possible to use with previously serialized versions.
+
+2.
+
+Sort ArrayList of custom Objects by property
+
+I read about sorting ArrayLists using a Comparator but in all of the examples people used compareTo which according to some research is a method for Strings.
+
+I wanted to sort an ArrayList of custom objects by one of their properties: a Date object (getStartDay()). Normally I compare them by item1.getStartDate().before(item2.getStartDate()) so I was wondering whether I could write something like:
+
+public class CustomComparator {
+    public boolean compare(Object object1, Object object2) {
+        return object1.getStartDate().before(object2.getStartDate());
+    }
+}
+
+public class RandomName {
+    ...
+    Collections.sort(Database.arrayList, new CustomComparator);
+    ...
+}
+Answer:
+a.
+Since Date implements Comparable, it has a compareTo method just like String does.
+
+So your custom Comparator could look like this:
+
+public class CustomComparator implements Comparator<MyObject> {
+    @Override
+    public int compare(MyObject o1, MyObject o2) {
+        return o1.getStartDate().compareTo(o2.getStartDate());
+    }
+}
+The compare() method must return an int, so you couldn't directly return a boolean like you were planning to anyway.
+
+Your sorting code would be just about like you wrote:
+
+Collections.sort(Database.arrayList, new CustomComparator());
+A slightly shorter way to write all this, if you don't need to reuse your comparator, is to write it as an inline anonymous class:
+
+Collections.sort(Database.arrayList, new Comparator<MyObject>() {
+    @Override
+    public int compare(MyObject o1, MyObject o2) {
+        return o1.getStartDate().compareTo(o2.getStartDate());
+    }
+});
+Since java-8
+You can now write the last example in a shorter form by using a lambda expression for the Comparator:
+
+Collections.sort(Database.arrayList,
+                        (o1, o2) -> o1.getStartDate().compareTo(o2.getStartDate()));
+And List has a sort(Comparator) method, so you can shorten this even further:
+
+Database.arrayList.sort((o1, o2) -> o1.getStartDate().compareTo(o2.getStartDate()));
+This is such a common idiom that there's a built-in method to generate a Comparator for a class with a Comparable key:
+
+Database.arrayList.sort(Comparator.comparing(MyObject::getStartDate));
+All of these are equivalent forms.
+
+b.
+Classes that has a natural sort order (a class Number, as an example) should implement the Comparable interface, whilst classes that has no natural sort order (a class Chair, as an example) should be provided with a Comparator (or an anonymous Comparator class).
+
+Two examples:
+
+public class Number implements Comparable<Number> {
+    private int value;
+
+    public Number(int value) { this.value = value; }
+    public int compareTo(Number anotherInstance) {
+        return this.value - anotherInstance.value;
+    }
+}
+
+public class Chair {
+    private int weight;
+    private int height;
+
+    public Chair(int weight, int height) {
+        this.weight = weight;
+        this.height = height;
+    }
+    /* Omitting getters and setters */
+}
+class ChairWeightComparator implements Comparator<Chair> {
+    public int compare(Chair chair1, Chair chair2) {
+        return chair1.getWeight() - chair2.getWeight();
+    }
+}
+class ChairHeightComparator implements Comparator<Chair> {
+    public int compare(Chair chair1, Chair chair2) {
+        return chair1.getHeight() - chair2.getHeight();
+    }
+}
+Usage:
+
+List<Number> numbers = new ArrayList<Number>();
+...
+Collections.sort(numbers);
+
+List<Chair> chairs = new ArrayList<Chair>();
+// Sort by weight:
+Collections.sort(chairs, new ChairWeightComparator());
+// Sort by height:
+Collections.sort(chairs, new ChairHeightComparator());
+
+// You can also create anonymous comparators;
+// Sort by color:
+Collections.sort(chairs, new Comparator<Chair>() {
+    public int compare(Chair chair1, Chair chair2) {
+        ...
+    }
+});
+
+c.
+
+For sorting an ArrayList you could use the following code snippet:
+
+Collections.sort(studList, new Comparator<Student>(){
+    public int compare(Student s1, Student s2) {
+        return s1.getFirstName().compareToIgnoreCase(s2.getFirstName());
+    }
+});
+
+d.
+
+Yes, you can. There are two options with comparing items, the Comparable interface, and the Comparator interface.
+
+Both of these interfaces allow for different behavior. Comparable allows you to make the object act like you just described Strings (in fact, String implements Comparable). The second, Comparator, allows you to do what you are asking to do. You would do it like this:
+
+Collections.sort(myArrayList, new MyComparator());
+That will cause the Collections.sort method to use your comparator for it's sorting mechanism. If the objects in the ArrayList implement comparable, you can instead do something like this:
+
+Collections.sort(myArrayList);
+The Collections class contains a number of these useful, common tools.
+
+3.
+Sort an array of custom objects in descending order on an int property
+
+
+I would like to sort my array in descending order by year of birth. My array has two other elements which are of type String. So, as an example the person who was born in the earliest year, such as 1939, would be at the top, then so on.
+
+Here is my code:
+
+import java.util.*;
+public class StudentInformationTest
+{
+public static void main (String [] args){
+    StudentInformation[] studentInfo = new StudentInformation[10];
+
+    studentInfo[0] = new StudentInformation("Student A",1971, "BSc FDIT");
+    studentInfo[1] = new StudentInformation("Student B",1964, "BSc FDIT");
+    studentInfo[2] = new StudentInformation("Student C",1996, "BSc FDIT");
+    studentInfo[3] = new StudentInformation("Student D",1939, "BSc FDIT");
+    studentInfo[4] = new StudentInformation("Student E",1945, "BSc FDIT");
+    studentInfo[5] = new StudentInformation("Student F",1991, "BSc FDIT");
+    studentInfo[6] = new StudentInformation("Student G",1987, "BSc FDIT");
+    studentInfo[7] = new StudentInformation("Student H",1968, "BSc FDIT");
+    studentInfo[8] = new StudentInformation("Student I",1968, "BSc FDIT");
+    studentInfo[9] = new StudentInformation("Student J",1973, "BSc FDIT");
+
+    printInfo(studentInfo);
+    printAge(studentInfo);
+}
+public static void printInfo(StudentInformation studentInfo[]){
+    for(int i = 0; i < studentInfo.length; i++){
+        System.out.println(studentInfo[i].getStudentName() + " " +   studentInfo[i].getBirthDate() + " " + studentInfo[i].getProgrammeOfStudy());
+    }
+    System.out.println();
+}
+
+ }
+
+}
+Once I manage to print the birth years in descending order I also need to show the student name and the university modules they are doing. I know other questions have been asked how to do this but I have not been able to see one with other objects. This is a class session so please forgive any errors in my code.
+
+Answer:
+a.
+Use a Comparator and an ArrayList.
+
+In Java 8
+Use the new default and static methods on Comparator!
+
+ArrayList<StudentInformation> infos = new ArrayList<StudentInformation>();
+// fill array
+Collections.sort(infos,
+    Comparator.comparingInt(StudentInformation::getBirthYear).reversed());
+It's a brave new world! :)
+
+Or—still better than Java 7—use lambdas!
+
+ArrayList<StudentInformation> infos = new ArrayList<StudentInformation>();
+// fill array
+Collections.sort(infos, (s1, s2) ->
+    Integer.compare(s2.getBirthYear(), s1.getBirthYear()));
+In Java 7
+Use anonymous inner classes.
+
+class StudentDateComparator implements Comparator<StudentInformation> {
+    public int compare(StudentInformation s1, StudentInformation s2) {
+        return Integer.compare(s2.getBirthYear(), s1.getBirthYear());
+    }
+}
+
+ArrayList<StudentInformation> infos = new ArrayList<StudentInformation>();
+// fill array
+Collections.sort(infos, new StudentDateComparator());
+Explanation
+What the Comparator does is allows anything to compare two objects of the given type (in this case, StudentInformation). You could also make StudentInformation implement Comparable<StudentInformation>, but this way is probably better because there is more than one way to compare student informations (by date, as here, but also by first name, last name, number of classes enrolled, etc.).
+
+By swapping the order of s1 and s2 in the comparator, we induce a reverse order. Another way to do this would be to negate the compare call in the normal order, or to use a normal comparator and wrap it in Collections.reverseOrder.
+
+You could also do this with a standard array.
+
+StudentInformation[] infos = new StudentInformation[10];
+// fill array
+Arrays.sort(infos, new StudentDateComparator());
+
+b.
+In the Java land, there is the Comparable<E> interface:
+
+interface Comparable<E> {
+  public int compareTo(E other);
+}
+You should make your StudentInfo implement Comparable<StudentInfo>, implement compareTo(StudentInfo other) according to your requirements, and either use methods from the standard library (but this will require a Comparator instead) or some sorting algorithm suitable for your case.
+
+4.
+StreamCorruptedException: invalid type code: AC
+
+My problem is when it tries to read the object the second time, it throws the exception:
+
+java.io.StreamCorruptedException: invalid type code: AC
+    at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1356)
+    at java.io.ObjectInputStream.readObject(ObjectInputStream.java:351)
+    at Client.run(BaseStaInstance.java:313)
+
+java.io.StreamCorruptedException: invalid type code: AC
+    at java.io.ObjectInputStream.readObject0(ObjectInputStream.java:1356)
+    at java.io.ObjectInputStream.readObject(ObjectInputStream.java:351)
+    at Client.run(BaseStaInstance.java:313)
+The first time I send the exact same object message; however, when I try doing the same thing the second time, it throws the error above. Do I need to re-intialize the readObject() method? I even printed out the message object that is being received by the line below and its exact the same as the first instance where it works ok.
+
+Object buf = myInput.readObject();
+I'm assuming there's some problem with appending, but I really have no use for appending. I just want to read a fresh line everytime. I'd really appreciate some help in fixing this bug. Thank you.
+
+==================================
+
+Before that one line, I'm just creating the input and output objects for the socket in the run() method. The object declaration is outside the run() method in the class:-
+
+@Override
+public void run() {
+    try {
+        sleep((int) 1 * 8000);
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    try {
+        //Creating input and output streams to transfer messages to the server
+        myOutput = new ObjectOutputStream(skt.getOutputStream());
+        myInput = new ObjectInputStream(skt.getInputStream());
+        while (true) {
+            buf = myInput.readObject();
+        }
+    } catch (UnknownHostException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+You're right; I don't close the object. I'm not sure how to do that.
+
+Answer :
+
+a.)
+The underlying problem is that you are using a new ObjectOutputStream to write to an existing ObjectInputStream that you have already used a prior ObjectOutputStream to write to. These streams have headers which are written and read by the respective constructors, so if you create another ObjectOutputStream you will write a new header, which starts with - guess what? - 0xAC, and the existing ObjectInputStream isn't expecting another header at this point so it barfs.
+
+In the Java Forums thread cited by @trashgod, I should have left out the part about 'anew for each object at both ends': that's just wasteful. Use a single OOS and OIS for the life of the socket, and don't use any other streams on the socket.
+
+If you want to forget what you've written, use ObjectOutputStream.reset().
+
+And don't use any other streams or Readers or Writers on the same socket. The object stream APIs can handle all Java primitive datatypes and all Serializable classes.
+
+b.
+
+Faced a similar exception while using Java 7/8, i solved it by adding the below VM argument
+
+-Dsun.lang.ClassLoader.allowArraySyntax=true
+
+5.
+
+Functional programming and non-functional programming
+
+In my second year of University we were "taught" Haskell, I know almost nothing about it and even less about functional programming.
+
+What is functional programming, why and/xor where would I want to use it instead of non-functional programming and am I correct in thinking that C is a non-functional programming language?
+
+Answer:
+
+a.
+One key feature in a functional language is the concept of first-class functions. The idea is that you can pass functions as parameters to other functions and return them as values.
+
+Functional programming involves writing code that does not change state. The primary reason for doing so is so that successive calls to a function will yield the same result. You can write functional code in any language that supports first-class functions, but there are some languages, like Haskell, which do not allow you to change state. In fact, you're not supposed to make any side effects (like printing out text) at all - which sounds like it could be completely useless.
+
+Haskell instead employs a different approach to IO: monads. These are objects that contain the desired IO operation to be executed by your interpreter's toplevel. At any other level they are simply objects in the system.
+
+What advantages does functional programming provide? Functional programming allows coding with fewer potentials for bugs because each component is completely isolated. Also, using recursion and first-class functions allows for simple proofs of correctness which typically mirror the structure of the code.
+
+b.
+What is functional programming
+
+There are two different definitions of "functional programming" in common use today:
+
+The older definition (originating from Lisp) is that functional programming is about programming using first-class functions, i.e. where functions are treated like any other value so you can pass functions as arguments to other functions and function can return functions among their return values. This culminates in the use of higher-order functions such as map and reduce (you may have heard of mapReduce as a single operation used heavily by Google and, unsurprisingly, it is a close relative!). The .NET types System.Func and System.Action make higher-order functions available in C#. Although currying is impractical in C#, functions that accept other functions as arguments are common, e.g. the Parallel.For function.
+
+The younger definition (popularized by Haskell) is that functional programming is also about minimizing and controlling side effects including mutation, i.e. writing programs that solve problems by composing expressions. This is more commonly called "purely functional programming". This is made possible by wildly different approaches to data structures called "purely functional data structures". One problem is that translating traditional imperative algorithms to use purely functional data structures typically makes performance 10x worse. Haskell is the only surviving purely functional programming language but the concepts have crept into mainstream programming with libraries like Linq on .NET.
+
+where would I want to use it instead of non-functional programming
+
+Everywhere. Lambdas in C# have now demonstrated major benefits. C++11 has lambdas. There's no excuse not to use higher-order functions now. If you can use a language like F# you'll also benefit from type inference, automatic generalization, currying and partial application (as well as lots of other language features!).
+
+am I correct in thinking that C is a non-functional programming language?
+
+Yes. C is a procedural language. However, you can get some of the benefit of functional programming by using function pointers and void * in C.
+
+c.
+John the Statistician's example code does not show functional programming, because when you're doing functional programming, the key is that the code does NO ASSIGNMENTS ( record = thingConstructor(t) is an assignment), and it has NO SIDE EFFECTS (localMap.put(record) is a statement with a side effect). As a result of these two constraints, everything that a function does is fully captured by its arguments and its return value. Rewriting the Statistician's code the way it would have to look, if you wanted to emulate a functional language using C++:
+
+RT getOrCreate(const T thing,
+                  const Function<RT<T>> thingConstructor,
+                  const Map<T,RT<T>> localMap) {
+    return localMap.contains(t) ?
+        localMap.get(t) :
+        localMap.put(t,thingConstructor(t));
+}
+As a result of the no side-effects rule, every statement is part of the return value (hence return comes first), and every statement is an expression. In languages that enforce functional programming, the return keyword is implied, and the if statement behaves like C++'s ?: operator.
+
+Also, everything is immutable, so localMap.put has to create a new copy of localMap and return it, instead of modifying the original localMap, the way a normal C++ or Java program would. Depending on the structure of localMap, the copy could re-use pointers into the original, reducing the amount of data that has to be copied.
+
+Some of the advantages of functional programming include the fact that functional programs are shorter, and it is easier to modify a functional program (because there are no hidden global effects to take into account), and it is easier to get the program right in the first place.
+
+However, functional programs tend to run slowly (because of all the copying they have to do), and they don't tend to interact well with other programs, operating system processes, or operating systems, which deal in memory addresses, little-endian blocks of bytes, and other machine-specific, non-functional bits. The degree of noninteroperability tends to be inversely correlated with the degree of functional purity, and the strictness of the type system.
+
+The more popular functional languages have really, really strict type systems. In OCAML, you can't even mix integer and floating-point math, or use the same operators (+ is for adding integers, +. is for adding floats). This can be either an advantage or a disadvantage, depending on how highly you value the ability of a type checker to catch certain kinds of bugs.
+
+Functional languages also tend to have really big runtime environments. Haskell is an exception (GHC executables are almost as small as C programs, both at compile-time and runtime), but SML, Common Lisp, and Scheme programs always require tons of memory.
+
+d.
+
+I prefer to use functional programming to save myself repeated work, by making a more abstract version and then using that instead. Let me give an example. In Java, I often find myself creating maps to record structures, and thus writing getOrCreate structures.
+
+SomeKindOfRecord<T> getOrCreate(T thing) {
+    if(localMap.contains(t)) { return localMap.get(t); }
+    SomeKindOfRecord<T> record = new SomeKindOfRecord<T>(t);
+    localMap = localMap.put(t,record);
+    return record;
+}
+This happens very often. Now, in a functional language I could write
+
+RT<T> getOrCreate(T thing,
+                  Function<RT<T>> thingConstructor,
+                  Map<T,RT<T>> localMap) {
+    if(localMap.contains(t)) { return localMap.get(t); }
+    RT<T> record = thingConstructor(t);
+    localMap = localMap.put(t,record);
+    return record;
+}
+and I would never have to write a new one of these again, I could inherit it. But I could do one better then inheriting, I could say in the constructor of this thing
+
+getOrCreate = myLib.getOrCreate(*,
+                                SomeKindOfRecord<T>.constructor(<T>),
+                                localMap);
+(where * is a kind of "leave this parameter open" notation, which is a sort of currying)
+
+and then the local getOrCreate is exactly the same as it would have been if I wrote out the whole thing, in one line, with no inheritance dependencies.
+
+6.
+
+Which cryptographic hash function should I choose?
+
+The .NET framework ships with 6 different hashing algorithms:
+
+MD5: 16 bytes (Time to hash 500MB: 1462 ms)
+SHA1: 20 bytes (1644 ms)
+SHA256: 32 bytes (5618 ms)
+SHA384: 48 bytes (3839 ms)
+SHA512: 64 bytes (3820 ms)
+RIPEMD: 20 bytes (7066 ms)
+Each of these functions performs differently; MD5 being the fastest and RIPEMD being the slowest.
+
+MD5 has the advantage that it fits in the built-in Guid type. Which makes it really easy to use for identification.
+
+MD5 however is vulnerable to collision attacks, SHA1 is also vulnerable but to a lesser degree.
+
+Under what conditions should I use which hashing algorithm?
+Particular questions I'm really curious to see answered are:
+
+Is MD5 not to be trusted? Under normal situations when you use the MD5 algorithm with no malicious intent and no third party has any malicious intent would you expect ANY collisions (meaning two arbitrary byte[] producing the same hash)
+
+How much better is RIPEMD than SHA1? (if its any better) its 5 times slower to compute but the hash size is the same as SHA1.
+
+What are the odds of getting non-malicious collisions when hashing file-names (or other short strings)? (Eg. 2 random file-names with same MD5 hash) (with MD5 / SHA1 / SHA2xx) In general what are the odds for non-malicious collisions?
+
+This is the benchmark I used:
+
+    static void TimeAction(string description, int iterations, Action func) {
+        var watch = new Stopwatch();
+        watch.Start();
+        for (int i = 0; i < iterations; i++) {
+            func();
+        }
+        watch.Stop();
+        Console.Write(description);
+        Console.WriteLine(" Time Elapsed {0} ms", watch.ElapsedMilliseconds);
+    }
+
+    static byte[] GetRandomBytes(int count) {
+        var bytes = new byte[count];
+        (new Random()).NextBytes(bytes);
+        return bytes;
+    }
+
+
+    static void Main(string[] args) {
+
+        var md5 = new MD5CryptoServiceProvider();
+        var sha1 = new SHA1CryptoServiceProvider();
+        var sha256 = new SHA256CryptoServiceProvider();
+        var sha384 = new SHA384CryptoServiceProvider();
+        var sha512 = new SHA512CryptoServiceProvider();
+        var ripemd160 = new RIPEMD160Managed();
+
+        var source = GetRandomBytes(1000 * 1024);
+
+        var algorithms = new Dictionary<string,HashAlgorithm>();
+        algorithms["md5"] = md5;
+        algorithms["sha1"] = sha1;
+        algorithms["sha256"] = sha256;
+        algorithms["sha384"] = sha384;
+        algorithms["sha512"] = sha512;
+        algorithms["ripemd160"] = ripemd160;
+
+        foreach (var pair in algorithms) {
+            Console.WriteLine("Hash Length for {0} is {1}",
+                pair.Key,
+                pair.Value.ComputeHash(source).Length);
+        }
+
+        foreach (var pair in algorithms) {
+            TimeAction(pair.Key + " calculation", 500, () =>
+            {
+                pair.Value.ComputeHash(source);
+            });
+        }
+
+        Console.ReadKey();
+    }
+Answer:
+
+a.
+In cryptography, hash functions provide three separate functions.
+
+Collision resistance: How hard is it for someone to find two messages (any two messages) that hash the same.
+Preimage Resistance: Given a hash, how hard is it to find another message that hashes the same? Also known as a one way hash function.
+Second preimage resistance: Given a message, find another message that hashes the same.
+These properties are related but independent. For example, collision resistance implies second preimage resistance, but not the other way around. For any given application, you will have different requirements, needing one or more of these properties. A hash function for securing passwords on a server will usually only require preimage resistance, while message digests require all three.
+
+It has been shown that MD5 is not collision resistant, however, that does not preclude its use in applications that do not require collision resistance. Indeed, MD5 is often still used in applications where the smaller key size and speed are beneficial. That said, due to its flaws, researchers recommend the use of other hash functions in new scenarios.
+
+SHA1 has a flaw that allows collisions to be found in theoretically far less than the 2^80 steps a secure hash function of its length would require. The attack is continually being revised and currently can be done in ~2^63 steps - just barely within the current realm of computability. For this reason NIST is phasing out the use of SHA1, stating that the SHA2 family should be used after 2010.
+
+SHA2 is a new family of hash functions created following SHA1. Currently there are no known attacks against SHA2 functions. SHA256, 384 and 512 are all part of the SHA2 family, just using different key lengths.
+
+RIPEMD I can't comment too much on, except to note that it isn't as commonly used as the SHA families, and so has not been scrutinized as closely by cryptographic researchers. For that reason alone I would recommend the use of SHA functions over it. In the implementation you are using it seems quite slow as well, which makes it less useful.
+
+In conclusion, there is no one best function - it all depends on what you need it for. Be mindful of the flaws with each and you will be best able to choose the right hash function for your scenario.
+
+b.
+
+All hash functions are "broken"
+The pigeonhole principle says that try as hard as you will you can not fit more than 2 pigeons in 2 holes (unless you cut the pigeons up). Similarly you can not fit 2^128 + 1 numbers in 2^128 slots. All hash functions result in a hash of finite size, this means that you can always find a collision if you search through "finite size" + 1 sequences. It's just not feasible to do so. Not for MD5 and not for Skein.
+
+MD5/SHA1/Sha2xx have no chance collisions
+All the hash functions have collisions, its a fact of life. Coming across these collisions by accident is the equivalent of winning the intergalactic lottery. That is to say, no one wins the intergalactic lottery, its just not the way the lottery works. You will not come across an accidental MD5/SHA1/SHA2XXX hash, EVER. Every word in every dictionary, in every language, hashes to a different value. Every path name, on every machine in the entire planet has a different MD5/SHA1/SHA2XXX hash. How do I know that, you may ask. Well, as I said before, no one wins the intergalactic lottery, ever.
+
+But ... MD5 is broken
+Sometimes the fact that its broken does not matter.
+
+As it stands there are no known pre-image or second pre-image attacks on MD5.
+
+So what is so broken about MD5, you may ask? It is possible for a third party to generate 2 messages, one of which is EVIL and another of which is GOOD that both hash to the same value. (Collision attack)
+
+Nonetheless, the current RSA recommendation is not to use MD5 if you need pre-image resistance. People tend to err on the side of caution when it comes to security algorithms.
+
+So what hash function should I use in .NET?
+Use MD5 if you need the speed/size and don't care about birthday attacks or pre-image attacks.
+Repeat this after me, there are no chance MD5 collisions, malicious collisions can be carefully engineered. Even though there are no known pre-image attacks to date on MD5 the line from the security experts is that MD5 should not be used where you need to defend against pre-image attacks. SAME goes for SHA1.
+
+Keep in mind, not all algorithms need to defend against pre-image or collision attacks. Take the trivial case of a first pass search for duplicate files on your HD.
+
+Use SHA2XX based function if you want a cryptographically secure hash function.
+No one ever found any SHA512 collision. EVER. They have tried really hard. For that matter no one ever found any SHA256 or 384 collision ever. .
+
+Don't use SHA1 or RIPEMD unless its for an interoperability scenario.
+RIPMED has not received the same amount of scrutiny that SHAX and MD5 has received. Both SHA1 and RIPEMD are vulnerable to birthday attacks. They are both slower than MD5 on .NET and come in the awkward 20 byte size. Its pointless to use these functions, forget about them.
+
+SHA1 collision attacks are down to 2^52, its not going to be too long until SHA1 collisions are out in the wild.
+
+For up to date information about the various hash functions have a look at the hash function zoo.
+
+But wait there is more
+Having a fast hash function can be a curse. For example: a very common usage for hash functions is password storage. Essentially, you calculate hash of a password combined with a known random string (to impede rainbow attacks) and store that hash in the database.
+
+The problem is, that if an attacker gets a dump of the database, he can, quite effectively guess passwords using brute-force. Every combination he tries only takes a fraction of millisecond, and he can try out hundreds of thousands of passwords a second.
+
+To work around this issue, the bcrypt algorithm can be used, it is designed to be slow so the attacker will be heavily slowed down if attacking a system using bcrypt. Recently scrypt has made some headline and is considered by some to be more effective than bcrypt but I do not know of a .Net implementation.
+
+c.
+
+I am not an expert at this sort of thing, but I keep up with the security community and a lot of people there consider the md5 hash broken. I would say that which one to use depends on how sensitive the data is and the specific application. You might be able to get away with a slightly less secure hash as long as the key is good and strong.
+
+7.
+What algorithms compute directions from point A to point B on a map?
+
+How do map providers (such as Google or Yahoo! Maps) suggest directions?
+
+I mean, they probably have real-world data in some form, certainly including distances but also perhaps things like driving speeds, presence of sidewalks, train schedules, etc. But suppose the data were in a simpler format, say a very large directed graph with edge weights reflecting distances. I want to be able to quickly compute directions from one arbitrary point to another. Sometimes these points will be close together (within one city) while sometimes they will be far apart (cross-country).
+
+Graph algorithms like Dijkstra's algorithm will not work because the graph is enormous. Luckily, heuristic algorithms like A* will probably work. However, our data is very structured, and perhaps some kind of tiered approach might work? (For example, store precomputed directions between certain "key" points far apart, as well as some local directions. Then directions for two far-away points will involve local directions to a key points, global directions to another key point, and then local directions again.)
+
+What algorithms are actually used in practice?
+
+PS. This question was motivated by finding quirks in online mapping directions. Contrary to the triangle inequality, sometimes Google Maps thinks that X-Z takes longer and is farther than using an intermediate point as in X-Y-Z. But maybe their walking directions optimize for another parameter, too?
+
+PPS. Here's another violation of the triangle inequality that suggests (to me) that they use some kind of tiered approach: X-Z versus X-Y-Z. The former seems to use prominent Boulevard de Sebastopol even though it's slightly out of the way.
+
+Answer:
+a.
+
+Speaking as someone who spent 18 months working at a mapping company, which included working on the routing algorithm... yes, Dijkstra's does work, with a couple of modifications:
+
+Instead of doing Dijkstra's once from source to dest, you start at each end, and expand both sides until they meet in the middle. This eliminates roughly half the work (2*pi*(r/2)^2 vs pi*r^2).
+To avoid exploring the back-alleys of every city between your source and destination, you can have several layers of map data: A 'highways' layer that contains only highways, a 'secondary' layer that contains only secondary streets, and so forth. Then, you explore only smaller sections of the more detailed layers, expanding as necessary. Obviously this description leaves out a lot of detail, but you get the idea.
+With modifications along those lines, you can do even cross-country routing in a very reasonable timeframe.
+
+b.
+
+This question has been an active area of research in the last years. The main idea is to do a preprocessing on the graph once, to speed up all following queries. With this additional information itineraries can be computed very fast. Still, Dijkstra's Algorithm is the basis for all optimisations.
+
+Arachnid described the usage of bidirectional search and edge pruning based on hierarchical information. These speedup techniques work quite well, but the most recent algorithms outperform these techniques by all means. With current algorithms a shortest paths can be computed in considerable less time than one millisecond on a continental road network. A fast implementation of the unmodified algorithm of Dijkstra needs about 10 seconds.
+
+The article Engineering Fast Route Planning Algorithms gives an overview of the progress of research in that field. See the references of that paper for further information.
+
+The fastest known algorithms do not use information about the hierarchical status of the road in the data, i.e. if it is a highway or a local road. Instead, they compute in a preprocessing step an own hierarchy that optimised to speed up route planning. This precomputation can then be used to prune the search: Far away from start and destination slow roads need not be considered during Dijkstra's Algorithm. The benefits are very good performance and a correctness guarantee for the result.
+
+The first optimised route planning algorithms dealt only with static road networks, that means an edge in the graph has a fixed cost value. This not true in practice, since we want to take dynamic information like traffic jams or vehicle dependent restrictrions into account. Latest algorithms can also deal with such issues, but there are still problems to solve and the research is going on.
+
+If you need the shortest path distances to compute a solution for the TSP, then you are probably interested in matrices that contain all distances between your sources and destinations. For this you could consider Computing Many-to-Many Shortest Paths Using Highway Hierarchies. Note, that this has been improved by newer approaches in the last 2 years.
+
+c.
+
+Just addressing the triangle inequality violations, hopefully the extra factor they're optimising for is common sense. You don't necessarily want the shortest or fastest route, as it can lead to chaos and destruction. If you want your directions to prefer the major routes that are truck-friendly and can cope with having every sat-nav-following driver sent down them, you quickly discard the triangle inequality[1].
+
+If Y is a narrow residential street between X and Z, you probably do only want to use the shortcut via Y if the user explicitly asks for X-Y-Z. If they ask for X-Z, they should stick to major roads even if it's a bit further and takes a bit longer. It's similar to Braess's paradox - if everyone tries to take the shortest, fastest route, the resulting congestion means that it's not the fastest route for anyone any more. From here we stray from graph theory into game theory.
+
+[1] In fact, any hope that the distances produced will be a distance function in the mathematical sense dies when you allow one-way roads and lose the symmetry requirement. Losing the triangle inequality too is just rubbing salt in the wound.
+
+8.
+
+Maximum single-sell profit
+
+Suppose we are given an array of n integers representing stock prices on a single day. We want to find a pair (buyDay, sellDay), with buyDay ≤ sellDay, such that if we bought the stock on buyDay and sold it on sellDay, we would maximize our profit.
+
+Clearly there is an O(n2) solution to the algorithm by trying out all possible (buyDay, sellDay) pairs and taking the best out of all of them. However, is there a better algorithm, perhaps one that runs in O(n) time?
+
+Answer:
+a.
+
+238
+down vote
+accepted
+I love this problem. It's a classic interview question and depending on how you think about it, you'll end up getting better and better solutions. It's certainly possible to do this in better than O(n2) time, and I've listed three different ways that you can think about the problem here. Hopefully this answers your question!
+
+First, the divide-and-conquer solution. Let's see if we can solve this by splitting the input in half, solving the problem in each subarray, then combining the two together. Turns out we actually can do this, and can do so efficiently! The intuition is as follows. If we have a single day, the best option is to buy on that day and then sell it back on the same day for no profit. Otherwise, split the array into two halves. If we think about what the optimal answer might be, it must be in one of three places:
+
+The correct buy/sell pair occurs completely within the first half.
+The correct buy/sell pair occurs completely within the second half.
+The correct buy/sell pair occurs across both halves - we buy in the first half, then sell in the second half.
+We can get the values for (1) and (2) by recursively invoking our algorithm on the first and second halves. For option (3), the way to make the highest profit would be to buy at the lowest point in the first half and sell in the greatest point in the second half. We can find the minimum and maximum values in the two halves by just doing a simple linear scan over the input and finding the two values. This then gives us an algorithm with the following recurrence:
+
+T(1) <= O(1)
+T(n) <= 2T(n / 2) + O(n)
+Using the Master Theorem to solve the recurrence, we find that this runs in O(n lg n) time and will use O(lg n) space for the recursive calls. We've just beaten the naive O(n2) solution!
+
+But wait! We can do much better than this. Notice that the only reason we have an O(n) term in our recurrence is that we had to scan the entire input trying to find the minimum and maximum values in each half. Since we're already recursively exploring each half, perhaps we can do better by having the recursion also hand back the minimum and maximum values stored in each half! In other words, our recursion hands back three things:
+
+The buy and sell times to maximize profit.
+The minimum value overall in the range.
+The maximum value overall in the range.
+These last two values can be computed recursively using a straightforward recursion that we can run at the same time as the recursion to compute (1):
+
+The max and min values of a single-element range are just that element.
+The max and min values of a multiple element range can be found by splitting the input in half, finding the max and min values of each half, then taking their respective max and min.
+If we use this approach, our recurrence relation is now
+
+T(1) <= O(1)
+T(n) <= 2T(n / 2) + O(1)
+Using the Master Theorem here gives us a runtime of O(n) with O(lg n) space, which is even better than our original solution!
+
+But wait a minute - we can do even better than this! Let's think about solving this problem using dynamic programming. The idea will be to think about the problem as follows. Suppose that we knew the answer to the problem after looking at the first k elements. Could we use our knowledge of the (k+1)st element, combined with our initial solution, to solve the problem for the first (k+1) elements? If so, we could get a great algorithm going by solving the problem for the first element, then the first two, then the first three, etc. until we'd computed it for the first n elements.
+
+Let's think about how to do this. If we have just one element, we already know that it has to be the best buy/sell pair. Now suppose we know the best answer for the first k elements and look at the (k+1)st element. Then the only way that this value can create a solution better than what we had for the first k elements is if the difference between the smallest of the first k elements and that new element is bigger than the biggest difference we've computed so far. So suppose that as we're going across the elements, we keep track of two values - the minimum value we've seen so far, and the maximum profit we could make with just the first k elements. Initially, the minimum value we've seen so far is the first element, and the maximum profit is zero. When we see a new element, we first update our optimal profit by computing how much we'd make by buying at the lowest price seen so far and selling at the current price. If this is better than the optimal value we've computed so far, then we update the optimal solution to be this new profit. Next, we update the minimum element seen so far to be the minimum of the current smallest element and the new element.
+
+Since at each step we do only O(1) work and we're visiting each of the n elements exactly once, this takes O(n) time to complete! Moreover, it only uses O(1) auxiliary storage. This is as good as we've gotten so far!
+
+As an example, on your inputs, here's how this algorithm might run. The numbers in-between each of the values of the array correspond to the values held by the algorithm at that point. You wouldn't actually store all of these (it would take O(n) memory!), but it's helpful to see the algorithm evolve:
+
+            5        10        4          6         7
+min         5         5        4          4         4
+best      (5,5)     (5,10)   (5,10)     (5,10)    (5,10)
+Answer: (5, 10)
+
+            5        10        4          6        12
+min         5         5        4          4         4
+best      (5,5)     (5,10)   (5,10)     (5,10)    (4,12)
+Answer: (4, 12)
+
+            1       2       3      4      5
+min         1       1       1      1      1
+best      (1,1)   (1,2)   (1,3)  (1,4)  (1,5)
+Answer: (1, 5)
+
+Can we do better now? Unfortunately, not in an asymptotic sense. If we use less than O(n) time, we can't look at all the numbers on large inputs and thus can't guarantee that we won't miss the optimal answer (we could just "hide" it in the elements we didn't look at). Plus, we can't use any less than O(1) space. There might be some optimizations to the constant factors hidden in the big-O notation, but otherwise we can't expect to find any radically better options.
+
+Overall, this means that we have the following algorithms:
+
+Naive: O(n2) time, O(1) space.
+Divide-and-Conquer: O(n lg n) time, O(lg n) space.
+Optimized Divide-and-Conquer: O(n) time, O(lg n) space.
+Dynamic programming: O(n) time, O(1) space.
+Hope this helps!
+
+b.
+
+This is the maximum sum subsequence problem with a bit of indirection. The maximum sum subsequence problem is given a list of integers which could be positive or negative, find the largest sum of a contiguous subset of that list.
+
+You can trivially convert this problem to that problem by taking the profit or loss between consecutive days. So you would transform a list of stock prices, e.g. [5, 6, 7, 4, 2] into a list of gains/losses, e.g., [1, 1, -3, -2]. The subsequence sum problem is then pretty easy to solve: Find the subsequence with largest sum of elements in an array
+
+c.
+
+I'm not really sure why this is considered a dynamic programming question. I've seen this question in textbooks and algorithm guides using O(n log n) runtime and O(log n) for space (e.g. Elements of Programming Interviews). It seems like a much simpler problem than people are making it out to be.
+
+This works by keeping track of the max profit, the minimum buying price, and consequently, the optimal buying/selling price. As it goes through each element in the array, it checks to see if the given element is smaller than the minimum buying price. If it is, the minimum buying price index, (min), is updated to be the index of that element. Additionally, for each element, the becomeABillionaire algorithm checks if arr[i] - arr[min] (the difference between the current element and the minimum buying price) is greater than the current profit. If it is, the profit is updated to that difference and buy is set to arr[min] and sell is set to arr[i].
+
+Runs in a single pass.
+
+static void becomeABillionaire(int arr[]) {
+    int i = 0, buy = 0, sell = 0, min = 0, profit = 0;
+
+    for (i = 0; i < arr.length; i++) {
+        if (arr[i] < arr[min])
+            min = i;
+        else if (arr[i] - arr[min] > profit) {
+            buy = min;
+            sell = i;
+            profit = arr[i] - arr[min];
+        }
+
+    }
+
+    System.out.println("We will buy at : " + arr[buy] + " sell at " + arr[sell] +
+            " and become billionaires worth " + profit );
+
+}
+Co-author: https://stackoverflow.com/users/599402/ephraim
+
+d.
+here is My Java solution :
+
+public static void main(String[] args) {
+    int A[] = {5,10,4,6,12};
+
+    int min = A[0]; // Lets assume first element is minimum
+    int maxProfit = 0; // 0 profit, if we buy & sell on same day.
+    int profit = 0;
+    int minIndex = 0; // Index of buy date
+    int maxIndex = 0; // Index of sell date
+
+    //Run the loop from next element
+    for (int i = 1; i < A.length; i++) {
+        //Keep track of minimum buy price & index
+        if (A[i] < min) {
+            min = A[i];
+            minIndex = i;
+        }
+        profit = A[i] - min;
+        //If new profit is more than previous profit, keep it and update the max index
+        if (profit > maxProfit) {
+            maxProfit = profit;
+            maxIndex = i;
+        }
+    }
+    System.out.println("maxProfit is "+maxProfit);
+    System.out.println("minIndex is "+minIndex);
+    System.out.println("maxIndex is "+maxIndex);
+}
+
+9.
+Ukkonen's suffix tree algorithm in plain English
+
+I feel a bit thick at this point. I've spent days trying to fully wrap my head around suffix tree construction, but because I don't have a mathematical background, many of the explanations elude me as they start to make excessive use of mathematical symbology. The closest to a good explanation that I've found is Fast String Searching With Suffix Trees, but he glosses over various points and some aspects of the algorithm remain unclear.
+
+A step-by-step explanation of this algorithm here on Stack Overflow would be invaluable for many others besides me, I'm sure.
+
+For reference, here's Ukkonen's paper on the algorithm: http://www.cs.helsinki.fi/u/ukkonen/SuffixT1withFigs.pdf
+
+My basic understanding, so far:
+
+I need to iterate through each prefix P of a given string T
+I need to iterate through each suffix S in prefix P and add that to tree
+To add suffix S to the tree, I need to iterate through each character in S, with the iterations consisting of either walking down an existing branch that starts with the same set of characters C in S and potentially splitting an edge into descendent nodes when I reach a differing character in the suffix, OR if there was no matching edge to walk down. When no matching edge is found to walk down for C, a new leaf edge is created for C.
+The basic algorithm appears to be O(n2), as is pointed out in most explanations, as we need to step through all of the prefixes, then we need to step through each of the suffixes for each prefix. Ukkonen's algorithm is apparently unique because of the suffix pointer technique he uses, though I think that is what I'm having trouble understanding.
+
+I'm also having trouble understanding:
+
+exactly when and how the "active point" is assigned, used and changed
+what is going on with the canonization aspect of the algorithm
+Why the implementations I've seen need to "fix" bounding variables that they are using
+Here is the completed C# source code. It not only works correctly, but supports automatic canonization and renders a nicer looking text graph of the output. Source code and sample output is at:
+
+https://gist.github.com/2373868
+
+Update 2017-11-04
+
+After many years I've found a new use for suffix trees, and have implemented the algorithm in JavaScript. Gist is below. It should be bug-free. Dump it into a js file, npm install chalk from the same location, and then run with node.js to see some colourful output. There's a stripped down version in the same Gist, without any of the debugging code.
+
+https://gist.github.com/axefrog/c347bf0f5e0723cbd09b1aaed6ec6fc6
+
+ANswer:
+a.
+The following is an attempt to describe the Ukkonen algorithm by first showing what it does when the string is simple (i.e. does not contain any repeated characters), and then extending it to the full algorithm.
+
+First, a few preliminary statements.
+
+What we are building, is basically like a search trie. So there is a root node, edges going out of it leading to new nodes, and further edges going out of those, and so forth
+
+But: Unlike in a search trie, the edge labels are not single characters. Instead, each edge is labeled using a pair of integers [from,to]. These are pointers into the text. In this sense, each edge carries a string label of arbitrary length, but takes only O(1) space (two pointers).
+
+Basic principle
+I would like to first demonstrate how to create the suffix tree of a particularly simple string, a string with no repeated characters:
+
+abc
+The algorithm works in steps, from left to right. There is one step for every character of the string. Each step might involve more than one individual operation, but we will see (see the final observations at the end) that the total number of operations is O(n).
+
+So, we start from the left, and first insert only the single character a by creating an edge from the root node (on the left) to a leaf, and labeling it as [0,#], which means the edge represents the substring starting at position 0 and ending at the current end. I use the symbol # to mean the current end, which is at position 1 (right after a).
+
+So we have an initial tree, which looks like this:
+
+
+
+And what it means is this:
+
+
+
+Now we progress to position 2 (right after b). Our goal at each step is to insert all suffixes up to the current position. We do this by
+
+expanding the existing a-edge to ab
+inserting one new edge for b
+In our representation this looks like
+
+enter image description here
+
+And what it means is:
+
+
+
+We observe two things:
+
+The edge representation for ab is the same as it used to be in the initial tree: [0,#]. Its meaning has automatically changed because we updated the current position # from 1 to 2.
+Each edge consumes O(1) space, because it consists of only two pointers into the text, regardless of how many characters it represents.
+Next we increment the position again and update the tree by appending a c to every existing edge and inserting one new edge for the new suffix c.
+
+In our representation this looks like
+
+
+
+And what it means is:
+
+
+
+We observe:
+
+The tree is the correct suffix tree up to the current position after each step
+There are as many steps as there are characters in the text
+The amount of work in each step is O(1), because all existing edges are updated automatically by incrementing #, and inserting the one new edge for the final character can be done in O(1) time. Hence for a string of length n, only O(n) time is required.
+First extension: Simple repetitions
+Of course this works so nicely only because our string does not contain any repetitions. We now look at a more realistic string:
+
+abcabxabcd
+It starts with abc as in the previous example, then ab is repeated and followed by x, and then abc is repeated followed by d.
+
+Steps 1 through 3: After the first 3 steps we have the tree from the previous example:
+
+
+
+Step 4: We move # to position 4. This implicitly updates all existing edges to this:
+
+
+
+and we need to insert the final suffix of the current step, a, at the root.
+
+Before we do this, we introduce two more variables (in addition to #), which of course have been there all the time but we haven't used them so far:
+
+The active point, which is a triple (active_node,active_edge,active_length)
+The remainder, which is an integer indicating how many new suffixes we need to insert
+The exact meaning of these two will become clear soon, but for now let's just say:
+
+In the simple abc example, the active point was always (root,'\0x',0), i.e. active_node was the root node, active_edge was specified as the null character '\0x', and active_length was zero. The effect of this was that the one new edge that we inserted in every step was inserted at the root node as a freshly created edge. We will see soon why a triple is necessary to represent this information.
+The remainder was always set to 1 at the beginning of each step. The meaning of this was that the number of suffixes we had to actively insert at the end of each step was 1 (always just the final character).
+Now this is going to change. When we insert the current final character a at the root, we notice that there is already an outgoing edge starting with a, specifically: abca. Here is what we do in such a case:
+
+We do not insert a fresh edge [4,#] at the root node. Instead we simply notice that the suffix a is already in our tree. It ends in the middle of a longer edge, but we are not bothered by that. We just leave things the way they are.
+We set the active point to (root,'a',1). That means the active point is now somewhere in the middle of outgoing edge of the root node that starts with a, specifically, after position 1 on that edge. We notice that the edge is specified simply by its first character a. That suffices because there can be only one edge starting with any particular character (confirm that this is true after reading through the entire description).
+We also increment remainder, so at the beginning of the next step it will be 2.
+Observation: When the final suffix we need to insert is found to exist in the tree already, the tree itself is not changed at all (we only update the active point and remainder). The tree is then not an accurate representation of the suffix tree up to the current position any more, but it contains all suffixes (because the final suffix a is contained implicitly). Hence, apart from updating the variables (which are all of fixed length, so this is O(1)), there was no work done in this step.
+
+Step 5: We update the current position # to 5. This automatically updates the tree to this:
+
+
+
+And because remainder is 2, we need to insert two final suffixes of the current position: ab and b. This is basically because:
+
+The a suffix from the previous step has never been properly inserted. So it has remained, and since we have progressed one step, it has now grown from a to ab.
+And we need to insert the new final edge b.
+In practice this means that we go to the active point (which points to behind the a on what is now the abcab edge), and insert the current final character b. But: Again, it turns out that b is also already present on that same edge.
+
+So, again, we do not change the tree. We simply:
+
+Update the active point to (root,'a',2) (same node and edge as before, but now we point to behind the b)
+Increment the remainder to 3 because we still have not properly inserted the final edge from the previous step, and we don't insert the current final edge either.
+To be clear: We had to insert ab and b in the current step, but because ab was already found, we updated the active point and did not even attempt to insert b. Why? Because if ab is in the tree, every suffix of it (including b) must be in the tree, too. Perhaps only implicitly, but it must be there, because of the way we have built the tree so far.
+
+We proceed to step 6 by incrementing #. The tree is automatically updated to:
+
+
+
+Because remainder is 3, we have to insert abx, bx and x. The active point tells us where ab ends, so we only need to jump there and insert the x. Indeed, x is not there yet, so we split the abcabx edge and insert an internal node:
+
+
+
+The edge representations are still pointers into the text, so splitting and inserting an internal node can be done in O(1) time.
+
+So we have dealt with abx and decrement remainder to 2. Now we need to insert the next remaining suffix, bx. But before we do that we need to update the active point. The rule for this, after splitting and inserting an edge, will be called Rule 1 below, and it applies whenever the active_node is root (we will learn rule 3 for other cases further below). Here is rule 1:
+
+After an insertion from root,
+
+active_node remains root
+active_edge is set to the first character of the new suffix we need to insert, i.e. b
+active_length is reduced by 1
+Hence, the new active-point triple (root,'b',1) indicates that the next insert has to be made at the bcabx edge, behind 1 character, i.e. behind b. We can identify the insertion point in O(1) time and check whether x is already present or not. If it was present, we would end the current step and leave everything the way it is. But x is not present, so we insert it by splitting the edge:
+
+
+
+Again, this took O(1) time and we update remainder to 1 and the active point to (root,'x',0) as rule 1 states.
+
+But there is one more thing we need to do. We'll call this Rule 2:
+
+If we split an edge and insert a new node, and if that is not the first node created during the current step, we connect the previously inserted node and the new node through a special pointer, a suffix link. We will later see why that is useful. Here is what we get, the suffix link is represented as a dotted edge:
+
+
+
+We still need to insert the final suffix of the current step, x. Since the active_length component of the active node has fallen to 0, the final insert is made at the root directly. Since there is no outgoing edge at the root node starting with x, we insert a new edge:
+
+
+
+As we can see, in the current step all remaining inserts were made.
+
+We proceed to step 7 by setting #=7, which automatically appends the next character, a, to all leaf edges, as always. Then we attempt to insert the new final character to the active point (the root), and find that it is there already. So we end the current step without inserting anything and update the active point to (root,'a',1).
+
+In step 8, #=8, we append b, and as seen before, this only means we update the active point to (root,'a',2) and increment remainder without doing anything else, because b is already present. However, we notice (in O(1) time) that the active point is now at the end of an edge. We reflect this by re-setting it to (node1,'\0x',0). Here, I use node1 to refer to the internal node the ab edge ends at.
+
+Then, in step #=9, we need to insert 'c' and this will help us to understand the final trick:
+
+Second extension: Using suffix links
+As always, the # update appends c automatically to the leaf edges and we go to the active point to see if we can insert 'c'. It turns out 'c' exists already at that edge, so we set the active point to (node1,'c',1), increment remainder and do nothing else.
+
+Now in step #=10, remainder is 4, and so we first need to insert abcd (which remains from 3 steps ago) by inserting d at the active point.
+
+Attempting to insert d at the active point causes an edge split in O(1) time:
+
+
+
+The active_node, from which the split was initiated, is marked in red above. Here is the final rule, Rule 3:
+
+After splitting an edge from an active_node that is not the root node, we follow the suffix link going out of that node, if there is any, and reset the active_node to the node it points to. If there is no suffix link, we set the active_node to the root. active_edge and active_length remain unchanged.
+
+So the active point is now (node2,'c',1), and node2 is marked in red below:
+
+
+
+Since the insertion of abcd is complete, we decrement remainder to 3 and consider the next remaining suffix of the current step, bcd. Rule 3 has set the active point to just the right node and edge so inserting bcd can be done by simply inserting its final character d at the active point.
+
+Doing this causes another edge split, and because of rule 2, we must create a suffix link from the previously inserted node to the new one:
+
+
+
+We observe: Suffix links enable us to reset the active point so we can make the next remaining insert at O(1) effort. Look at the graph above to confirm that indeed node at label ab is linked to the node at b (its suffix), and the node at abc is linked to  bc.
+
+The current step is not finished yet. remainder is now 2, and we need to follow rule 3 to reset the active point again. Since the current active_node (red above) has no suffix link, we reset to root. The active point is now (root,'c',1).
+
+Hence the next insert occurs at the one outgoing edge of the root node whose label starts with c: cabxabcd, behind the first character, i.e. behind c. This causes another split:
+
+
+
+And since this involves the creation of a new internal node,we follow rule 2 and set a new suffix link from the previously created internal node:
+
+
+
+(I am using Graphviz Dot for these little graphs. The new suffix link caused dot to re-arrange the existing edges, so check carefully to confirm that the only thing that was inserted above is a new suffix link.)
+
+With this, remainder can be set to 1 and since the active_node is root, we use rule 1 to update the active point to (root,'d',0). This means the final insert of the current step is to insert a single d at root:
+
+
+
+That was the final step and we are done. There are number of final observations, though:
+
+In each step we move # forward by 1 position. This automatically updates all leaf nodes in O(1) time.
+
+But it does not deal with a) any suffixes remaining from previous steps, and b) with the one final character of the current step.
+
+remainder tells us how many additional inserts we need to make. These inserts correspond one-to-one to the final suffixes of the string that ends at the current position #. We consider one after the other and make the insert. Important: Each insert is done in O(1) time since the active point tells us exactly where to go, and we need to add only one single character at the active point. Why? Because the other characters are contained implicitly (otherwise the active point would not be where it is).
+
+After each such insert, we decrement remainder and follow the suffix link if there is any. If not we go to root (rule 3). If we are at root already, we modify the active point using rule 1. In any case, it takes only O(1) time.
+
+If, during one of these inserts, we find that the character we want to insert is already there, we don't do anything and end the current step, even if remainder>0. The reason is that any inserts that remain will be suffixes of the one we just tried to make. Hence they are all implicit in the current tree. The fact that remainder>0 makes sure we deal with the remaining suffixes later.
+
+What if at the end of the algorithm remainder>0? This will be the case whenever the end of the text is a substring that occurred somewhere before. In that case we must append one extra character at the end of the string that has not occurred before. In the literature, usually the dollar sign $ is used as a symbol for that. Why does that matter? --> If later we use the completed suffix tree to search for suffixes, we must accept matches only if they end at a leaf. Otherwise we would get a lot of spurious matches, because there are many strings implicitly contained in the tree that are not actual suffixes of the main string. Forcing remainder to be 0 at the end is essentially a way to ensure that all suffixes end at a leaf node. However, if we want to use the tree to search for general substrings, not only suffixes of the main string, this final step is indeed not required, as suggested by the OP's comment below.
+
+So what is the complexity of the entire algorithm? If the text is n characters in length, there are obviously n steps (or n+1 if we add the dollar sign). In each step we either do nothing (other than updating the variables), or we make remainder inserts, each taking O(1) time. Since remainder indicates how many times we have done nothing in previous steps, and is decremented for every insert that we make now, the total number of times we do something is exactly n (or n+1). Hence, the total complexity is O(n).
+
+However, there is one small thing that I did not properly explain: It can happen that we follow a suffix link, update the active point, and then find that its active_length component does not work well with the new active_node. For example, consider a situation like this:
+
+
+
+(The dashed lines indicate the rest of the tree. The dotted line is a suffix link.)
+
+Now let the active point be (red,'d',3), so it points to the place behind the f on the defg edge. Now assume we made the necessary updates and now follow the suffix link to update the active point according to rule 3. The new active point is (green,'d',3). However, the d-edge going out of the green node is de, so it has only 2 characters. In order to find the correct active point, we obviously need to follow that edge to the blue node and reset to (blue,'f',1).
+
+In a particularly bad case, the active_length could be as large as remainder, which can be as large as n. And it might very well happen that to find the correct active point, we need not only jump over one internal node, but perhaps many, up to n in the worst case. Does that mean the algorithm has a hidden O(n2) complexity, because in each step remainder is generally O(n), and the post-adjustments to the active node after following a suffix link could be O(n), too?
+
+No. The reason is that if indeed we have to adjust the active point (e.g. from green to blue as above), that brings us to a new node that has its own suffix link, and active_length will be reduced. As we follow down the chain of suffix links we make the remaining inserts, active_length can only decrease, and the number of active-point adjustments we can make on the way can't be larger than active_length at any given time. Since active_length can never be larger than remainder, and remainder is O(n) not only in every single step, but the total sum of increments ever made to remainder over the course of the entire process is O(n) too, the number of active point adjustments is also bounded by O(n).
+
+b.

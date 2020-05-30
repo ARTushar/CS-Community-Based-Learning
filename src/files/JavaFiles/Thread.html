@@ -1,0 +1,231 @@
+
+<p><strong>Java</strong></p>
+<p><strong><em>Thread</em></strong></p>
+<p>Multitasking</p>
+<ul>
+<li>Multitasking allows several activities to occur concurrently on the computer</li>
+</ul>
+<ul>
+<li>Levels of multitasking:</li>
+</ul>
+<p>&ndash; <strong>Process‐based multitasking</strong></p>
+<ul>
+<li>Allows programs (processes) to run concurrently</li>
+</ul>
+<p>&ndash; <strong>Thread‐base multitasking (multithreading)</strong></p>
+<ul>
+<li>Allows parts of the same process (threads) to run concurrently</li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 2</p>
+<p>Multithreading</p>
+<ul>
+<li>Advantages of multithreading over process-based multitasking</li>
+</ul>
+<p>&ndash; Threads share the same address space</p>
+<p>&ndash; Context switching between threads is usually inexpensive</p>
+<p>&ndash; Communication between thread is usually inexpensive</p>
+<ul>
+<li>Java supports <strong><em>thread‐based multitasking</em></strong> and provides high-level facilities for <strong><em>multithreaded</em></strong> <strong><em>programming</em></strong></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 3</p>
+<p>Main Thread</p>
+<ul>
+<li>When a Java program starts up, one thread begins running immediately</li>
+</ul>
+<ul>
+<li>This is called the <strong><em>main thread</em></strong> of the program</li>
+</ul>
+<ul>
+<li>It is the thread from which the child threads will be spawned</li>
+</ul>
+<ul>
+<li>Often, it must be the last thread to finish execution</li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 4</p>
+<p>Main Thread</p>
+<p>Prepared By - Rifat Shahriyar 5</p>
+<p>How to create Thread</p>
+<ol>
+<li>By extending the <strong><em>Thread</em></strong> class</li>
+</ol>
+<ol start="2">
+<li>By implementing <strong><em>Runnable</em></strong> Interface</li>
+</ol>
+<ul>
+<li><em>Extending Thread</em></li>
+</ul>
+<p>&ndash; Need to override the public void run() method</p>
+<ul>
+<li><em>Implementing Runnable</em></li>
+</ul>
+<p>&ndash; Need to implement the public void run() method</p>
+<ul>
+<li>Which one is better ?</li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 6</p>
+<p>Extending Thread</p>
+<p>Prepared By - Rifat Shahriyar 7</p>
+<p>Implementing Runnable</p>
+<p>Prepared By - Rifat Shahriyar 8</p>
+<p>Multiple Threads</p>
+<ul>
+<li>It is possible to create more than one thread inside the main</li>
+</ul>
+<ul>
+<li>In multiple threads, often you will want the main thread to finish last. This is accomplished by</li>
+</ul>
+<p>&ndash; using a large delay in the main thread</p>
+<p>&ndash; using the <strong>join()</strong> method</p>
+<ul>
+<li>Whether a thread has finished or not can be known using <strong>isAlive()</strong> method</li>
+</ul>
+<ul>
+<li><strong><em>Example</em></strong><em>: MultipleThreads.java, JoinAliveThreads.java</em></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 9</p>
+<p>Thread States</p>
+<p>Source: https://avaldes.com/java-thread-states-life-cycle-of-java-threads/</p>
+<p>Prepared By - Rifat Shahriyar 10</p>
+<p>Thread Pool</p>
+<ul>
+<li>Thread Pools are useful when you need to limit the number of threads running in your application</li>
+</ul>
+<p>&ndash; Performance overhead starting a new thread</p>
+<p>&ndash; Each thread is also allocated some memory for its stack</p>
+<ul>
+<li>Instead of starting a new thread for every task to execute concurrently, the task can be passed to a thread pool</li>
+</ul>
+<p>&ndash; As soon as the pool has any idle threads the task is assigned to one of them and executed</p>
+<p>Prepared By - Rifat Shahriyar 11</p>
+<p>Thread Pool</p>
+<ul>
+<li>Thread pools are often used in multi threaded servers</li>
+</ul>
+<p>&ndash; Each connection arriving at the server via the network is wrapped as a task and passed on to a thread pool</p>
+<p>&ndash; The threads in the thread pool will process the requests on the connections concurrently</p>
+<ul>
+<li>Java provides Thread Pool implementation with <strong><em>util.concurrent.ExecutorService</em></strong></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 12</p>
+<p>ExecutorService</p>
+<p>Prepared By - Rifat Shahriyar 13</p>
+<p>Callable and Future</p>
+<ul>
+<li>Runnable cannot return a result to the caller</li>
+</ul>
+<ul>
+<li><strong><em>util.concurrent.Callable </em></strong>object allows to return values after completion</li>
+</ul>
+<ul>
+<li>Callable task returns a Future object to return result</li>
+</ul>
+<ul>
+<li>The result can be obtained using get() that remains blocked until the result is computed</li>
+</ul>
+<ul>
+<li>Check completion by isDone(), cancel by cancel()</li>
+</ul>
+<ul>
+<li><strong><em>Example</em></strong><em>: CallableFutures.java</em></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 14</p>
+<p>Synchronization</p>
+<ul>
+<li>When two or more threads need access to a <strong>shared</strong> <strong>resource</strong>, they need some way to ensure that the resource will be used by only one thread at a time</li>
+</ul>
+<ul>
+<li>The process by which this is achieved is called <strong>synchronization</strong></li>
+</ul>
+<ul>
+<li>Key to synchronization is the concept of the <strong>monitor</strong></li>
+</ul>
+<ul>
+<li>A monitor is an object that is used as a mutually exclusive lock</li>
+</ul>
+<p>&ndash; Only one thread can own a monitor at a given time</p>
+<p>Prepared By - Rifat Shahriyar 15</p>
+<p>Synchronization</p>
+<ul>
+<li>When a thread acquires a lock, it is said to have entered the monitor</li>
+</ul>
+<ul>
+<li>All other threads attempting to enter the locked monitor will be suspended until the first thread exits the monitor</li>
+</ul>
+<ul>
+<li>These other threads are said to be waiting for the monitor</li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 16</p>
+<p>Synchronization</p>
+<ul>
+<li>Three ways to achieve synchronization.</li>
+</ul>
+<ul>
+<li>Synchronized method</li>
+</ul>
+<p><strong><em>synchronized void call(String msg) { }</em></strong></p>
+<ul>
+<li>Synchronized block <strong><em>public void run() {</em></strong></li>
+</ul>
+<p><strong><em>synchronized(target) { target.call(msg); } }</em></strong></p>
+<ul>
+<li>Lock (java.util.concurrent package)</li>
+</ul>
+<ul>
+<li><strong><em>Example</em></strong><em>: SynchronizedBlock.java, SynchronizedMethod.java,</em></li>
+</ul>
+<p><em>SynchronizationLock.java</em></p>
+<p>Prepared By - Rifat Shahriyar 17</p>
+<p>Inter Thread Communication</p>
+<ul>
+<li>One way is to use polling</li>
+</ul>
+<p>&ndash; a loop that is used to check some condition repeatedly</p>
+<p>&ndash; Once the condition is true, appropriate action is taken</p>
+<ul>
+<li>Java includes an elegant inter thread communication mechanism via the <strong>wait()</strong>, <strong>notify()</strong> and <strong>notifyAll()</strong> methods</li>
+</ul>
+<ul>
+<li>These methods are implemented as final methods in Object, so all classes have them</li>
+</ul>
+<ul>
+<li>All three methods can be called only from within a synchronized method</li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 18</p>
+<p>Inter Thread Communication</p>
+<ul>
+<li><strong><em>wait()</em></strong></li>
+</ul>
+<p>&ndash; tells the calling thread to give up the monitor and go to sleep until some other thread enters the same monitor and calls notify()</p>
+<ul>
+<li><strong><em>notify()</em></strong></li>
+</ul>
+<p>&ndash; wakes up the first thread that called wait() on same object</p>
+<ul>
+<li><strong><em>notifyAll()</em></strong></li>
+</ul>
+<p>&ndash; wakes up all the threads that called wait() on same object. The highest priority thread will run first</p>
+<ul>
+<li><strong><em>Example</em></strong><em>: IncorrectPC.java, CorrectPC.java, java</em></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 19</p>
+<p>Suspend, Resume and Stop</p>
+<ul>
+<li>Suspend</li>
+</ul>
+<p>&ndash; <strong><em>Thread t; t.suspend();</em></strong></p>
+<ul>
+<li>Resume</li>
+</ul>
+<p>&ndash; <strong><em>Thread t; t.resume();</em></strong></p>
+<ul>
+<li>Stop</li>
+</ul>
+<p>&ndash; <strong><em>Thread t; t.stop();</em></strong></p>
+<p>&ndash; Cannot be resumed later</p>
+<ul>
+<li>suspend and stop can sometimes cause serious system failures</li>
+</ul>
+<ul>
+<li><strong><em>Example</em></strong><em>: SuspendResume.java</em></li>
+</ul>
+<p>Prepared By - Rifat Shahriyar 20</p>

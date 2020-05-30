@@ -1,0 +1,746 @@
+<p>
+    This chapter covers all the basic I/O functions available in Python 3. For
+    more functions, please refer to the standard Python documentation.
+</p>
+<h2>
+    Printing to the Screen
+</h2>
+<p>
+    The simplest way to produce output is using the <em>print</em> statement
+    where you can pass zero or more expressions separated by commas. This
+    function converts the expressions you pass into a string and writes the
+    result to standard output as follows −
+</p>
+<pre>#!/usr/bin/python3
+
+print ("Python is really a great language,", "isn't it?")</pre>
+<p>
+    This produces the following result on your standard screen −
+</p>
+<pre>Python is really a great language, isn't it?
+</pre>
+<h2>
+    Reading Keyboard Input
+</h2>
+<p>
+    Python 2 has two built-in functions to read data from standard input, which
+    by default comes from the keyboard. These functions are input() and
+    raw_input()
+</p>
+<p>
+    In Python 3, raw_input() function is deprecated. Moreover, input()
+    functions read data from keyboard as string, irrespective of whether it is
+    enclosed with quotes ('' or "" ) or not.
+</p>
+<h2>
+    The input Function
+</h2>
+<p>
+    The input([prompt]) function is equivalent to raw_input, except that it
+    assumes that the input is a valid Python expression and returns the
+    evaluated result to you.
+</p>
+<pre>#!/usr/bin/python3
+
+&gt;&gt;&gt; x = input("something:")
+something:10
+
+&gt;&gt;&gt; x
+'10'
+
+&gt;&gt;&gt; x = input("something:")
+something:'10' #entered data treated as string with or without ''
+
+&gt;&gt;&gt; x
+"'10'"</pre>
+<h2>
+    Opening and Closing Files
+</h2>
+<p>
+    Until now, you have been reading and writing to the standard input and
+    output. Now, we will see how to use actual data files.
+</p>
+<p>
+    Python provides basic functions and methods necessary to manipulate files
+    by default. You can do most of the file manipulation using a file object.
+</p>
+<h2>
+    The open Function
+</h2>
+<p>
+    Before you can read or write a file, you have to open it using Python's
+    built-in open() function. This function creates a file object, which would
+    be utilized to call other support methods associated with it.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>file object = open(file_name [, access_mode][, buffering])
+</pre>
+<p>
+    Here are parameter details −
+</p>
+<ul>
+    <li>
+        <p>
+            file_name − The file_name argument is a string value that contains
+            the name of the file that you want to access.
+        </p>
+    </li>
+    <li>
+        <p>
+            access_mode − The access_mode determines the mode in which the file
+            has to be opened, i.e., read, write, append, etc. A complete list
+            of possible values is given below in the table. This is an optional
+            parameter and the default file access mode is read (r).
+        </p>
+    </li>
+    <li>
+        <p>
+            buffering − If the buffering value is set to 0, no buffering takes
+            place. If the buffering value is 1, line buffering is performed
+            while accessing a file. If you specify the buffering value as an
+            integer greater than 1, then buffering action is performed with the
+            indicated buffer size. If negative, the buffer size is the system
+            default(default behavior).
+        </p>
+    </li>
+</ul>
+<p>
+    Here is a list of the different modes of opening a file −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                Mode &amp; Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <p>
+                    r
+                </p>
+                <p>
+                    Opens a file for reading only. The file pointer is placed
+                    at the beginning of the file. This is the default mode.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <p>
+                    rb
+                </p>
+                <p>
+                    Opens a file for reading only in binary format. The file
+                    pointer is placed at the beginning of the file. This is the
+                    default mode.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <p>
+                    r+
+                </p>
+                <p>
+                    Opens a file for both reading and writing. The file pointer
+                    placed at the beginning of the file.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                <p>
+                    rb+
+                </p>
+                <p>
+                    Opens a file for both reading and writing in binary format.
+                    The file pointer placed at the beginning of the file.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                <p>
+                    w
+                </p>
+                <p>
+                    Opens a file for writing only. Overwrites the file if the
+                    file exists. If the file does not exist, creates a new file
+                    for writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                <p>
+                    wb
+                </p>
+                <p>
+                    Opens a file for writing only in binary format. Overwrites
+                    the file if the file exists. If the file does not exist,
+                    creates a new file for writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>
+                <p>
+                    w+
+                </p>
+                <p>
+                    Opens a file for both writing and reading. Overwrites the
+                    existing file if the file exists. If the file does not
+                    exist, creates a new file for reading and writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                8
+            </td>
+            <td>
+                <p>
+                    wb+
+                </p>
+                <p>
+                    Opens a file for both writing and reading in binary format.
+                    Overwrites the existing file if the file exists. If the
+                    file does not exist, creates a new file for reading and
+                    writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9
+            </td>
+            <td>
+                <p>
+                    a
+                </p>
+                <p>
+                    Opens a file for appending. The file pointer is at the end
+                    of the file if the file exists. That is, the file is in the
+                    append mode. If the file does not exist, it creates a new
+                    file for writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                10
+            </td>
+            <td>
+                <p>
+                    ab
+                </p>
+                <p>
+                    Opens a file for appending in binary format. The file
+                    pointer is at the end of the file if the file exists. That
+                    is, the file is in the append mode. If the file does not
+                    exist, it creates a new file for writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                11
+            </td>
+            <td>
+                <p>
+                    a+
+                </p>
+                <p>
+                    Opens a file for both appending and reading. The file
+                    pointer is at the end of the file if the file exists. The
+                    file opens in the append mode. If the file does not exist,
+                    it creates a new file for reading and writing.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12
+            </td>
+            <td>
+                <p>
+                    ab+
+                </p>
+                <p>
+                    Opens a file for both appending and reading in binary
+                    format. The file pointer is at the end of the file if the
+                    file exists. The file opens in the append mode. If the file
+                    does not exist, it creates a new file for reading and
+                    writing.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    The file Object Attributes
+</h2>
+<p>
+    Once a file is opened and you have one <em>file</em> object, you can get
+    various information related to that file.
+</p>
+<p>
+    Here is a list of all the attributes related to a file object −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                Attribute &amp; Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <p>
+                    file.closed
+                </p>
+                <p>
+                    Returns true if file is closed, false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <p>
+                    file.mode
+                </p>
+                <p>
+                    Returns access mode with which file was opened.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <p>
+                    file.name
+                </p>
+                <p>
+                    Returns name of the file.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Note − softspace attribute is not supported in Python 3.x
+</p>
+<h3>
+    Example
+</h3>
+<pre>#!/usr/bin/python3
+
+# Open a file
+fo = open("foo.txt", "wb")
+print ("Name of the file: ", fo.name)
+print ("Closed or not : ", fo.closed)
+print ("Opening mode : ", fo.mode)
+fo.close()</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Name of the file:  foo.txt
+Closed or not :  False
+Opening mode :  wb
+</pre>
+<h2>
+    The close() Method
+</h2>
+<p>
+    The close() method of a file object flushes any unwritten information and
+    closes the file object, after which no more writing can be done.
+</p>
+<p>
+    Python automatically closes a file when the reference object of a file is
+    reassigned to another file. It is a good practice to use the close() method
+    to close a file.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>fileObject.close();</pre>
+<h3>
+    Example
+</h3>
+<pre>#!/usr/bin/python3
+
+# Open a file
+fo = open("foo.txt", "wb")
+print ("Name of the file: ", fo.name)
+
+# Close opened file
+fo.close()</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Name of the file:  foo.txt
+</pre>
+<h2>
+    Reading and Writing Files
+</h2>
+<p>
+    The file object provides a set of access methods to make our lives easier.
+    We would see how to use read() and write() methods to read and write files.
+</p>
+<h2>
+    The write() Method
+</h2>
+<p>
+    The write() method writes any string to an open file. It is important to
+    note that Python strings can have binary data and not just text.
+</p>
+<p>
+    The write() method does not add a newline character ('\n') to the end of
+    the string −
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>fileObject.write(string);
+</pre>
+<p>
+    Here, passed parameter is the content to be written into the opened file.
+</p>
+<h3>
+    Example
+</h3>
+<pre>#!/usr/bin/python3
+
+# Open a file
+fo = open("foo.txt", "w")
+fo.write( "Python is a great language.\nYeah its great!!\n")
+
+# Close opend file
+fo.close()</pre>
+<p>
+    The above method would create foo.txt file and would write given content in
+    that file and finally it would close that file. If you would open this
+    file, it would have the following content −
+</p>
+<pre>Python is a great language.
+Yeah its great!!
+</pre>
+<h2>
+    The read() Method
+</h2>
+<p>
+    The read() method reads a string from an open file. It is important to note
+    that Python strings can have binary data. apart from text data.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>fileObject.read([count]);
+</pre>
+<p>
+    Here, passed parameter is the number of bytes to be read from the opened
+file. This method starts reading from the beginning of the file and if    <em>count</em> is missing, then it tries to read as much as possible, maybe
+    until the end of file.
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    Let us take a file <em>foo.txt</em>, which we created above.
+</p>
+<pre>#!/usr/bin/python3
+
+# Open a file
+fo = open("foo.txt", "r+")
+str = fo.read(10)
+print ("Read String is : ", str)
+
+# Close opened file
+fo.close()</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Read String is :  Python is
+</pre>
+<h2>
+    File Positions
+</h2>
+<p>
+    The <em>tell()</em> method tells you the current position within the file;
+    in other words, the next read or write will occur at that many bytes from
+    the beginning of the file.
+</p>
+<p>
+    The <em>seek(offset[, from])</em> method changes the current file position.
+    The offsetargument indicates the number of bytes to be moved. The from
+    argument specifies the reference position from where the bytes are to be
+    moved.
+</p>
+<p>
+    If <em>from</em> is set to 0, the beginning of the file is used as the
+    reference position. If it is set to 1, the current position is used as the
+    reference position. If it is set to 2 then the end of the file would be
+    taken as the reference position.
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    Let us take a file <em>foo.txt</em>, which we created above.
+</p>
+<pre>#!/usr/bin/python3
+
+# Open a file
+fo = open("foo.txt", "r+")
+str = fo.read(10)
+print ("Read String is : ", str)
+
+# Check current position
+position = fo.tell()
+print ("Current file position : ", position)
+
+# Reposition pointer at the beginning once again
+position = fo.seek(0, 0)
+str = fo.read(10)
+print ("Again read String is : ", str)
+
+# Close opened file
+fo.close()</pre>
+<p>
+    This produces the following result −
+</p>
+<pre>Read String is :  Python is
+Current file position :  10
+Again read String is :  Python is
+</pre>
+<h2>
+    Renaming and Deleting Files
+</h2>
+<p>
+    Python os module provides methods that help you perform file-processing
+    operations, such as renaming and deleting files.
+</p>
+<p>
+    To use this module, you need to import it first and then you can call any
+    related functions.
+</p>
+<h2>
+    The rename() Method
+</h2>
+<p>
+    The rename() method takes two arguments, the current filename and the new
+    filename.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.rename(current_file_name, new_file_name)</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to rename an existing file <em>test1.txt</em> −
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# Rename a file from test1.txt to test2.txt
+os.rename( "test1.txt", "test2.txt" )</pre>
+<h2>
+    The remove() Method
+</h2>
+<p>
+    You can use the remove() method to delete files by supplying the name of
+    the file to be deleted as the argument.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.remove(file_name)</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to delete an existing file <em>test2.txt</em> −
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# Delete file test2.txt
+os.remove("text2.txt")</pre>
+<h2>
+    Directories in Python
+</h2>
+<p>
+    All files are contained within various directories, and Python has no
+    problem handling these too. The os module has several methods that help you
+    create, remove, and change directories.
+</p>
+<h2>
+    The mkdir() Method
+</h2>
+<p>
+    You can use the mkdir() method of the os module to create directories in
+    the current directory. You need to supply an argument to this method, which
+    contains the name of the directory to be created.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.mkdir("newdir")
+</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to create a directory <em>test</em> in the current
+    directory −
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# Create a directory "test"
+os.mkdir("test")</pre>
+<h2>
+    The chdir() Method
+</h2>
+<p>
+    You can use the <em>chdir()</em> method to change the current directory.
+    The chdir() method takes an argument, which is the name of the directory
+    that you want to make the current directory.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.chdir("newdir")
+</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to go into "/home/newdir" directory −
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# Changing a directory to "/home/newdir"
+os.chdir("/home/newdir")</pre>
+<h2>
+    The getcwd() Method
+</h2>
+<p>
+    The getcwd() method displays the current working directory.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.getcwd()</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to give current directory −
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# This would give location of the current directory
+os.getcwd()</pre>
+<h2>
+    The rmdir() Method
+</h2>
+<p>
+    The rmdir() method deletes the directory, which is passed as an argument in
+    the method.
+</p>
+<p>
+    Before removing a directory, all the contents in it should be removed.
+</p>
+<h3>
+    Syntax
+</h3>
+<pre>os.rmdir('dirname')
+</pre>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example to remove the "/tmp/test" directory. It is required
+    to give fully qualified name of the directory, otherwise it would search
+    for that directory in the current directory.
+</p>
+<pre>#!/usr/bin/python3
+import os
+
+# This would  remove "/tmp/test"  directory.
+os.rmdir( "/tmp/test"  )</pre>
+<h2>
+    File and Directory Related Methods
+</h2>
+<p>
+    There are three important sources, which provide a wide range of utility
+    methods to handle and manipulate files &amp; directories on Windows and
+    Unix operating systems. They are as follows −
+</p>
+<ul>
+    <li>
+        <p>
+            <a href="https://www.tutorialspoint.com/python3/file_methods.htm">
+                File Object Methods
+            </a>
+        </p>
+        <p>
+            The file object provides functions to manipulate files.
+        </p>
+    </li>
+    <li>
+        <p>
+            <a
+                href="https://www.tutorialspoint.com/python3/os_file_methods.htm"
+            >
+                OS Object Methods
+            </a>
+        </p>
+        <p>
+            This provides methods to process files as well as directories.
+        </p>
+    </li>
+</ul>

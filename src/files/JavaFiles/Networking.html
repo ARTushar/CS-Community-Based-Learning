@@ -1,0 +1,311 @@
+<div>
+    <p>
+        <a name="page1"></a>
+    </p>
+    <p align="center">
+        <strong>Java</strong>
+    </p>
+    <p align="center">
+        <strong><em>Networking</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page2"></a>
+    </p>
+    <p align="center">
+        TCP
+    </p>
+    <p>
+        • TCP stands for Transmission Control Protocol
+    </p>
+    <p>
+        • TCP is connection‐oriented
+    </p>
+    <p>
+        • It provides reliability
+    </p>
+    <p>
+        • What is Server and Client?
+    </p>
+    <p>
+        – A server is a piece of software which advertises and then provides
+        some service on request
+    </p>
+    <p>
+        – A client is a piece of software (usually on a different machine)
+        which makes use of some service
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 2
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page3"></a>
+    </p>
+    <p align="center">
+        TCP Sockets
+    </p>
+    <p>
+        • Two types of TCP Sockets
+    </p>
+    <p>
+        • <strong><em>ServerSocket</em></strong>
+    </p>
+    <p>
+        – ServerSocket is used by servers so that they can accept incoming
+        connections from client
+    </p>
+    <p>
+        • <strong><em>Socket</em></strong>
+    </p>
+    <p>
+        – Socket is used by clients who wish to establish a connection to a
+        (remote) server
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 3
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page4"></a>
+    </p>
+    <p align="center">
+        Scenario
+    </p>
+    <p>
+        <img
+            width="921"
+            height="473"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <strong>Client</strong>
+    </p>
+    <p>
+        <em>Socket s = new Socket (“192.168.0.63”, 22222);</em>
+    </p>
+    <p>
+        <em>s.getInputStream();</em>
+    </p>
+    <p>
+        <em>s.getOuputStream();</em>
+    </p>
+    <br clear="all"/>
+    <p>
+        <strong>Server (192.168.0.63)</strong>
+    </p>
+    <p>
+        <em>ServerSocket ss=new</em>
+    </p>
+    <p>
+        <em>ServerSocket(22222);</em>
+    </p>
+    <p>
+        <em>Socket cs = ss.accept();</em>
+    </p>
+    <p>
+        <em>cs.getInputStream(); cs.getOuputStream();</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 4
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page5"></a>
+    </p>
+    <p align="center">
+        TCP Sockets
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        • <strong><em>Packages</em></strong><em>:</em>
+    </p>
+    <p>
+        – <strong><em>tcpsimple</em></strong> <em>(no threading)</em>
+    </p>
+    <p>
+– <strong><em>tcpstring</em></strong> <em>(multithreading, string</em>        <em>send and receive)</em>
+    </p>
+    <p>
+– <strong><em>tcpobject</em></strong> <em>(multithreading, object</em>        <em>send and receive)</em>
+    </p>
+    <p>
+– <strong><em>tcpdiff</em></strong> <em>(multithreading, multiple</em>        <em>clients simultaneously)</em>
+    </p>
+    <br clear="all"/>
+    <p>
+        • <strong><em>Sources</em></strong><em>:</em>
+    </p>
+    <p>
+        – <em>Server.java</em>
+    </p>
+    <p>
+        – <em>Client.java</em>
+    </p>
+    <p>
+        – <em>ReadThread.java</em>
+    </p>
+    <p>
+        – <em>WriteThread.java</em>
+    </p>
+    <p>
+        – <em>NetworkUtil.java</em>
+    </p>
+    <p>
+        – <em>Data.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 5
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page6"></a>
+    </p>
+    <p align="center">
+        UDP
+    </p>
+    <p>
+        • UDP stands for User Datagram Protocol
+    </p>
+    <p>
+        • UDP is not connection‐oriented
+    </p>
+    <p>
+        • It does not provide reliability
+    </p>
+    <p>
+        • It sends and receives packets known as Datagram
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 6
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page7"></a>
+    </p>
+    <p align="center">
+        Datagram Packet &amp; Socket
+    </p>
+    <p>
+        • One type of Packet and one type of Socket
+    </p>
+    <p>
+        • <strong><em>DatagramPacket</em></strong>
+    </p>
+    <p>
+        – Used to encapsulate Datagram
+    </p>
+    <p>
+        • <strong><em>DatagramSocket</em></strong>
+    </p>
+    <p>
+        – DatagramSocket is used by both server and client to receive
+        DatagramPacket
+    </p>
+    <p>
+• <strong><em>Example</em></strong>        <em>: DatagramServer.java, DatagramClient.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 7
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page8"></a>
+    </p>
+    <p align="center">
+        InetAddress
+    </p>
+    <p>
+        • Java has a class <strong><em>java.net.InetAddress</em></strong> which
+        abstracts network addresses
+    </p>
+    <p>
+        • Major methods
+    </p>
+    <p>
+        – getLocalHost()
+    </p>
+    <p>
+        – getByAddress()
+    </p>
+    <p>
+        – getByName()
+    </p>
+    <p>
+• <strong><em>Example</em></strong>        <em>: HostInfo.java, AddressGenerator.java, Resolver.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By ‐ Rifat Shahriyar 8
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page9"></a>
+    </p>
+    <p align="center">
+        HttpURLConnection
+    </p>
+    <p>
+• Java provides a class        <strong><em>java.net.HttpURLConnection</em></strong> that provides
+        support for HTTP connections
+    </p>
+    <p>
+        • You can obtain HttpURLConnection by calling openConnection( ) on URL
+        object
+    </p>
+    <p>
+        • You must cast the result to HttpURLConnection
+    </p>
+    <p>
+        • You can then read/write from/to the connection
+    </p>
+    <p>
+        • <strong><em>Example</em></strong><em>: TestHttpURL.java</em>
+    </p>
+</div>
+<br clear="all"/>
+<p>
+    Prepared By ‐ Rifat Shahriyar 9
+</p>

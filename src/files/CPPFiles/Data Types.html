@@ -1,0 +1,85 @@
+<header class="entry-header">
+<h1 class="entry-title">C++ Data Types</h1>
+<div class="divclass"><a title="Basic" href="https://www.geeksforgeeks.org/basic/"><span class="articleRating alignright level-1">1.2</span></a></div>
+</header>
+<div class="entry-content">
+<p>All&nbsp;<a href="https://www.geeksforgeeks.org/variables-and-keywords-in-c/">variables</a>&nbsp;use data-type during declaration to restrict the type of data to be stored. Therefore, we can say that data types are used to tell the variables the type of data it can store.<br />Whenever a variable is defined in C++, the compiler allocates some memory for that variable based on the data-type with which it is declared. Every data type requires different amount of memory.</p>
+<p>Data types in C++ is mainly divided into two types:</p>
+<ol>
+<li><strong>Primitive Data Types</strong>: These data types are built-in or predefined data types and can be used directly by the user to declare variables. example: int, char , float, bool etc. Primitive data types available in C++ are:
+<p>&nbsp;</p>
+<ul>
+<li>Integer</li>
+<li>Character</li>
+<li>Boolean</li>
+<li>Floating Point</li>
+<li>Double Floating Point</li>
+<li>Valueless or Void</li>
+<li>Wide Character</li>
+</ul>
+</li>
+<li><strong>Abstract or user defined data type</strong>: These data types are defined by user itself. Like, defining a class in C++ or a structure.</li>
+</ol>
+<p>This article discusses&nbsp;<strong>primitive data types</strong>&nbsp;available in C++.</p>
+<ul>
+<li><strong>Integer</strong>: Keyword used for integer data types is&nbsp;<strong>int</strong>. Integers typically requires 4 bytes of memory space and ranges from -2147483648 to 2147483647.</li>
+<li><strong>Character</strong>: Character data type is used for storing characters. Keyword used for character data type is&nbsp;<strong>char</strong>. Characters typically requires 1 byte of memory space and ranges from -128 to 127 or 0 to 255.</li>
+<li><strong>Boolean</strong>: Boolean data type is used for storing boolean or logical values. A boolean variable can store either&nbsp;<em>true&nbsp;</em>or&nbsp;<em>false</em>. Keyword used for boolean data type is&nbsp;<strong>bool</strong>.</li>
+<li><strong>Floating Point</strong>: Floating Point data type is used for storing single precision floating point values or decimal values. Keyword used for floating point data type is&nbsp;<strong>float</strong>. Float variables typically requires 4 byte of memory space.</li>
+<li><strong>Double Floating Point</strong>: Double Floating Point data type is used for storing double precision floating point values or decimal values. Keyword used for double floating point data type is&nbsp;<strong>double</strong>. Double variables typically requires 8 byte of memory space.</li>
+<li><strong>void</strong>: Void means without any value. void datatype represents a valueless entity. Void data type is used for those function which does not returns a value.</li>
+<li><a href="https://www.geeksforgeeks.org/wide-char-and-library-functions-in-c/"><strong>Wide Character</strong></a>: Wide character data type is also a character data type but this data type has size greater than the normal 8-bit datatype. Represented by&nbsp;<strong>wchar_t</strong>. It is generally 2 or 4 bytes long.</li>
+</ul>
+<p><strong>Datatype Modifiers</strong>: As the name implies, datatype modifiers are used with the built-in data types to modify the length of data that a particular data type can hold. Data type modifiers available in C++ are:</p>
+<ul>
+<li><strong>Signed</strong></li>
+<li><strong>Unsigned</strong></li>
+<li><strong>Short</strong></li>
+<li><strong>Long</strong></li>
+</ul>
+<p>Below table summarizes the modified size and range of built-in datatypes when combined with the type modifiers:<img class="aligncenter size-full wp-image-147106" src="https://www.geeksforgeeks.org/wp-content/uploads/data-type.png" sizes="(max-width: 908px) 100vw, 908px" srcset="https://www.geeksforgeeks.org/wp-content/uploads/data-type.png 908w, https://www.geeksforgeeks.org/wp-content/uploads/data-type-300x232.png 300w, https://www.geeksforgeeks.org/wp-content/uploads/data-type-768x594.png 768w, https://www.geeksforgeeks.org/wp-content/uploads/data-type-660x510.png 660w" alt="data-type" width="908" height="702" /></p>
+<p><strong>Note&nbsp;</strong>: Above values may vary from compiler to compiler. In above example, we have considered GCC 64 bit.</p>
+<p>We can display the size of all the data types by using the size_of() function and passing the keyword of the datatype as argument to this function as shown below:</p>
+<div>
+<div id="highlighter_573050" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to sizes of data types</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of char : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">char</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" byte"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of int : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">int</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of short int : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">short</code> <code class="cpp color1 bold">int</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of long int : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">long</code> <code class="cpp color1 bold">int</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of signed long int : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">signed</code> <code class="cpp color1 bold">long</code> <code class="cpp color1 bold">int</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of unsigned long int : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(unsigned </code><code class="cpp color1 bold">int</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of float : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">float</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt;endl;</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of double : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">double</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Size of wchar_t : "</code> <code class="cpp plain">&lt;&lt; </code><code class="cpp keyword bold">sizeof</code><code class="cpp plain">(</code><code class="cpp color1 bold">wchar_t</code><code class="cpp plain">) &lt;&lt; </code><code class="cpp string">" bytes"</code> <code class="cpp plain">&lt;&lt;endl;</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number18 index17 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Size of char : 1 byte
+Size of int : 4 bytes
+Size of short int : 2 bytes
+Size of long int : 8 bytes
+Size of signed long int : 8 bytes
+Size of unsigned long int : 4 bytes
+Size of float : 4 bytes
+Size of double : 8 bytes
+Size of wchar_t : 4 bytes</pre>
+</div>

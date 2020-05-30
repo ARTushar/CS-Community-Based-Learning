@@ -1,0 +1,145 @@
+<header class="entry-header">
+<h1 class="entry-title">&nbsp;</h1>
+<header class="entry-header">
+<h1 class="entry-title">Functions in C/C++</h1>
+<div class="divclass"><a title="Basic" href="https://www.geeksforgeeks.org/basic/"><span class="articleRating alignright level-1">1.8</span></a></div>
+</header>
+<div class="entry-content">
+<p>A function is a set of statements that take inputs, do some specific computation and produces output.</p>
+<p>The idea is to put some commonly or repeatedly done task together and make a function, so that instead of writing the same code again and again for different inputs, we can call the function.<span id="more-142349"></span></p>
+<p>&nbsp;<br /><strong>Example:&nbsp;</strong><br />Below is a simple C program to demonstrate functions in C.</p>
+<div>
+<div id="highlighter_476700" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2 highlighted"><code class="c comments">// An example function that takes two parameters 'x' and 'y'</code></div>
+<div class="line number4 index3 alt1 highlighted"><code class="c comments">// as input and returns max of two input numbers</code></div>
+<div class="line number5 index4 alt2 highlighted"><code class="c color1 bold">int</code> <code class="c plain">max(</code><code class="c color1 bold">int</code> <code class="c plain">x, </code><code class="c color1 bold">int</code> <code class="c plain">y)</code></div>
+<div class="line number6 index5 alt1 highlighted"><code class="c plain">{</code></div>
+<div class="line number7 index6 alt2 highlighted"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">if</code> <code class="c plain">(x &gt; y)</code></div>
+<div class="line number8 index7 alt1 highlighted"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">x;</code></div>
+<div class="line number9 index8 alt2 highlighted"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">else</code></div>
+<div class="line number10 index9 alt1 highlighted"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">y;</code></div>
+<div class="line number11 index10 alt2 highlighted"><code class="c plain">}</code></div>
+<div class="line number12 index11 alt1">&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="c comments">// main function that doesn't receive any parameter and</code></div>
+<div class="line number14 index13 alt1"><code class="c comments">// returns integer.</code></div>
+<div class="line number15 index14 alt2"><code class="c color1 bold">int</code> <code class="c plain">main(</code><code class="c keyword bold">void</code><code class="c plain">)</code></div>
+<div class="line number16 index15 alt1"><code class="c plain">{</code></div>
+<div class="line number17 index16 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c color1 bold">int</code> <code class="c plain">a = 10, b = 20;</code></div>
+<div class="line number18 index17 alt1">&nbsp;</div>
+<div class="line number19 index18 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c comments">// Calling above function to find max of 'a' and 'b'</code></div>
+<div class="line number20 index19 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c color1 bold">int</code> <code class="c plain">m = max(a, b);</code></div>
+<div class="line number21 index20 alt2">&nbsp;</div>
+<div class="line number22 index21 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c functions bold">printf</code><code class="c plain">(</code><code class="c string">"m is %d"</code><code class="c plain">, m);</code></div>
+<div class="line number23 index22 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">0;</code></div>
+<div class="line number24 index23 alt1"><code class="c plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>m is 20</pre>
+<p>&nbsp;<br /><strong>Function Declaration</strong><br />Function declaration tells compiler about number of parameters function takes, data-types of parameters and return type of function. Putting parameter names in function declaration is optional in function declaration, but it is necessary to put them in definition. Below are example of function declarations. (parameter names are not there in below declarations)</p>
+<div>
+<div id="highlighter_218624" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c comments">// A function that takes two integers as parameters</code></div>
+<div class="line number2 index1 alt1"><code class="c comments">// and returns an integer</code></div>
+<div class="line number3 index2 alt2"><code class="c color1 bold">int</code> <code class="c plain">max(</code><code class="c color1 bold">int</code><code class="c plain">, </code><code class="c color1 bold">int</code><code class="c plain">);</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="c comments">// A function that takes a char and an int as parameters</code></div>
+<div class="line number6 index5 alt1"><code class="c comments">// and returns an integer</code></div>
+<div class="line number7 index6 alt2"><code class="c color1 bold">int</code> <code class="c plain">fun(</code><code class="c color1 bold">char</code><code class="c plain">, </code><code class="c color1 bold">int</code><code class="c plain">);</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>It is always recommended to declare a function before it is used (See&nbsp;<a href="https://www.geeksforgeeks.org/what-is-the-purpose-of-a-function-prototype/">this</a>,&nbsp;<a href="https://www.geeksforgeeks.org/g-fact-95/">this&nbsp;</a>and&nbsp;<a href="https://www.geeksforgeeks.org/importance-of-function-prototype-in-c/">this&nbsp;</a>for details)</p>
+<p>In C, we can do both declaration and definition at same place, like done in above example program.</p>
+<p>C also allows to declare and define functions separately, this is specially needed in case of library functions. The library functions are declared in header files and defined in library files. Below is an example declaration.</p>
+<p>&nbsp;<br /><strong>Parameter Passing to functions</strong><br />The parameters passed to function are called&nbsp;<em><strong>actual parameters</strong></em>. For example, in the above program 10 and 20 are actual parameters.<br />The parameters received by function are called&nbsp;<em><strong>formal parameters</strong></em>. For example, in the above program x and y are formal parameters.<br />There are two most popular ways to pass parameters.</p>
+<p><em><strong>Pass by Value:</strong></em>&nbsp;In this parameter passing method, values of actual parameters are copied to function&rsquo;s formal parameters and the two types of parameters are stored in different memory locations. So any changes made inside functions are not reflected in actual parameters of caller.</p>
+<p><em><strong>Pass by Reference</strong></em>&nbsp;Both actual and formal parameters refer to same locations, so any changes made inside the function are actually reflected in actual parameters of caller.</p>
+<p>In C, parameters are always passed by value. Parameters are always passed by value in C. For example. in the below code, value of y is not modified using the function fun().</p>
+<div>
+<div id="highlighter_674924" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="c keyword bold">void</code> <code class="c plain">fun(</code><code class="c color1 bold">int</code> <code class="c plain">x)</code></div>
+<div class="line number3 index2 alt2"><code class="c plain">{</code></div>
+<div class="line number4 index3 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;</code><code class="c plain">x = 30;</code></div>
+<div class="line number5 index4 alt2"><code class="c plain">}</code></div>
+<div class="line number6 index5 alt1">&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="c color1 bold">int</code> <code class="c plain">main(</code><code class="c keyword bold">void</code><code class="c plain">)</code></div>
+<div class="line number8 index7 alt1"><code class="c plain">{</code></div>
+<div class="line number9 index8 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c color1 bold">int</code> <code class="c plain">x = 20;</code></div>
+<div class="line number10 index9 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c plain">fun(x);</code></div>
+<div class="line number11 index10 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c functions bold">printf</code><code class="c plain">(</code><code class="c string">"x = %d"</code><code class="c plain">, x);</code></div>
+<div class="line number12 index11 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">0;</code></div>
+<div class="line number13 index12 alt2"><code class="c plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>x = 20</pre>
+<p>However, in C, we can use pointers to get the effect of pass by reference. For example, consider the below program. The function fun() expects a pointer ptr to an integer (or an address of an integer). It modifies the value at the address ptr. The dereference operator * is used to access the value at an address. In the statement &lsquo;*ptr = 30&rsquo;, value at address ptr is changed to 30. The address operator &amp; is used to get the address of a variable of any data type. In the function call statement &lsquo;fun(&amp;y)&rsquo;, address of y is passed so that y can be modified using its address.</p>
+<div>
+<div id="highlighter_538723" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c preprocessor"># include &lt;stdio.h&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="c keyword bold">void</code> <code class="c plain">fun(</code><code class="c color1 bold">int</code> <code class="c plain">*ptr)</code></div>
+<div class="line number3 index2 alt2"><code class="c plain">{</code></div>
+<div class="line number4 index3 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c plain">*ptr = 30;</code></div>
+<div class="line number5 index4 alt2"><code class="c plain">}</code></div>
+<div class="line number6 index5 alt1"><code class="c spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="c color1 bold">int</code> <code class="c plain">main()</code></div>
+<div class="line number8 index7 alt1"><code class="c plain">{</code></div>
+<div class="line number9 index8 alt2"><code class="c spaces">&nbsp;&nbsp;</code><code class="c color1 bold">int</code> <code class="c plain">x = 20;</code></div>
+<div class="line number10 index9 alt1"><code class="c spaces">&nbsp;&nbsp;</code><code class="c plain">fun(&amp;x);</code></div>
+<div class="line number11 index10 alt2"><code class="c spaces">&nbsp;&nbsp;</code><code class="c functions bold">printf</code><code class="c plain">(</code><code class="c string">"x = %d"</code><code class="c plain">, x);</code></div>
+<div class="line number12 index11 alt1"><code class="c spaces">&nbsp;</code>&nbsp;</div>
+<div class="line number13 index12 alt2"><code class="c spaces">&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">0;</code></div>
+<div class="line number14 index13 alt1"><code class="c plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>x = 30</pre>
+<p>&nbsp;<br /><strong>Following are some important points about functions in C.</strong><br /><strong>1)&nbsp;</strong>Every C program has a function called main() that is called by operating system when a user runs the program.</p>
+<p><strong>2)</strong>&nbsp;Every function has a return type. If a function doesn&rsquo;t return any value, then void is used as return type.</p>
+<p><strong>3)</strong>&nbsp;In C, functions can return any type except arrays and functions. We can get around this limitation by returning pointer to array or pointer to function.</p>
+<p><strong>4)</strong>&nbsp;Empty parameter list in C mean that the parameter list is not specified and function can be called with any parameters. In C, it is not a good idea to declare a function like fun(). To declare a function that can only be called without any parameter, we should use &ldquo;void fun(void)&rdquo;.<br />As a side note, in C++, empty list means function can only be called without any parameter. In C++, both void fun() and void fun(void) are same</p>
+</div>
+</header>

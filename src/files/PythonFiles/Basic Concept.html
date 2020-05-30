@@ -1,0 +1,293 @@
+<header class="entry-header">
+<h1 class="entry-title">Python 3 basics</h1>
+<div class="divclass"><a title="Easy" href="https://www.geeksforgeeks.org/easy/"><span class="articleRating alignright level-2">2</span></a></div>
+</header>
+<div class="entry-content">
+<p>Python was developed y Guido van Rossum in early 1990&rsquo;s and its latest version is 3.6, we can simply call it as Python3. Python 3.0 was released in 2008. and is interpreted language i.e its not compiled and the interpreter will check the code line by line. This article can used to learn very basics of Python programming language.</p>
+<p>So before moving on further..lets do the most popular &lsquo;HelloWorld&rsquo; radition&nbsp;&nbsp;and hence compare Python&rsquo;s Syntax with C, C++, Java ( I have taken these 3 because they are most famous and mostly used languages).</p>
+<div class="responsive-tabs-wrapper">
+<div class="responsive-tabs responsive-tabs--enabled">
+<ul class="responsive-tabs__list" role="tablist">
+<li id="tablist1-tab1" class="responsive-tabs__list__item responsive-tabs__list__item--active" tabindex="0" role="tab" aria-controls="tablist1-panel1">C</li>
+<li id="tablist1-tab2" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel2">C++</li>
+<li id="tablist1-tab3" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel3">Java</li>
+<li id="tablist1-tab4" class="responsive-tabs__list__item" tabindex="0" role="tab" aria-controls="tablist1-panel4">Python</li>
+</ul>
+<div id="tablist1-panel1" class="tabcontent responsive-tabs__panel responsive-tabs__panel--active" role="tabpanel" aria-hidden="false" aria-labelledby="tablist1-tab1">
+<div>
+<div id="highlighter_711194" class="syntaxhighlighter nogutter  c">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="c comments">// C code for "Hello World"</code></div>
+<div class="line number2 index1 alt1"><code class="c preprocessor">#include &lt;stdio.h&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="c color1 bold">int</code> <code class="c plain">main()</code></div>
+<div class="line number4 index3 alt1"><code class="c plain">{</code></div>
+<div class="line number5 index4 alt2"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c functions bold">printf</code><code class="c plain">(</code><code class="c string">"Hello World"</code><code class="c plain">);</code></div>
+<div class="line number6 index5 alt1"><code class="c spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="c keyword bold">return</code> <code class="c plain">0;</code></div>
+<div class="line number7 index6 alt2"><code class="c plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+</div>
+</div>
+</div>
+<br /><strong>Note:&nbsp;</strong>Please note that Python for its scope doesn&rsquo;t depend on the braces ( { } ), instead it uses indentation for its scope.<br />Now moving on further&nbsp;<strong>Lets start our basics of Python&nbsp;</strong>. I will be covering the basics in some small sections. Just go through them and trust me you&rsquo;ll learn the basics of Python very easily.
+<p>&nbsp;</p>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/python-language-introduction/">Introduction and Setup</a></strong></p>
+<ol>
+<ol>
+<li>If you are on&nbsp;<strong>Windows OS</strong>&nbsp;download Python by&nbsp;<a href="https://www.python.org/downloads/windows/">Clicking here</a>&nbsp;and now install from the setup and in the start menu type IDLE.IDLE, you can think it as an Python&rsquo;s IDE to run the Python Scripts.
+<p>It will look somehow this :<br /><img class="alignnone size-full wp-image-206067" src="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/python-shell.png" alt="" /></p>
+</li>
+<li>If you are on&nbsp;<strong>Linux/Unix-like&nbsp;</strong>just open the terminal and on 99% linux OS Python comes preinstalled with the OS.Just type &lsquo;python3&rsquo; in terminal and you are ready to go.<br />It will look like this :<br /><img class="alignnone size-full wp-image-206073" src="http://cdncontribute.geeksforgeeks.org/wp-content/uploads/Screenshot-from-2017-07-20-18-47-54.png" alt="" /></li>
+</ol>
+</ol>
+<blockquote>
+<p>The &rdquo; &gt;&gt;&gt; &rdquo; represents the python shell and its ready to take python commands and code.</p>
+</blockquote>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/python-set-2-variables-expressions-conditions-and-functions/">Variables and Data Structures</a></strong></p>
+<p>In other programming languages like C, C++ and Java, you will need to declare the type of variables but in Python you don&rsquo;t need to do that. Just type in the variable and when values will be given to it, then it will automatically know whether the value given would be a int, float or char or even a String.</p>
+<div>
+<div id="highlighter_145709" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to declare variables</code></div>
+<div class="line number2 index1 alt1"><code class="python plain">myNumber </code><code class="python keyword">=</code> <code class="python value">3</code></div>
+<div class="line number3 index2 alt2"><code class="python functions">print</code><code class="python plain">(myNumber)</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="python plain">myNumber2 </code><code class="python keyword">=</code> <code class="python value">4.5</code></div>
+<div class="line number6 index5 alt1"><code class="python functions">print</code><code class="python plain">(myNumber2)</code></div>
+<div class="line number7 index6 alt2">&nbsp;</div>
+<div class="line number8 index7 alt1"><code class="python plain">myNumber </code><code class="python keyword">=</code><code class="python string">"helloworld"</code></div>
+<div class="line number9 index8 alt2"><code class="python functions">print</code><code class="python plain">(myNumber)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>3
+4.5
+helloworld
+</pre>
+<p>See, how simple is it, just create a variable and assign it any value you want and then use the print function to print it. Python have 4 types of built in Data Structures namely&nbsp;<a href="https://www.geeksforgeeks.org/python-set-3-strings-lists-tuples-iterations/">List</a>,&nbsp;<a href="https://www.geeksforgeeks.org/python-set-4-dictionary-keywords-python/">Dictionary</a>,<a href="https://www.geeksforgeeks.org/python-set-3-strings-lists-tuples-iterations/">Tuple</a>&nbsp;and Set.</p>
+<p><strong>List</strong>&nbsp;is the most basic Data Structure in python. List is mutable data structure i.e items can be added to list later after the list creation. Its like you are going to shop at local market and made a list of some items and later on you can add more and more items to the list.<br />append() function is used to add data to the list.</p>
+<div>
+<div id="highlighter_957838" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate list </code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="python comments"># creates a empty list</code></div>
+<div class="line number4 index3 alt1"><code class="python plain">nums </code><code class="python keyword">=</code> <code class="python plain">[] </code></div>
+<div class="line number5 index4 alt2">&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="python comments"># appending data in list</code></div>
+<div class="line number7 index6 alt2"><code class="python plain">nums.append(</code><code class="python value">21</code><code class="python plain">)</code></div>
+<div class="line number8 index7 alt1"><code class="python plain">nums.append(</code><code class="python value">40.5</code><code class="python plain">)</code></div>
+<div class="line number9 index8 alt2"><code class="python plain">nums.append(</code><code class="python string">"String"</code><code class="python plain">)</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="python functions">print</code><code class="python plain">(nums)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>[21, 40.5, String]</pre>
+<p><strong>Comments:</strong></p>
+<pre># is used for single line comment in Python
+""" this is a comment """ is used for multi line comments</pre>
+<p align="center"><strong>Input and Output</strong></p>
+<p>In this section, we will learn how to take input from the user and hence manipulate it or simply display it. input() function is used to take input from the user.</p>
+<div>
+<div id="highlighter_518704" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate</code></div>
+<div class="line number2 index1 alt1"><code class="python comments"># getting input from user</code></div>
+<div class="line number3 index2 alt2"><code class="python plain">name </code><code class="python keyword">=</code> <code class="python functions">input</code><code class="python plain">(</code><code class="python string">"Enter your name: "</code><code class="python plain">)</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="python comments"># user entered the name 'harssh'</code></div>
+<div class="line number6 index5 alt1"><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"hello"</code><code class="python plain">, name)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>hello harssh   </pre>
+<div>
+<div id="highlighter_53891" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python3 program to get input from user</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="python comments"># accepting integer from the user</code></div>
+<div class="line number4 index3 alt1"><code class="python plain">num1 </code><code class="python keyword">=</code> <code class="python functions">int</code><code class="python plain">(</code><code class="python functions">input</code><code class="python plain">(</code><code class="python string">"Enter num1: "</code><code class="python plain">)) </code></div>
+<div class="line number5 index4 alt2"><code class="python plain">num2 </code><code class="python keyword">=</code> <code class="python functions">int</code><code class="python plain">(</code><code class="python functions">input</code><code class="python plain">(</code><code class="python string">"Enter num2: "</code><code class="python plain">))</code></div>
+<div class="line number6 index5 alt1">&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="python plain">num3 </code><code class="python keyword">=</code> <code class="python plain">num1 </code><code class="python keyword">*</code> <code class="python plain">num2</code></div>
+<div class="line number8 index7 alt1"><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"Product is: "</code><code class="python plain">, num3)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Enter num1: 8 Enter num2: 6 ('Product is: ', 14)
+</pre>
+<p align="center"><strong>Selection</strong></p>
+<p>Selection in Python is made using the two keywords &lsquo;if&rsquo; and &lsquo;elif&rsquo; and else (elseif)</p>
+<div>
+<div id="highlighter_155204" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate</code></div>
+<div class="line number2 index1 alt1"><code class="python comments"># selection statement</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="python plain">num1 </code><code class="python keyword">=</code> <code class="python value">34</code></div>
+<div class="line number5 index4 alt2"><code class="python keyword">if</code><code class="python plain">(num1&gt;</code><code class="python value">12</code><code class="python plain">):</code></div>
+<div class="line number6 index5 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"Num1 is good"</code><code class="python plain">)</code></div>
+<div class="line number7 index6 alt2"><code class="python keyword">elif</code><code class="python plain">(num1&gt;</code><code class="python value">35</code><code class="python plain">):</code></div>
+<div class="line number8 index7 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"Num2 is not gooooo...."</code><code class="python plain">)</code></div>
+<div class="line number9 index8 alt2"><code class="python keyword">else</code><code class="python plain">:</code></div>
+<div class="line number10 index9 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"Num2 is great"</code><code class="python plain">)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Num1 is good</pre>
+<p align="center"><strong>Functions</strong></p>
+<p>You can think of functions like a bunch of code that is intended to do a particular task in the whole Python script. Python used the keyword &lsquo;def&rsquo; to define a function.<br /><strong>Syntax:</strong></p>
+<pre>def function-name(arguments):
+            #function body</pre>
+<div>
+<div id="highlighter_591624" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate</code></div>
+<div class="line number2 index1 alt1"><code class="python comments"># functions</code></div>
+<div class="line number3 index2 alt2"><code class="python keyword">def</code> <code class="python plain">hello():</code></div>
+<div class="line number4 index3 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"hello"</code><code class="python plain">)</code></div>
+<div class="line number5 index4 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"hello again"</code><code class="python plain">)</code></div>
+<div class="line number6 index5 alt1"><code class="python plain">hello()</code></div>
+<div class="line number7 index6 alt2">&nbsp;</div>
+<div class="line number8 index7 alt1"><code class="python comments"># calling function</code></div>
+<div class="line number9 index8 alt2"><code class="python plain">hello()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>hello
+hello again
+hello
+hello again
+</pre>
+<p>Now as we know any program starts from a &lsquo;main&rsquo; function&hellip;lets create a main function like in many other programming languages.</p>
+<div>
+<div id="highlighter_945275" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate </code></div>
+<div class="line number2 index1 alt1"><code class="python comments"># function with main</code></div>
+<div class="line number3 index2 alt2"><code class="python keyword">def</code> <code class="python plain">getInteger():</code></div>
+<div class="line number4 index3 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">result </code><code class="python keyword">=</code> <code class="python functions">int</code><code class="python plain">(</code><code class="python functions">input</code><code class="python plain">(</code><code class="python string">"Enter integer: "</code><code class="python plain">))</code></div>
+<div class="line number5 index4 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python keyword">return</code> <code class="python plain">result</code></div>
+<div class="line number6 index5 alt1">&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="python keyword">def</code> <code class="python plain">Main():</code></div>
+<div class="line number8 index7 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(</code><code class="python string">"Started"</code><code class="python plain">)</code></div>
+<div class="line number9 index8 alt2"><code class="python comments"># calling the getInteger function and </code></div>
+<div class="line number10 index9 alt1"><code class="python comments"># storing its returned value in the output variable</code></div>
+<div class="line number11 index10 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">output </code><code class="python keyword">=</code> <code class="python plain">getInteger()&nbsp;&nbsp;&nbsp; </code></div>
+<div class="line number12 index11 alt1"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(output)</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="python comments"># now we are required to tell Python </code></div>
+<div class="line number15 index14 alt2"><code class="python comments"># for 'Main' function existence</code></div>
+<div class="line number16 index15 alt1"><code class="python keyword">if</code> <code class="python plain">__name__</code><code class="python keyword">=</code><code class="python keyword">=</code><code class="python string">"__main__"</code><code class="python plain">:</code></div>
+<div class="line number17 index16 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python plain">Main()</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Started
+Enter integer: 5
+</pre>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/loops-and-loop-control-statements-continue-break-and-pass-in-python/">Iteration (Looping)</a></strong></p>
+<p>As the name suggests it calls repeating things again and again. We will use the most popular &lsquo;for&rsquo; loop here.</p>
+<div>
+<div id="highlighter_500320" class="syntaxhighlighter nogutter  python">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="python comments"># Python program to illustrate</code></div>
+<div class="line number2 index1 alt1"><code class="python comments"># a simple for loop</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="python keyword">for</code> <code class="python plain">step </code><code class="python keyword">in</code> <code class="python functions">range</code><code class="python plain">(</code><code class="python value">5</code><code class="python plain">):&nbsp;&nbsp; </code></div>
+<div class="line number5 index4 alt2"><code class="python spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="python functions">print</code><code class="python plain">(step)</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>0
+1
+2
+3
+4
+</pre>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/python/#Modules in Python">Modules</a></strong></p>
+<p>Python has a very rich module library that has several functions to do many tasks. You can read more about Python&rsquo;s standard library by&nbsp;<a href="https://www.geeksforgeeks.org/python/#Modules in Python">Clicking here</a></p>
+</div>

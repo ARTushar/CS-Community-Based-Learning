@@ -1,0 +1,323 @@
+<p>
+    An interface is a reference type in Java. It is similar to class. It is a
+    collection of abstract methods. A class implements an interface, thereby
+    inheriting the abstract methods of the interface.
+</p>
+<p>
+    Along with abstract methods, an interface may also contain constants,
+    default methods, static methods, and nested types. Method bodies exist only
+    for default methods and static methods.
+</p>
+<p>
+    Writing an interface is similar to writing a class. But a class describes
+    the attributes and behaviors of an object. And an interface contains
+    behaviors that a class implements.
+</p>
+<p>
+    Unless the class that implements the interface is abstract, all the methods
+    of the interface need to be defined in the class.
+</p>
+<p>
+    An interface is similar to a class in the following ways −
+</p>
+<ul>
+    <li>
+        <p>
+            An interface can contain any number of methods.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface is written in a file with a .java extension, with the
+            name of the interface matching the name of the file.
+        </p>
+    </li>
+    <li>
+        <p>
+            The byte code of an interface appears in a .class file.
+        </p>
+    </li>
+    <li>
+        <p>
+            Interfaces appear in packages, and their corresponding bytecode
+            file must be in a directory structure that matches the package
+            name.
+        </p>
+    </li>
+</ul>
+<p>
+    However, an interface is different from a class in several ways, including
+    −
+</p>
+<ul>
+    <li>
+        <p>
+            You cannot instantiate an interface.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface does not contain any constructors.
+        </p>
+    </li>
+    <li>
+        <p>
+            All of the methods in an interface are abstract.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface cannot contain instance fields. The only fields that
+            can appear in an interface must be declared both static and final.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface is not extended by a class; it is implemented by a
+            class.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface can extend multiple interfaces.
+        </p>
+    </li>
+</ul>
+<h2>
+    Declaring Interfaces
+</h2>
+<p>
+    The interface keyword is used to declare an interface. Here is a simple
+    example to declare an interface −
+</p>
+<h3>
+    Example
+</h3>
+<p>
+    Following is an example of an interface −
+</p>
+<pre>/* File name : NameOfInterface.java */
+import java.lang.*;
+// Any number of import statements
+
+public interface NameOfInterface {
+   // Any number of final, static fields
+   // Any number of abstract method declarations\
+}</pre>
+<p>
+    Interfaces have the following properties −
+</p>
+<ul>
+    <li>
+        <p>
+            An interface is implicitly abstract. You do not need to use the
+            abstractkeyword while declaring an interface.
+        </p>
+    </li>
+    <li>
+        <p>
+            Each method in an interface is also implicitly abstract, so the
+            abstract keyword is not needed.
+        </p>
+    </li>
+    <li>
+        <p>
+            Methods in an interface are implicitly public.
+        </p>
+    </li>
+</ul>
+<h3>
+    Example
+</h3>
+<pre>/* File name : Animal.java */
+interface Animal {
+   public void eat();
+   public void travel();
+}</pre>
+<h2>
+    Implementing Interfaces
+</h2>
+<p>
+    When a class implements an interface, you can think of the class as signing
+    a contract, agreeing to perform the specific behaviors of the interface. If
+    a class does not perform all the behaviors of the interface, the class must
+    declare itself as abstract.
+</p>
+<p>
+    A class uses the implements keyword to implement an interface. The
+    implements keyword appears in the class declaration following the extends
+    portion of the declaration.
+</p>
+<h3>
+    Example
+</h3>
+<pre>/* File name : MammalInt.java */
+public class MammalInt implements Animal {
+
+   public void eat() {
+      System.out.println("Mammal eats");
+   }
+
+   public void travel() {
+      System.out.println("Mammal travels");
+   } 
+
+   public int noOfLegs() {
+      return 0;
+   }
+
+   public static void main(String args[]) {
+      MammalInt m = new MammalInt();
+      m.eat();
+      m.travel();
+   }
+} </pre>
+<p>
+    This will produce the following result −
+</p>
+<h3>
+    Output
+</h3>
+<pre>Mammal eats
+Mammal travels
+</pre>
+<p>
+    When overriding methods defined in interfaces, there are several rules to
+    be followed −
+</p>
+<ul>
+    <li>
+        <p>
+            Checked exceptions should not be declared on implementation methods
+            other than the ones declared by the interface method or subclasses
+            of those declared by the interface method.
+        </p>
+    </li>
+    <li>
+        <p>
+            The signature of the interface method and the same return type or
+            subtype should be maintained when overriding the methods.
+        </p>
+    </li>
+    <li>
+        <p>
+            An implementation class itself can be abstract and if so, interface
+            methods need not be implemented.
+        </p>
+    </li>
+</ul>
+<p>
+    When implementation interfaces, there are several rules −
+</p>
+<ul>
+    <li>
+        <p>
+            A class can implement more than one interface at a time.
+        </p>
+    </li>
+    <li>
+        <p>
+            A class can extend only one class, but implement many interfaces.
+        </p>
+    </li>
+    <li>
+        <p>
+            An interface can extend another interface, in a similar way as a
+            class can extend another class.
+        </p>
+    </li>
+</ul>
+<h2>
+    Extending Interfaces
+</h2>
+<p>
+    An interface can extend another interface in the same way that a class can
+    extend another class. The extends keyword is used to extend an interface,
+    and the child interface inherits the methods of the parent interface.
+</p>
+<p>
+    The following Sports interface is extended by Hockey and Football
+    interfaces.
+</p>
+<h3>
+    Example
+</h3>
+<pre>// Filename: Sports.java
+public interface Sports {
+   public void setHomeTeam(String name);
+   public void setVisitingTeam(String name);
+}
+
+// Filename: Football.java
+public interface Football extends Sports {
+   public void homeTeamScored(int points);
+   public void visitingTeamScored(int points);
+   public void endOfQuarter(int quarter);
+}
+
+// Filename: Hockey.java
+public interface Hockey extends Sports {
+   public void homeGoalScored();
+   public void visitingGoalScored();
+   public void endOfPeriod(int period);
+   public void overtimePeriod(int ot);
+}</pre>
+<p>
+    The Hockey interface has four methods, but it inherits two from Sports;
+    thus, a class that implements Hockey needs to implement all six methods.
+    Similarly, a class that implements Football needs to define the three
+    methods from Football and the two methods from Sports.
+</p>
+<h2>
+    Extending Multiple Interfaces
+</h2>
+<p>
+    A Java class can only extend one parent class. Multiple inheritance is not
+    allowed. Interfaces are not classes, however, and an interface can extend
+    more than one parent interface.
+</p>
+<p>
+    The extends keyword is used once, and the parent interfaces are declared in
+    a comma-separated list.
+</p>
+<p>
+    For example, if the Hockey interface extended both Sports and Event, it
+    would be declared as −
+</p>
+<h3>
+    Example
+</h3>
+<pre>public interface Hockey extends Sports, Event</pre>
+<h2>
+    Tagging Interfaces
+</h2>
+<p>
+    The most common use of extending interfaces occurs when the parent
+    interface does not contain any methods. For example, the MouseListener
+    interface in the java.awt.event package extended java.util.EventListener,
+    which is defined as −
+</p>
+<h3>
+    Example
+</h3>
+<pre>package java.util;
+public interface EventListener
+{}</pre>
+<p>
+    An interface with no methods in it is referred to as a tagging interface.
+    There are two basic design purposes of tagging interfaces −
+</p>
+<p>
+    Creates a common parent − As with the EventListener interface, which is
+    extended by dozens of other interfaces in the Java API, you can use a
+    tagging interface to create a common parent among a group of interfaces.
+    For example, when an interface extends EventListener, the JVM knows that
+    this particular interface is going to be used in an event delegation
+    scenario.
+</p>
+<p>
+    Adds a data type to a class − This situation is where the term, tagging
+    comes from. A class that implements a tagging interface does not need to
+    define any methods (since the interface does not have any), but the class
+    becomes an interface type through polymorphism.
+</p>

@@ -1,0 +1,261 @@
+<header>
+<h1>&nbsp;</h1>
+<header class="entry-header">
+<h1 class="entry-title">C++ Classes and Objects</h1>
+<div class="divclass"><a title="Easy" href="https://www.geeksforgeeks.org/easy/"><span class="articleRating alignright level-2">2.5</span></a></div>
+</header>
+<div class="entry-content">
+<p><strong>Class:</strong>&nbsp;The building block of C++ that leads to Object Oriented programming is a&nbsp;<strong>Class</strong>. It is a user defined data type, which holds its own data members and member functions, which can be accessed and used by creating an instance of that class. A class is like a blueprint for an object.<br />For Example: Consider the Class of&nbsp;<strong>Cars</strong>. There may be many cars with different names and brand but all of them will share some common properties like all of them will have&nbsp;<em>4 wheels</em>,&nbsp;<em>Speed Limit</em>,&nbsp;<em>Mileage range</em>&nbsp;etc. So here, Car is the class and wheels, speed limits, mileage are their properties.</p>
+<ul>
+<li>A Class is a user defined data-type which have data members and member functions.</li>
+<li>Data members are the data variables and member functions are the functions used to manipulate these variables and together these data members and member functions defines the properties and behavior of the objects in a Class.</li>
+<li>In the above example of class&nbsp;<em>Car</em>, the data member will be&nbsp;<em>speed limit</em>,&nbsp;<em>mileage</em>&nbsp;etc and member functions can be&nbsp;<em>apply brakes</em>,&nbsp;<em>increase speed</em>&nbsp;etc.</li>
+</ul>
+<p>An&nbsp;<strong>Object</strong>&nbsp;is an instance of a Class. When a class is defined, no memory is allocated but when it is instantiated (i.e. an object is created) memory is allocated.</p>
+<p align="center"><strong>Defining Class and Declaring Objects</strong></p>
+<p>A class is defined in C++ using keyword class followed by the name of class. The body of class is defined inside the curly brackets and terminated by a semicolon at the end.<img class="aligncenter size-full wp-image-140280" src="https://www.geeksforgeeks.org/wp-content/uploads/Classes-and-Objects-in-C.png" alt="classes-and-objects-in-c" width="670" height="312" /></p>
+<p><strong>Declaring Objects:</strong>&nbsp;When a class is defined, only the specification for the object is defined; no memory or storage is allocated. To use the data and access functions defined in the class, you need to create objects.</p>
+<p><strong>Syntax:</strong></p>
+<pre><strong>ClassName ObjectName;</strong></pre>
+<p><strong>Accessing data members and member functions</strong>: The data members and member functions of class can be accessed using the dot(&lsquo;.&rsquo;) operator with the object. For example if the name of object is&nbsp;<em>obj</em>&nbsp;and you want to access the member function with the name&nbsp;<em>printName()</em>&nbsp;then you will have to write&nbsp;<em>obj.printName()</em>&nbsp;.</p>
+<p align="center"><strong>Accessing Data Members</strong></p>
+<p>The public data members are also accessed in the same way given however the private data members are not allowed to be accessed directly by the object. Accessing a data member depends solely on the access control of that data member.<br />This access control is given by&nbsp;<a href="https://www.geeksforgeeks.org/access-modifiers-in-c/">Access modifiers in C++</a>. There are three access modifiers :&nbsp;<strong>public, private and protected</strong>.</p>
+<div>
+<div id="highlighter_672726" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to demonstrate </code></div>
+<div class="line number2 index1 alt1"><code class="cpp comments">// accessing of data members </code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="cpp preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number6 index5 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">Geeks</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// Access specifier</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// Data Members</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">string geekname;</code></div>
+<div class="line number13 index12 alt2">&nbsp;</div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// Member Functions()</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">printname()</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Geekname is: "</code> <code class="cpp plain">&lt;&lt; geekname;</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number19 index18 alt2"><code class="cpp plain">};</code></div>
+<div class="line number20 index19 alt1">&nbsp;</div>
+<div class="line number21 index20 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main() {</code></div>
+<div class="line number22 index21 alt1">&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// Declare an object of class geeks</code></div>
+<div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj1;</code></div>
+<div class="line number25 index24 alt2">&nbsp;</div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// accessing data member</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.geekname = </code><code class="cpp string">"Abhi"</code><code class="cpp plain">;</code></div>
+<div class="line number28 index27 alt1">&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// accessing member function</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.printname();</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number32 index31 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Geekname is: Abhi
+</pre>
+<p align="center"><strong>Member Functions in Classes</strong></p>
+<p>There are 2 ways to define a member function:</p>
+<ul>
+<li>Inside class definition</li>
+<li>Outside class definition</li>
+</ul>
+<p>To define a member function outside the class definition we have to use the scope resolution :: operator along with class name and function name.</p>
+<div>
+<div id="highlighter_937608" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to demonstrate function </code></div>
+<div class="line number2 index1 alt1"><code class="cpp comments">// declaration outside class</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="cpp preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number6 index5 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">Geeks</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">string geekname;</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">id;</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// printname is not defined inside class defination</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">printname();</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// printid is defined inside class defination</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">printid()</code></div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Geek id is: "</code> <code class="cpp plain">&lt;&lt; id;</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number20 index19 alt1"><code class="cpp plain">};</code></div>
+<div class="line number21 index20 alt2">&nbsp;</div>
+<div class="line number22 index21 alt1"><code class="cpp comments">// Definition of printname using scope resolution operator ::</code></div>
+<div class="line number23 index22 alt2"><code class="cpp keyword bold">void</code> <code class="cpp plain">Geeks::printname()</code></div>
+<div class="line number24 index23 alt1"><code class="cpp plain">{</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Geekname is: "</code> <code class="cpp plain">&lt;&lt; geekname; </code></div>
+<div class="line number26 index25 alt1"><code class="cpp plain">}</code></div>
+<div class="line number27 index26 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main() {</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj1;</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.geekname = </code><code class="cpp string">"xyz"</code><code class="cpp plain">;</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.id=15;</code></div>
+<div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// call printname()</code></div>
+<div class="line number34 index33 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.printname();</code></div>
+<div class="line number35 index34 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; endl;</code></div>
+<div class="line number36 index35 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number37 index36 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// call printid()</code></div>
+<div class="line number38 index37 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.printid();</code></div>
+<div class="line number39 index38 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number40 index39 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Geekname is: xyz
+Geek id is: 15
+</pre>
+<p>Note that all the member functions defined inside the class definition are by default&nbsp;<strong>inline</strong>, but you can also make any non-class function inline by using keyword inline with them. Inline functions are actual functions, which are copied everywhere during compilation, like pre-processor macro, so the overhead of function calling is reduced.</p>
+<p>Note: Declaring a<a href="http://quiz.geeksforgeeks.org/friend-class-function-cpp/">&nbsp;friend function&nbsp;</a>is a way to give private access to a non-member function.</p>
+<p><strong><a href="https://www.geeksforgeeks.org/constructors-c/">Constructors</a></strong></p>
+<p>Constructors are special class members which are called by the compiler every time an object of that class is instantiated. Constructors have the same name as the class and may be defined inside or outside the class definition.<br />There are 3 types of constructors:</p>
+<ul>
+<li><a href="http://quiz.geeksforgeeks.org/constructors-c/">Default constructors</a></li>
+<li>Parametrized constructors</li>
+<li><a href="http://quiz.geeksforgeeks.org/copy-constructor-in-cpp/">Copy constructors</a></li>
+</ul>
+<div>
+<div id="highlighter_216257" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to demonstrate constructors</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="cpp preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Geeks</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">id;</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//Default Constructor</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks()</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Default Constructor called"</code> <code class="cpp plain">&lt;&lt; endl; </code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">id=-1;</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//Parametrized Constructor</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x)</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Parametrized Constructor called"</code> <code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">id=x;</code></div>
+<div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number23 index22 alt2"><code class="cpp plain">};</code></div>
+<div class="line number24 index23 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main() {</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// obj1 will call Default Constructor</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj1;</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Geek id is: "</code> <code class="cpp plain">&lt;&lt;obj1.id &lt;&lt; endl;</code></div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// obj1 will call Parametrized Constructor</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj2(21);</code></div>
+<div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Geek id is: "</code> <code class="cpp plain">&lt;&lt;obj2.id &lt;&lt; endl;</code></div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number34 index33 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Default Constructor called
+Geek id is: -1
+Parametrized Constructor called
+Geek id is: 21
+</pre>
+<p>A&nbsp;<strong>Copy Constructor</strong>&nbsp;creates a new object, which is exact copy of the existing copy. The compiler provides a default Copy Constructor to all the classes.<br />Syntax:</p>
+<pre>class-name (class-name &amp;){}
+</pre>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/destructors-c/">Destructors</a></strong></p>
+<p>Destructor is another special member function that is called by the compiler when the scope of the object ends.</p>
+<div>
+<div id="highlighter_383454" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// C++ program to explain destructors</code></div>
+<div class="line number2 index1 alt1">&nbsp;</div>
+<div class="line number3 index2 alt2"><code class="cpp preprocessor">#include &lt;bits/stdc++.h&gt;</code></div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Geeks</code></div>
+<div class="line number6 index5 alt1"><code class="cpp plain">{</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">id;</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">//Definition for Destructor</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">~Geeks()</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Destructor called for id: "</code> <code class="cpp plain">&lt;&lt; id &lt;&lt;endl; </code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number15 index14 alt2"><code class="cpp plain">};</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main() </code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj1;</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj1.id=7;</code></div>
+<div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i = 0;</code></div>
+<div class="line number23 index22 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">while</code> <code class="cpp plain">( i &lt; 5 )</code></div>
+<div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Geeks obj2;</code></div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">obj2.id=i;</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">i++;</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">} </code><code class="cpp comments">// Scope for obj2 ends here</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">scope</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">} </code><code class="cpp comments">// Scope for obj1 ends here</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Destructor called for id: 0
+Destructor called for id: 1
+Destructor called for id: 2
+Destructor called for id: 3
+Destructor called for id: 4
+Destructor called for id: 7
+</pre>
+<p><a href="https://www.geeksforgeeks.org/pure-virtual-destructor-c/">Pure Virtual Destructor</a></p>
+</div>
+</header>

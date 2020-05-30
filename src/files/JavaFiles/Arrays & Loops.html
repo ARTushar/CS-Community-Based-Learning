@@ -1,0 +1,317 @@
+<h1 class="h1">Java Array</h1>
+<p>Normally, array is a collection of similar type of elements that have contiguous memory location.</p>
+<p><strong>Java array</strong>&nbsp;is an object the contains elements of similar data type. It is a data structure where we store similar elements. We can store only fixed set of elements in a java array.</p>
+<p>Array in java is index based, first element of the array is stored at 0 index.</p>
+<p><img src="https://www.javatpoint.com/images/core/array.gif" alt="java array" /></p>
+<h3 class="h3">Advantage of Java Array</h3>
+<ul>
+<li><strong>Code Optimization:</strong>&nbsp;It makes the code optimized, we can retrieve or sort the data easily.</li>
+<li><strong>Random access:</strong>&nbsp;We can get any data located at any index position.</li>
+</ul>
+<hr />
+<h3 class="h3">Disadvantage of Java Array</h3>
+<ul>
+<li><strong>Size Limit:</strong>&nbsp;We can store only fixed size of elements in the array. It doesn't grow its size at runtime. To solve this problem, collection framework is used in java.</li>
+</ul>
+<hr />
+<h3 class="h2">Types of Array in java</h3>
+<p>There are two types of array.</p>
+<ul>
+<li>Single Dimensional Array</li>
+<li>Multidimensional Array</li>
+</ul>
+<hr />
+<h3 class="h2">Single Dimensional Array in java</h3>
+<h3 class="h3">Syntax to Declare an Array in java</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt">dataType[]&nbsp;arr;&nbsp;(or)&nbsp;&nbsp;</li>
+<li class="">dataType&nbsp;[]arr;&nbsp;(or)&nbsp;&nbsp;</li>
+<li class="alt">dataType&nbsp;arr[];&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Instantiation of an Array in java</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt">arrayRefVar=<span class="keyword">new</span>&nbsp;datatype[size];&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3ex">Example of single dimensional java array</h3>
+<p>Let's see the simple example of java array, where we are going to declare, instantiate, initialize and traverse an array.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;a[]=<span class="keyword">new</span>&nbsp;<span class="keyword">int</span>[<span class="number">5</span>];<span class="comment">//declaration&nbsp;and&nbsp;instantiation</span>&nbsp;&nbsp;</li>
+<li class="alt">a[<span class="number">0</span>]=<span class="number">10</span>;<span class="comment">//initialization</span>&nbsp;&nbsp;</li>
+<li class="">a[<span class="number">1</span>]=<span class="number">20</span>;&nbsp;&nbsp;</li>
+<li class="alt">a[<span class="number">2</span>]=<span class="number">70</span>;&nbsp;&nbsp;</li>
+<li class="">a[<span class="number">3</span>]=<span class="number">40</span>;&nbsp;&nbsp;</li>
+<li class="alt">a[<span class="number">4</span>]=<span class="number">50</span>;&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//printing&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;i=<span class="number">0</span>;i&lt;a.length;i++)<span class="comment">//length&nbsp;is&nbsp;the&nbsp;property&nbsp;of&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class="alt">System.out.println(a[i]);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output: 10
+       20
+       70
+       40
+       50
+      
+</pre>
+</div>
+<hr />
+<h2 class="h2">Declaration, Instantiation and Initialization of Java Array</h2>
+<p>We can declare, instantiate and initialize the java array together by:</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">int</span>&nbsp;a[]={<span class="number">33</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};<span class="comment">//declaration,&nbsp;instantiation&nbsp;and&nbsp;initialization</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p>Let's see the simple example to print this array.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray1{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;a[]={<span class="number">33</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};<span class="comment">//declaration,&nbsp;instantiation&nbsp;and&nbsp;initialization</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//printing&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;i=<span class="number">0</span>;i&lt;a.length;i++)<span class="comment">//length&nbsp;is&nbsp;the&nbsp;property&nbsp;of&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class="">System.out.println(a[i]);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray1" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:33
+       3
+       4
+       5
+   
+</pre>
+</div>
+<hr />
+<h3 class="h2">Passing Array to method in java</h3>
+<p>We can pass the java array to method so that we can reuse the same logic on any array.</p>
+<p>Let's see the simple example to get minimum number of an array using method.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray2{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;min(<span class="keyword">int</span>&nbsp;arr[]){&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;min=arr[<span class="number">0</span>];&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;i=<span class="number">1</span>;i&lt;arr.length;i++)&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;<span class="keyword">if</span>(min&gt;arr[i])&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;min=arr[i];&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">System.out.println(min);&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;a[]={<span class="number">33</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>};&nbsp;&nbsp;</li>
+<li class="">min(a);<span class="comment">//passing&nbsp;array&nbsp;to&nbsp;method</span>&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray2" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:3
+</pre>
+</div>
+<hr />
+<h3 class="h2">Multidimensional array in java</h3>
+<p>In such case, data is stored in row and column based index (also known as matrix form).</p>
+<h3 class="h3">Syntax to Declare Multidimensional Array in java</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt">dataType[][]&nbsp;arrayRefVar;&nbsp;(or)&nbsp;&nbsp;</li>
+<li class="">dataType&nbsp;[][]arrayRefVar;&nbsp;(or)&nbsp;&nbsp;</li>
+<li class="alt">dataType&nbsp;arrayRefVar[][];&nbsp;(or)&nbsp;&nbsp;</li>
+<li class="">dataType&nbsp;[]arrayRefVar[];&nbsp;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example to instantiate Multidimensional Array in java</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">int</span>[][]&nbsp;arr=<span class="keyword">new</span>&nbsp;<span class="keyword">int</span>[<span class="number">3</span>][<span class="number">3</span>];<span class="comment">//3&nbsp;row&nbsp;and&nbsp;3&nbsp;column</span>&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example to initialize Multidimensional Array in java</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt">arr[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;&nbsp;&nbsp;</li>
+<li class="">arr[<span class="number">0</span>][<span class="number">1</span>]=<span class="number">2</span>;&nbsp;&nbsp;</li>
+<li class="alt">arr[<span class="number">0</span>][<span class="number">2</span>]=<span class="number">3</span>;&nbsp;&nbsp;</li>
+<li class="">arr[<span class="number">1</span>][<span class="number">0</span>]=<span class="number">4</span>;&nbsp;&nbsp;</li>
+<li class="alt">arr[<span class="number">1</span>][<span class="number">1</span>]=<span class="number">5</span>;&nbsp;&nbsp;</li>
+<li class="">arr[<span class="number">1</span>][<span class="number">2</span>]=<span class="number">6</span>;&nbsp;&nbsp;</li>
+<li class="alt">arr[<span class="number">2</span>][<span class="number">0</span>]=<span class="number">7</span>;&nbsp;&nbsp;</li>
+<li class="">arr[<span class="number">2</span>][<span class="number">1</span>]=<span class="number">8</span>;&nbsp;&nbsp;</li>
+<li class="alt">arr[<span class="number">2</span>][<span class="number">2</span>]=<span class="number">9</span>;&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3ex">Example of Multidimensional java array</h3>
+<p>Let's see the simple example to declare, instantiate, initialize and print the 2Dimensional array.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray3{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//declaring&nbsp;and&nbsp;initializing&nbsp;2D&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;arr[][]={{<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>},{<span class="number">2</span>,<span class="number">4</span>,<span class="number">5</span>},{<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>}};&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//printing&nbsp;2D&nbsp;array</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;<span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++){&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;System.out.print(arr[i][j]+<span class="string">"&nbsp;"</span>);&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;}&nbsp;&nbsp;</li>
+<li class="">&nbsp;System.out.println();&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray3" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:1 2 3
+       2 4 5
+       4 4 5
+</pre>
+</div>
+<hr />
+<h3 class="h2">What is the class name of java array?</h3>
+<p>In java, array is an object. For array object, an proxy class is created whose name can be obtained by getClass().getName() method on the object.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray4{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;arr[]={<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>};&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class="">Class&nbsp;c=arr.getClass();&nbsp;&nbsp;</li>
+<li class="alt">String&nbsp;name=c.getName();&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">System.out.println(name);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray4" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:I
+</pre>
+</div>
+<hr />
+<h3 class="h2">Copying a java array</h3>
+<p>We can copy an array to another by the arraycopy method of System class.</p>
+<h3 class="h3">Syntax of arraycopy method</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;arraycopy(&nbsp;&nbsp;</li>
+<li class="">Object&nbsp;src,&nbsp;<span class="keyword">int</span>&nbsp;srcPos,Object&nbsp;dest,&nbsp;<span class="keyword">int</span>&nbsp;destPos,&nbsp;<span class="keyword">int</span>&nbsp;length&nbsp;&nbsp;</li>
+<li class="alt">)&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<h3 class="h3">Example of arraycopy method</h3>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;TestArrayCopyDemo&nbsp;{&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String[]&nbsp;args)&nbsp;{&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">char</span>[]&nbsp;copyFrom&nbsp;=&nbsp;{&nbsp;<span class="string">'d'</span>,&nbsp;<span class="string">'e'</span>,&nbsp;<span class="string">'c'</span>,&nbsp;<span class="string">'a'</span>,&nbsp;<span class="string">'f'</span>,&nbsp;<span class="string">'f'</span>,&nbsp;<span class="string">'e'</span>,&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">'i'</span>,&nbsp;<span class="string">'n'</span>,&nbsp;<span class="string">'a'</span>,&nbsp;<span class="string">'t'</span>,&nbsp;<span class="string">'e'</span>,&nbsp;<span class="string">'d'</span>&nbsp;};&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">char</span>[]&nbsp;copyTo&nbsp;=&nbsp;<span class="keyword">new</span>&nbsp;<span class="keyword">char</span>[<span class="number">7</span>];&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.arraycopy(copyFrom,&nbsp;<span class="number">2</span>,&nbsp;copyTo,&nbsp;<span class="number">0</span>,&nbsp;<span class="number">7</span>);&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(<span class="keyword">new</span>&nbsp;String(copyTo));&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;</li>
+<li class="">}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=TestArrayCopyDemo" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:caffein
+</pre>
+</div>
+<hr />
+<h3 class="h2">Addition of 2 matrices in java</h3>
+<p>Let's see a simple example that adds two matrices.</p>
+<div class="codeblock">
+<div class="dp-highlighter">
+<div class="bar">&nbsp;</div>
+<ol class="dp-j" start="1">
+<li class="alt"><span class="keyword">class</span>&nbsp;Testarray5{&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">public</span>&nbsp;<span class="keyword">static</span>&nbsp;<span class="keyword">void</span>&nbsp;main(String&nbsp;args[]){&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//creating&nbsp;two&nbsp;matrices</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;a[][]={{<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>},{<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>}};&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">int</span>&nbsp;b[][]={{<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>},{<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>}};&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt"><span class="comment">//creating&nbsp;another&nbsp;matrix&nbsp;to&nbsp;store&nbsp;the&nbsp;sum&nbsp;of&nbsp;two&nbsp;matrices</span>&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">int</span>&nbsp;c[][]=<span class="keyword">new</span>&nbsp;<span class="keyword">int</span>[<span class="number">2</span>][<span class="number">3</span>];&nbsp;&nbsp;</li>
+<li class="alt">&nbsp;&nbsp;</li>
+<li class=""><span class="comment">//adding&nbsp;and&nbsp;printing&nbsp;addition&nbsp;of&nbsp;2&nbsp;matrices</span>&nbsp;&nbsp;</li>
+<li class="alt"><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++){&nbsp;&nbsp;</li>
+<li class=""><span class="keyword">for</span>(<span class="keyword">int</span>&nbsp;j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++){&nbsp;&nbsp;</li>
+<li class="alt">c[i][j]=a[i][j]+b[i][j];&nbsp;&nbsp;</li>
+<li class="">System.out.print(c[i][j]+<span class="string">"&nbsp;"</span>);&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class="">System.out.println();<span class="comment">//new&nbsp;line</span>&nbsp;&nbsp;</li>
+<li class="alt">}&nbsp;&nbsp;</li>
+<li class="">&nbsp;&nbsp;</li>
+<li class="alt">}}&nbsp;&nbsp;</li>
+</ol>
+</div>
+</div>
+<p><span class="testit"><a href="http://www.javatpoint.com/opr/test.jsp?filename=Testarray5" target="_blank">Test it Now</a></span></p>
+<div class="codeblock3">
+<pre>Output:2 6 8
+       6 8 10</pre>
+</div>

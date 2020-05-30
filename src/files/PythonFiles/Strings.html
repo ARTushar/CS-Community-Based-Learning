@@ -1,0 +1,1402 @@
+<p>
+    Strings are amongst the most popular types in Python. We can create them
+    simply by enclosing characters in quotes. Python treats single quotes the
+    same as double quotes. Creating strings is as simple as assigning a value
+    to a variable. For example −
+</p>
+<pre>var1 = 'Hello World!'
+var2 = "Python Programming"</pre>
+<h2>
+    Accessing Values in Strings
+</h2>
+<p>
+    Python does not support a character type; these are treated as strings of
+    length one, thus also considered a substring.
+</p>
+<p>
+    To access substrings, use the square brackets for slicing along with the
+    index or indices to obtain your substring. For example −
+</p>
+<pre>#!/usr/bin/python3
+
+var1 = 'Hello World!'
+var2 = "Python Programming"
+
+print ("var1[0]: ", var1[0])
+print ("var2[1:5]: ", var2[1:5])</pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>var1[0]:  H
+var2[1:5]:  ytho
+</pre>
+<h2>
+    Updating Strings
+</h2>
+<p>
+    You can "update" an existing string by (re)assigning a variable to another
+    string. The new value can be related to its previous value or to a
+    completely different string altogether. For example −
+</p>
+<pre>#!/usr/bin/python3
+
+var1 = 'Hello World!'
+print ("Updated String :- ", var1[:6] + 'Python')</pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>Updated String :-  Hello Python
+</pre>
+<h2>
+    Escape Characters
+</h2>
+<p>
+    Following table is a list of escape or non-printable characters that can be
+    represented with backslash notation.
+</p>
+<p>
+    An escape character gets interpreted; in a single quoted as well as double
+    quoted strings.
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                Backslash notation
+            </th>
+            <th>
+                Hexadecimal character
+            </th>
+            <th>
+                Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                \a
+            </td>
+            <td>
+                0x07
+            </td>
+            <td>
+                Bell or alert
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \b
+            </td>
+            <td>
+                0x08
+            </td>
+            <td>
+                Backspace
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \cx
+            </td>
+            <td>
+            </td>
+            <td>
+                Control-x
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \C-x
+            </td>
+            <td>
+            </td>
+            <td>
+                Control-x
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \e
+            </td>
+            <td>
+                0x1b
+            </td>
+            <td>
+                Escape
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \f
+            </td>
+            <td>
+                0x0c
+            </td>
+            <td>
+                Formfeed
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \M-\C-x
+            </td>
+            <td>
+            </td>
+            <td>
+                Meta-Control-x
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \n
+            </td>
+            <td>
+                0x0a
+            </td>
+            <td>
+                Newline
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \nnn
+            </td>
+            <td>
+            </td>
+            <td>
+                Octal notation, where n is in the range 0.7
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \r
+            </td>
+            <td>
+                0x0d
+            </td>
+            <td>
+                Carriage return
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \s
+            </td>
+            <td>
+                0x20
+            </td>
+            <td>
+                Space
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \t
+            </td>
+            <td>
+                0x09
+            </td>
+            <td>
+                Tab
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \v
+            </td>
+            <td>
+                0x0b
+            </td>
+            <td>
+                Vertical tab
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \x
+            </td>
+            <td>
+            </td>
+            <td>
+                Character x
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \xnn
+            </td>
+            <td>
+            </td>
+            <td>
+                Hexadecimal notation, where n is in the range 0.9, a.f, or A.F
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    String Special Operators
+</h2>
+<p>
+    Assume string variable a holds 'Hello' and variable b holds 'Python', then
+    −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                Operator
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Example
+            </th>
+        </tr>
+        <tr>
+            <td>
+                +
+            </td>
+            <td>
+                Concatenation - Adds values on either side of the operator
+            </td>
+            <td>
+                a + b will give HelloPython
+            </td>
+        </tr>
+        <tr>
+            <td>
+                *
+            </td>
+            <td>
+                Repetition - Creates new strings, concatenating multiple copies
+                of the same string
+            </td>
+            <td>
+                a*2 will give -HelloHello
+            </td>
+        </tr>
+        <tr>
+            <td>
+                []
+            </td>
+            <td>
+                Slice - Gives the character from the given index
+            </td>
+            <td>
+                a[1] will give e
+            </td>
+        </tr>
+        <tr>
+            <td>
+                [ : ]
+            </td>
+            <td>
+                Range Slice - Gives the characters from the given range
+            </td>
+            <td>
+                a[1:4] will give ell
+            </td>
+        </tr>
+        <tr>
+            <td>
+                in
+            </td>
+            <td>
+                Membership - Returns true if a character exists in the given
+                string
+            </td>
+            <td>
+                H in a will give 1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                not in
+            </td>
+            <td>
+                Membership - Returns true if a character does not exist in the
+                given string
+            </td>
+            <td>
+                M not in a will give 1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                r/R
+            </td>
+            <td>
+                Raw String - Suppresses actual meaning of Escape characters.
+                The syntax for raw strings is exactly the same as for normal
+                strings with the exception of the raw string operator, the
+                letter "r," which precedes the quotation marks. The "r" can be
+                lowercase (r) or uppercase (R) and must be placed immediately
+                preceding the first quote mark.
+            </td>
+            <td>
+                print r'\n' prints \n and print R'\n'prints \n
+            </td>
+        </tr>
+        <tr>
+            <td>
+                %
+            </td>
+            <td>
+                Format - Performs String formatting
+            </td>
+            <td>
+                See at next section
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    String Formatting Operator
+</h2>
+<p>
+    One of Python's coolest features is the string format operator %. This
+    operator is unique to strings and makes up for the pack of having functions
+    from C's printf() family. Following is a simple example −
+</p>
+<pre>#!/usr/bin/python3
+
+print ("My name is %s and weight is %d kg!" % ('Zara', 21)) </pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>My name is Zara and weight is 21 kg!
+</pre>
+<p>
+    Here is the list of complete set of symbols which can be used along with %
+    −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th width="10%">
+                S.No.
+            </th>
+            <th>
+                Format Symbol &amp; Conversion
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <p>
+                    %c
+                </p>
+                <p>
+                    character
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <p>
+                    %s
+                </p>
+                <p>
+                    string conversion via str() prior to formatting
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <p>
+                    %i
+                </p>
+                <p>
+                    signed decimal integer
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                <p>
+                    %d
+                </p>
+                <p>
+                    signed decimal integer
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                <p>
+                    %u
+                </p>
+                <p>
+                    unsigned decimal integer
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                <p>
+                    %o
+                </p>
+                <p>
+                    octal integer
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>
+                <p>
+                    %x
+                </p>
+                <p>
+                    hexadecimal integer (lowercase letters)
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                8
+            </td>
+            <td>
+                <p>
+                    %X
+                </p>
+                hexadecimal integer (UPPERcase letters)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9
+            </td>
+            <td>
+                <p>
+                    %e
+                </p>
+                <p>
+                    exponential notation (with lowercase 'e')
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                10
+            </td>
+            <td>
+                <p>
+                    %E
+                </p>
+                <p>
+                    exponential notation (with UPPERcase 'E')
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                11
+            </td>
+            <td>
+                <p>
+                    %f
+                </p>
+                <p>
+                    floating point real number
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12
+            </td>
+            <td>
+                <p>
+                    %g
+                </p>
+                <p>
+                    the shorter of %f and %e
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                13
+            </td>
+            <td>
+                <p>
+                    %G
+                </p>
+                <p>
+                    the shorter of %f and %E
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Other supported symbols and functionality are listed in the following table
+    −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                Symbol &amp; Functionality
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <p>
+                    *
+                </p>
+                <p>
+                    argument specifies width or precision
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <p>
+                    -
+                </p>
+                <p>
+                    left justification
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <p>
+                    +
+                </p>
+                <p>
+                    display the sign
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                <p>
+                    &lt;sp&gt;
+                </p>
+                <p>
+                    leave a blank space before a positive number
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                <p>
+                    #
+                </p>
+                <p>
+                    add the octal leading zero ( '0' ) or hexadecimal leading
+                    '0x' or '0X', depending on whether 'x' or 'X' were used.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                <p>
+                    0
+                </p>
+                <p>
+                    pad from left with zeros (instead of spaces)
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>
+                <p>
+                    %
+                </p>
+                <p>
+                    '%%' leaves you with a single literal '%'
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                8
+            </td>
+            <td>
+                <p>
+                    (var)
+                </p>
+                <p>
+                    mapping variable (dictionary arguments)
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9
+            </td>
+            <td>
+                <p>
+                    m.n.
+                </p>
+                <p>
+                    m is the minimum total width and n is the number of digits
+                    to display after the decimal point (if appl.)
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h2>
+    Triple Quotes
+</h2>
+<p>
+    Python's triple quotes comes to the rescue by allowing strings to span
+    multiple lines, including verbatim NEWLINEs, TABs, and any other special
+    characters.
+</p>
+<p>
+    The syntax for triple quotes consists of three consecutive single or
+    doublequotes.
+</p>
+<pre>#!/usr/bin/python3
+
+para_str = """this is a long string that is made up of
+several lines and non-printable characters such as
+TAB ( \t ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [ \n ], or just a NEWLINE within
+the variable assignment will also show up.
+"""
+print (para_str)</pre>
+<p>
+    When the above code is executed, it produces the following result. Note how
+    every single special character has been converted to its printed form,
+    right down to the last NEWLINE at the end of the string between the "up."
+    and closing triple quotes. Also note that NEWLINEs occur either with an
+    explicit carriage return at the end of a line or its escape code (\n) −
+</p>
+<pre>this is a long string that is made up of
+several lines and non-printable characters such as
+TAB (    ) and they will show up that way when displayed.
+NEWLINEs within the string, whether explicitly given like
+this within the brackets [
+ ], or just a NEWLINE within
+the variable assignment will also show up.</pre>
+<p>
+    Raw strings do not treat the backslash as a special character at all. Every
+    character you put into a raw string stays the way you wrote it −
+</p>
+<pre>#!/usr/bin/python3
+
+print ('C:\\nowhere')</pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>C:\nowhere
+</pre>
+<p>
+    Now let's make use of raw string. We would put expression in
+    r'expression'as follows −
+</p>
+<pre>#!/usr/bin/python3
+
+print (r'C:\\nowhere')</pre>
+<p>
+    When the above code is executed, it produces the following result −
+</p>
+<pre>C:\\nowhere
+</pre>
+<h2>
+    Unicode String
+</h2>
+<p>
+    In Python 3, all strings are represented in Unicode.In Python 2 are stored
+    internally as 8-bit ASCII, hence it is required to attach 'u' to make it
+    Unicode. It is no longer necessary now.
+</p>
+<h3>
+    Built-in String Methods
+</h3>
+<p>
+    Python includes the following built-in methods to manipulate strings −
+</p>
+<table>
+    <tbody>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                Methods &amp; Description
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_capitalize.htm"
+                >
+                    capitalize()
+                </a>
+                <p>
+                    Capitalizes first letter of string
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_center.htm"
+                >
+                    center(width, fillchar)
+                </a>
+                <p>
+                    Returns a string padded with <em>fillchar</em> with the
+                    original string centered to a total of <em>width</em>
+                    columns.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                3
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_count.htm"
+                >
+                    count(str, beg = 0,end = len(string))
+                </a>
+                <p>
+                    Counts how many times str occurs in string or in a
+                    substring of string if starting index beg and ending index
+                    end are given.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                4
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_decode.htm"
+                >
+                    decode(encoding = 'UTF-8',errors = 'strict')
+                </a>
+                <p>
+                    Decodes the string using the codec registered for encoding.
+                    encoding defaults to the default string encoding.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_encode.htm"
+                >
+                    encode(encoding = 'UTF-8',errors = 'strict')
+                </a>
+                <p>
+                    Returns encoded string version of string; on error, default
+                    is to raise a ValueError unless errors is given with
+                    'ignore' or 'replace'.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                6
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_endswith.htm"
+                >
+                    endswith(suffix, beg = 0, end = len(string))
+                </a>
+                <p>
+                    Determines if string or a substring of string (if starting
+                    index beg and ending index end are given) ends with suffix;
+                    returns true if so and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                7
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_expandtabs.htm"
+                >
+                    expandtabs(tabsize = 8)
+                </a>
+                <p>
+                    Expands tabs in string to multiple spaces; defaults to 8
+                    spaces per tab if tabsize not provided.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                8
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_find.htm"
+                >
+                    find(str, beg = 0 end = len(string))
+                </a>
+                <p>
+                    Determine if str occurs in string or in a substring of
+                    string if starting index beg and ending index end are given
+                    returns index if found and -1 otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                9
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_index.htm"
+                >
+                    index(str, beg = 0, end = len(string))
+                </a>
+                <p>
+                    Same as find(), but raises an exception if str not found.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                10
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isalnum.htm"
+                >
+                    isalnum()
+                </a>
+                <p>
+                    Returns true if string has at least 1 character and all
+                    characters are alphanumeric and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                11
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isalpha.htm"
+                >
+                    isalpha()
+                </a>
+                <p>
+                    Returns true if string has at least 1 character and all
+                    characters are alphabetic and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                12
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isdigit.htm"
+                >
+                    isdigit()
+                </a>
+                <p>
+                    Returns true if string contains only digits and false
+                    otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                13
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_islower.htm"
+                >
+                    islower()
+                </a>
+                <p>
+                    Returns true if string has at least 1 cased character and
+                    all cased characters are in lowercase and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                14
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isnumeric.htm"
+                >
+                    isnumeric()
+                </a>
+                <p>
+                    Returns true if a unicode string contains only numeric
+                    characters and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                15
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isspace.htm"
+                >
+                    isspace()
+                </a>
+                <p>
+                    Returns true if string contains only whitespace characters
+                    and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                16
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_istitle.htm"
+                >
+                    istitle()
+                </a>
+                <p>
+                    Returns true if string is properly "titlecased" and false
+                    otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                17
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isupper.htm"
+                >
+                    isupper()
+                </a>
+                <p>
+                    Returns true if string has at least one cased character and
+                    all cased characters are in uppercase and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                18
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_join.htm"
+                >
+                    join(seq)
+                </a>
+                <p>
+                    Merges (concatenates) the string representations of
+                    elements in sequence seq into a string, with separator
+                    string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                19
+            </td>
+            <td>
+                <a href="https://www.tutorialspoint.com/python3/string_len.htm">
+                    len(string)
+                </a>
+                <p>
+                    Returns the length of the string
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                20
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_ljust.htm"
+                >
+                    ljust(width[, fillchar])
+                </a>
+                <p>
+                    Returns a space-padded string with the original string
+                    left-justified to a total of width columns.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                21
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_lower.htm"
+                >
+                    lower()
+                </a>
+                <p>
+                    Converts all uppercase letters in string to lowercase.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                22
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_lstrip.htm"
+                >
+                    lstrip()
+                </a>
+                <p>
+                    Removes all leading whitespace in string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                23
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_maketrans.htm"
+                >
+                    maketrans()
+                </a>
+                <p>
+                    Returns a translation table to be used in translate
+                    function.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                24
+            </td>
+            <td>
+                <a href="https://www.tutorialspoint.com/python3/string_max.htm">
+                    max(str)
+                </a>
+                <p>
+                    Returns the max alphabetical character from the string str.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                25
+            </td>
+            <td>
+                <a href="https://www.tutorialspoint.com/python3/string_min.htm">
+                    min(str)
+                </a>
+                <p>
+                    Returns the min alphabetical character from the string str.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                26
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_replace.htm"
+                >
+                    replace(old, new [, max])
+                </a>
+                <p>
+                    Replaces all occurrences of old in string with new or at
+                    most max occurrences if max given.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                27
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_rfind.htm"
+                >
+                    rfind(str, beg = 0,end = len(string))
+                </a>
+                <p>
+                    Same as find(), but search backwards in string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                28
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_rindex.htm"
+                >
+                    rindex( str, beg = 0, end = len(string))
+                </a>
+                <p>
+                    Same as index(), but search backwards in string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                29
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_rjust.htm"
+                >
+                    rjust(width,[, fillchar])
+                </a>
+                <p>
+                    Returns a space-padded string with the original string
+                    right-justified to a total of width columns.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                30
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_rstrip.htm"
+                >
+                    rstrip()
+                </a>
+                <p>
+                    Removes all trailing whitespace of string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                31
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_split.htm"
+                >
+                    split(str="", num=string.count(str))
+                </a>
+                <p>
+                    Splits string according to delimiter str (space if not
+                    provided) and returns list of substrings; split into at
+                    most num substrings if given.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                32
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_splitlines.htm"
+                >
+                    splitlines( num=string.count('\n'))
+                </a>
+                <p>
+                    Splits string at all (or num) NEWLINEs and returns a list
+                    of each line with NEWLINEs removed.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                33
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_startswith.htm"
+                >
+                    startswith(str, beg=0,end=len(string))
+                </a>
+                <p>
+                    Determines if string or a substring of string (if starting
+                    index beg and ending index end are given) starts with
+                    substring str; returns true if so and false otherwise.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                34
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_strip.htm"
+                >
+                    strip([chars])
+                </a>
+                <p>
+                    Performs both lstrip() and rstrip() on string
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                35
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_swapcase.htm"
+                >
+                    swapcase()
+                </a>
+                <p>
+                    Inverts case for all letters in string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                36
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_title.htm"
+                >
+                    title()
+                </a>
+                <p>
+                    Returns "titlecased" version of string, that is, all words
+                    begin with uppercase and the rest are lowercase.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                37
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_translate.htm"
+                >
+                    translate(table, deletechars="")
+                </a>
+                <p>
+                    Translates string according to translation table str(256
+                    chars), removing those in the del string.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                38
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_upper.htm"
+                >
+                    upper()
+                </a>
+                <p>
+                    Converts lowercase letters in string to uppercase.
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                39
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_zfill.htm"
+                >
+                    zfill (width)
+                </a>
+                <p>
+                    Returns original string leftpadded with zeros to a total of
+                    width characters; intended for numbers, zfill() retains any
+                    sign given (less one zero).
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                40
+            </td>
+            <td>
+                <a
+                    href="https://www.tutorialspoint.com/python3/string_isdecimal.htm"
+                >
+                    isdecimal()
+                </a>
+                <p>
+                    Returns true if a unicode string contains only decimal
+                    characters and false otherwise.
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>

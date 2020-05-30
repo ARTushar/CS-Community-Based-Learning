@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="mainLayout" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1120.0" style="-fx-background-color: c2d3da;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.HomePageController">
+   <center>
+      <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="learn" text="Learn">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <FlowPane hgap="50.0" layoutY="-8.0" prefHeight="591.0" prefWidth="1061.0" vgap="10.0" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <AnchorPane prefHeight="233.0" prefWidth="459.0">
+                                 <children>
+                                    <Button fx:id="cpp" layoutX="14.0" layoutY="115.0" mnemonicParsing="false" onAction="#openCPP" prefHeight="53.0" prefWidth="108.0" style="-fx-background-color: #E6EFF3;" text="C++">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="152.0" layoutY="78.0" prefHeight="147.0" prefWidth="262.0" text="Our C++ tutorial covers basic&#10;concepts, data types,arrays,pointers,&#10;conditional statements,loops,&#10;functions,classes,objects,inheritance,&#10;and polymorphysm.">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="152.0" layoutY="22.0" text="C++ Tutorial">
+                                       <font>
+                                          <Font name="System Bold Italic" size="30.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="239.0" prefWidth="455.0">
+                                 <children>
+                                    <Button fx:id="java" layoutX="24.0" layoutY="108.0" mnemonicParsing="false" onAction="#openJava" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #E6EFF3;" text="Java">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="161.0" layoutY="25.0" prefHeight="45.0" prefWidth="195.0" text="Java Tutorial">
+                                       <font>
+                                          <Font name="System Bold Italic" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="161.0" layoutY="78.0" prefHeight="147.0" prefWidth="262.0" text="With our interactive java course,&#10;you will learn object-oriented java&#10;programming and have the ability &#10;to write clear and valid code in &#10;almost no time at all &#10;">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="267.0" prefWidth="460.0">
+                                 <children>
+                                    <Button fx:id="python" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" onAction="#openPython" prefHeight="65.0" prefWidth="114.0" style="-fx-background-color: #E6EFF3;" text="P3">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="164.0" layoutY="49.0" text="Python 3 Tutorial">
+                                       <font>
+                                          <Font name="System Bold Italic" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="164.0" layoutY="94.0" prefHeight="147.0" prefWidth="262.0" text="Learn Python, one of today's most&#10;in demand programming languages&#10;on-the-go! Learn python and show&#10;off your skills now!">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="222.0" prefWidth="455.0">
+                                 <children>
+                                    <Button fx:id="csharp" layoutX="22.0" layoutY="135.0" mnemonicParsing="false" onAction="#openCsharp" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #E6EFF3;" text="C#">
+                                       <font>
+                                          <Font name="System Bold" size="30.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="174.0" layoutY="48.0" prefHeight="45.0" prefWidth="195.0" text="C# Tutorial">
+                                       <font>
+                                          <Font name="System Bold Italic" size="30.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="174.0" layoutY="94.0" prefHeight="147.0" prefWidth="262.0" text="With our interactive C# Tutorial,&#10;you will learn C# programming &#10;on-the-go! Learn C# and show&#10;off your skills!">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </FlowPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="discussions" text="Discuss">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="26.0" layoutY="30.0" prefHeight="32.0" prefWidth="144.0" text="Q&amp;A Discussions">
+                           <font>
+                              <Font name="System Bold" size="17.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="newQuestion" layoutX="896.0" layoutY="31.0" mnemonicParsing="false" onAction="#openNewQuestion" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #E6EFF3;" text="NEW QUESTION">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <ListView fx:id="questionListView" layoutX="26.0" layoutY="134.0" prefHeight="422.0" prefWidth="1012.0" style="-fx-background-color: #E6EFF3;" stylesheets="@../../CSSFiles/ListView.css">
+                           <cursor>
+                              <Cursor fx:constant="CLOSED_HAND" />
+                           </cursor>
+                           <opaqueInsets>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </opaqueInsets></ListView>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Profile">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="315.0" layoutY="76.0" prefHeight="35.0" prefWidth="99.0" text="UserName : ">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="userName" layoutX="414.0" layoutY="76.0" prefHeight="35.0" prefWidth="323.0" text="Name">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="315.0" layoutY="139.0" prefHeight="35.0" prefWidth="99.0" text="Email         :">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="email" layoutX="414.0" layoutY="139.0" prefHeight="35.0" prefWidth="307.0" text="Email">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="myImage" fitHeight="150.0" fitWidth="200.0" layoutX="67.0" layoutY="56.0" onDragDropped="#imageDropped" onDragOver="#imageDragOver" pickOnBounds="true" preserveRatio="true" />
+                        <Button layoutX="315.0" layoutY="281.0" mnemonicParsing="false" onAction="#signOut" prefHeight="31.0" prefWidth="142.0" style="-fx-background-color: #E6EFF3;" text="SIGN OUT">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </TabPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="76.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="372.0" layoutY="17.0" prefHeight="42.0" prefWidth="402.0" text="CS COMMUNITY BASED LEARNING" textAlignment="CENTER" textFill="#03353e">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font></Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane fx:id="mainAnchorPane" prefHeight="524.0" prefWidth="53.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="150.0" prefWidth="964.0" style="-fx-background-color: #E6EFF3;" stylesheets="@../../CSSFiles/ListView.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.ListCellController">
+   <children>
+      <Label fx:id="voteNumber" layoutX="100.0" layoutY="29.0" prefHeight="28.0" prefWidth="54.0" text="VoteNo">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="29.0" prefHeight="28.0" prefWidth="67.0" text="Votes     :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="answerNumber" layoutX="100.0" layoutY="71.0" prefHeight="28.0" prefWidth="54.0" text="AnsNo">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="20.0" layoutY="71.0" prefHeight="28.0" prefWidth="67.0" text="Answers :">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="time" alignment="CENTER" layoutX="779.0" layoutY="79.0" prefHeight="28.0" prefWidth="181.0" text="Time">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="name" alignment="CENTER" layoutX="784.0" layoutY="43.0" prefHeight="28.0" prefWidth="171.0" text="Name">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="575.0" layoutY="91.0" onAction="#questionDetails" prefHeight="31.0" prefWidth="181.0" text="Click here for details...">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="834.0" layoutY="21.0" prefHeight="26.0" prefWidth="82.0" text="Posted By">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Separator layoutX="775.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="8.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="775.0" AnchorPane.topAnchor="0.0" />
+      <Separator layoutX="154.0" orientation="VERTICAL" prefHeight="150.0" prefWidth="8.0" />
+      <Label fx:id="question" alignment="TOP_LEFT" layoutX="171.0" layoutY="26.0" prefHeight="62.0" prefWidth="596.0" text="Question">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

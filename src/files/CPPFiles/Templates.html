@@ -1,0 +1,130 @@
+<header class="entry-header">
+<h1 class="entry-title">Templates in C++ vs Generics in Java</h1>
+<div class="divclass"><a title="Medium" href="https://www.geeksforgeeks.org/medium/"><span class="articleRating alignright level-3">3</span></a></div>
+</header>
+<div class="entry-content">
+<p>While building large-scale projects, we need the code to be compatible with any kind of data which is provided to it. That is the place where your written code stands above than that of others. Here what we meant is to make the code you write be generic to any kind of data provided to the program regardless its data type. This is where Generics in Java and the similar in C++ named Template comes in handy. While both have similar functionalities, but they differ at few places.</p>
+<p align="center"><strong><a href="https://www.geeksforgeeks.org/templates-cpp/">Template in C++</a></strong></p>
+<p>Writing Generic programs in C++ is called Templates.</p>
+<ol>
+<li>One of the major features of the template in C++ is the usage of metaprogramming. It Let the template signature of the provided code be different, were C++ provides the ability to implement them.</li>
+<li>Template arguments can be both classes and in functions.</li>
+<li>C++ requires template sources to be added in their headers.</li>
+<li>Template specialization could be achieved i.e, Specific type and method of template can be implemented.</li>
+</ol>
+<div>
+<div id="highlighter_696020" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp comments">// CPP program to illustrate Templates</code></div>
+<div class="line number2 index1 alt1"><code class="cpp preprocessor">#include &lt;iostream&gt;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp preprocessor">#include &lt;string.h&gt;</code></div>
+<div class="line number4 index3 alt1">&nbsp;</div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number6 index5 alt1">&nbsp;</div>
+<div class="line number7 index6 alt2"><code class="cpp keyword bold">template</code> <code class="cpp plain">&lt;</code><code class="cpp keyword bold">class</code> <code class="cpp plain">T&gt;</code></div>
+<div class="line number8 index7 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">TempClass {</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">T value;</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TempClass(T item)</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">value = item;</code></div>
+<div class="line number16 index15 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">T getValue()</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">{</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">value;</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number22 index21 alt1"><code class="cpp plain">};</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number25 index24 alt2"><code class="cpp plain">{</code></div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">class</code> <code class="cpp plain">TempClass&lt;string&gt;* String = </code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">new</code> <code class="cpp plain">TempClass&lt;string&gt;(</code><code class="cpp string">"Generics vs Templates"</code><code class="cpp plain">);</code></div>
+<div class="line number28 index27 alt1">&nbsp;</div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Output Values: "</code> <code class="cpp plain">&lt;&lt; String-&gt;getValue() </code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">&lt;&lt; </code><code class="cpp string">"\n"</code><code class="cpp plain">;</code></div>
+<div class="line number31 index30 alt2">&nbsp;</div>
+<div class="line number32 index31 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">class</code> <code class="cpp plain">TempClass&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt;* integer = </code><code class="cpp keyword bold">new</code> <code class="cpp plain">TempClass&lt;</code><code class="cpp color1 bold">int</code><code class="cpp plain">&gt;(9);</code></div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout &lt;&lt; </code><code class="cpp string">"Output Values: "</code> <code class="cpp plain">&lt;&lt; integer-&gt;getValue();</code></div>
+<div class="line number34 index33 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Printout: Generics vs Templates
+Printout: 9
+</pre>
+<p align="center"><a href="https://www.geeksforgeeks.org/generics-in-java/">Generics in Java</a></p>
+<ol>
+<li>One of the major features of Java Generics is that, It handles type checking during instantiation and generates byte-code equivalent to non-generic code.<br />Compiler of Java checks type before instantiation, that in turn makes the implementation of Generic type-safe. Meanwhile, in C++, templates knows nothing about types.</li>
+<li>If Generics is applied in a class, then it gets Applied to classes and methods within classes.</li>
+<li>Another major factor that leads to the use of generics in Java is because it allows you to eliminate downcasts.</li>
+<li>Instantiating a generic class has no runtime overhead over using an equivalent class that uses as specific&nbsp;<em>object</em>&nbsp;rather than a generic type of&nbsp;<em>T</em>.</li>
+</ol>
+<div>
+<div id="highlighter_674535" class="syntaxhighlighter nogutter  java">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="java comments">// Java program to illustrate</code></div>
+<div class="line number2 index1 alt1"><code class="java comments">// Generics</code></div>
+<div class="line number3 index2 alt2"><code class="java keyword">public</code> <code class="java keyword">class</code> <code class="java plain">GenericClass&lt;T&gt; {</code></div>
+<div class="line number4 index3 alt1"><code class="java keyword">private</code> <code class="java plain">T value;</code></div>
+<div class="line number5 index4 alt2">&nbsp;</div>
+<div class="line number6 index5 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java plain">GenericClass(T value)</code></div>
+<div class="line number7 index6 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+<div class="line number8 index7 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">this</code><code class="java plain">.value = value;</code></div>
+<div class="line number9 index8 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number10 index9 alt1">&nbsp;</div>
+<div class="line number11 index10 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">void</code> <code class="java plain">showType()</code></div>
+<div class="line number12 index11 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+<div class="line number13 index12 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">System.out.println(</code><code class="java string">"Type:"</code> <code class="java plain">+ </code></div>
+<div class="line number14 index13 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">value.getClass().getSimpleName());</code></div>
+<div class="line number15 index14 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">System.out.println(</code><code class="java string">"Value: "</code> <code class="java plain">+ value);</code></div>
+<div class="line number16 index15 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">public</code> <code class="java keyword">static</code> <code class="java keyword">void</code> <code class="java plain">main(String[] args)</code></div>
+<div class="line number19 index18 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">{</code></div>
+<div class="line number20 index19 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">GenericClass&lt;String&gt; Str = </code></div>
+<div class="line number21 index20 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">new</code> <code class="java plain">GenericClass&lt;String&gt;(</code><code class="java string">"Generics vs Templates"</code><code class="java plain">);</code></div>
+<div class="line number22 index21 alt1">&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">GenericClass&lt;Integer&gt; integer = </code></div>
+<div class="line number24 index23 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java keyword">new</code> <code class="java plain">GenericClass&lt;Integer&gt;(</code><code class="java value">9</code><code class="java plain">);</code></div>
+<div class="line number25 index24 alt2">&nbsp;</div>
+<div class="line number26 index25 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">Str.showType();</code></div>
+<div class="line number27 index26 alt2"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">integer.showType();</code></div>
+<div class="line number28 index27 alt1"><code class="java spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="java plain">}</code></div>
+<div class="line number29 index28 alt2"><code class="java plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Printout: Generics vs Templates
+Printout: 9
+</pre>
+<p align="center"><strong>C++ Templates vs Generics in Java</strong></p>
+<p>Though both of the methods to create a generic type is similar, but they vary at some places, while the implementation property that they possess is the same.</p>
+<ol>
+<li><strong>Type erasure :&nbsp;</strong>Type erasure ensures tighter type check during compile time. Java generics simply offer compile-time safety and eliminate the need for casts. This is directly implemented in the Java compiler front-end and make sure type erasure is done.</li>
+<li>In C++ when you use a template the compiler will emit the template code again after replacing the generic parameter in it with the type you used. This is more powerful in several ways but can lead to&nbsp;<strong>bloated executables</strong>.</li>
+<li><strong>Wrapper class :&nbsp;</strong>In Java, Even if we have to specifically specify the datatype within which the function call using any object, we don&rsquo;t need to cast it similar to that of C++ with actual data types, rather we use wrapper classes to do the required.</li>
+<li><strong>Type Checking :</strong>&nbsp;Java Generics handles type checking during instantiation and generates byte-code equivalent to non-generic code C++ has &ldquo;latent typing&rdquo; and template metaprogramming and generates a new class for each instantiation</li>
+</ol>
+<p>Java encourages software reuse and adds some basic support for generic programming. For Java, it is a serious step forward in the area of commercial software development.</p>
+</div>

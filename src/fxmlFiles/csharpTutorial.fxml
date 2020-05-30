@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="630.0" prefWidth="1070.0" style="-fx-background-color: c2d3da;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Python3TutorialController">
+   <children>
+      <Label layoutX="480.0" layoutY="14.0" prefHeight="30.0" prefWidth="111.0" text="C# Tutorial">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="187.0" layoutY="103.0" prefHeight="25.0" prefWidth="149.0" ripplerFill="#2c1818" text="Basic Concepts">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="187.0" layoutY="189.0" prefHeight="25.0" prefWidth="149.0" ripplerFill="#2c1818" text="Conditionals and Loops">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="187.0" layoutY="279.0" prefHeight="11.0" prefWidth="149.0" ripplerFill="#2c1818" text="Methods">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="187.0" layoutY="372.0" prefHeight="20.0" prefWidth="149.0" ripplerFill="#2c1818" text="Classes &amp; Objects">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="187.0" layoutY="465.0" prefHeight="25.0" prefWidth="149.0" ripplerFill="#2c1818" text="Arrays &amp; Strings">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="715.0" layoutY="103.0" prefHeight="25.0" prefWidth="209.0" ripplerFill="#2c1818" text="More On Classes">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="715.0" layoutY="191.0" prefHeight="25.0" prefWidth="209.0" ripplerFill="#2c1818" text="Inheritance &amp; Polymorphism">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="715.0" layoutY="281.0" prefHeight="25.0" prefWidth="209.0" ripplerFill="#2c1818" text="Structs, Enums, Exceptions &amp; Files">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton alignment="TOP_LEFT" buttonType="RAISED" layoutX="715.0" layoutY="374.0" prefHeight="25.0" prefWidth="209.0" ripplerFill="#2c1818" text="Generics">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Separator layoutX="532.0" layoutY="101.0" orientation="VERTICAL" prefHeight="518.0" prefWidth="3.0" />
+      <Label layoutX="84.0" layoutY="103.0" prefHeight="20.0" prefWidth="83.0" text="Module 1 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="191.0" prefHeight="20.0" prefWidth="83.0" text="Module 2 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="281.0" prefHeight="20.0" prefWidth="83.0" text="Module 3 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="374.0" prefHeight="20.0" prefWidth="83.0" text="Module 4 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="467.0" prefHeight="20.0" prefWidth="83.0" text="Module 5 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="105.0" prefHeight="20.0" prefWidth="83.0" text="Module 6 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="193.0" prefHeight="20.0" prefWidth="83.0" text="Module 7 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="283.0" prefHeight="20.0" prefWidth="83.0" text="Module 8 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="608.0" layoutY="376.0" prefHeight="20.0" prefWidth="83.0" text="Module 9 :">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="backButton" layoutX="1045.0" layoutY="-2.0" mnemonicParsing="false" onAction="#backButtonHandle" prefHeight="33.0" prefWidth="62.0" style="-fx-background-color: #36688D;" text="&lt;&lt;">
+         <font>
+            <Font name="Arial Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" prefHeight="630.0" prefWidth="1070.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.NewQuestionController">
+   <children>
+      <Label layoutX="470.0" layoutY="14.0" prefHeight="45.0" prefWidth="131.0" text="New Question">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="13.0" layoutY="87.0" prefHeight="30.0" prefWidth="50.0" text="Title">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="245.0" prefHeight="30.0" prefWidth="73.0" text="Message">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="855.0" layoutY="556.0" onAction="#cancelQuestion" text="CANCEL">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="952.0" layoutY="556.0" onAction="#postQuestion" text="POST">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea fx:id="title" layoutX="14.0" layoutY="135.0" prefHeight="65.0" prefWidth="1024.0" promptText="Question">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextArea>
+      <JFXTextArea fx:id="message" layoutX="14.0" layoutY="295.0" prefHeight="232.0" prefWidth="1024.0" promptText="Description (optional)">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXTextArea>
+      <Separator layoutX="13.0" layoutY="235.0" prefHeight="11.0" prefWidth="1024.0" />
+      <Separator layoutX="8.0" layoutY="605.0" prefHeight="11.0" prefWidth="1036.0" />
+      <JFXButton buttonType="RAISED" layoutX="1007.0" onAction="#goBack" prefHeight="39.0" prefWidth="62.0" style="-fx-background-color: #72A2c0; -fx-text-fill: #282726;" text="&lt;&lt;">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

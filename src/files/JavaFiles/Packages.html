@@ -1,0 +1,1015 @@
+<div>
+    <p>
+        <a name="page1"></a>
+    </p>
+    <p align="center">
+        <strong>Java</strong>
+    </p>
+    <p align="center">
+        <strong><em>Package, Interface &amp;</em></strong>
+    </p>
+    <p align="center">
+        <strong><em>Exception</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page2"></a>
+    </p>
+    <p align="center">
+        <strong><em>Package</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 2
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page3"></a>
+    </p>
+    <p align="center">
+        Package
+    </p>
+    <p>
+        • Java package provides a mechanism for partitioning the class name
+        space into more manageable chunks
+    </p>
+    <p>
+        – Both <strong>naming</strong> and <strong>visibility</strong> control
+        mechanism
+    </p>
+    <p>
+        • Define classes inside a package that are not accessible by code
+        outside that package
+    </p>
+    <p>
+        • Define class members that are exposed only to other members of the
+        same package
+    </p>
+    <p>
+        • This allows classes to have intimate knowledge of each other
+    </p>
+    <p>
+        – Not expose that knowledge to the rest of the world
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 3
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page4"></a>
+    </p>
+    <p align="center">
+        Declaring Package
+    </p>
+    <p>
+        • <strong><em>package pkg</em></strong>
+    </p>
+    <p>
+        – Here, pkg is the name of the package
+    </p>
+    <p>
+        • <strong><em>package MyPackage</em></strong>
+    </p>
+    <p>
+        – creates a package called MyPackage
+    </p>
+    <p>
+        • The package statement defines a name space in which classes are
+        stored
+    </p>
+    <p>
+• If you omit the package statement, the class names are put into the        <strong>default package</strong>, which has no name
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 4
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page5"></a>
+    </p>
+    <p align="center">
+        Declaring Package
+    </p>
+    <p>
+        • Java uses file system directories to store packages
+    </p>
+    <p>
+        – the .class files for any classes that are part of MyPackage must be
+        stored in a directory called MyPackage
+    </p>
+    <p>
+        • More than one file can include the same package statement
+    </p>
+    <p>
+        • The package statement simply specifies to which package the classes
+        defined in a file belong
+    </p>
+    <p>
+        • To create hierarchy of packages, separate each package name from the
+        one above it by use of a (.)
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 5
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page6"></a>
+    </p>
+    <p align="center">
+        Package Example
+    </p>
+    <p>
+        <img
+            width="569"
+            height="285"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image002.jpg"
+        />
+    </p>
+    <p>
+        <strong>javac -d . AccountBalance.java</strong>
+    </p>
+    <p align="right">
+        <strong>java MyPackage.AccountBalance</strong>
+    </p>
+    <p>
+        <img
+            width="569"
+            height="284"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image004.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 6
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page7"></a>
+    </p>
+    <p align="center">
+        Package Syntax
+    </p>
+    <p>
+        • The general form of a multilevel package statement
+    </p>
+    <p>
+        – <strong><em>package pkg1[.pkg2[.pkg3]]</em></strong>
+    </p>
+    <p>
+        – <strong><em>package java.awt.image</em></strong>
+    </p>
+    <p>
+        • In a Java source file, import statements occur immediately following
+        the package statement (if it exists) and before any class definitions
+    </p>
+    <p>
+        • The general form of the import statement
+    </p>
+    <p>
+        – <strong><em>import pkg1 [.pkg2].(classname | *)</em></strong>
+    </p>
+    <p>
+        – <strong><em>import java.util.Scanner</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 7
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page8"></a>
+    </p>
+    <p align="center">
+        Access Protection
+    </p>
+    <p>
+        • Packages act as containers for classes and other subordinate packages
+    </p>
+    <p>
+        • Classes act as containers for data and code
+    </p>
+    <p>
+        • The class is Java’s smallest unit of abstraction
+    </p>
+    <p>
+        • Four categories of visibility for class members
+    </p>
+    <p>
+        – Subclasses in the same package
+    </p>
+    <p>
+        – Non-subclasses in the same package
+    </p>
+    <p>
+        – Subclasses in different package
+    </p>
+    <p>
+        – Classes that are neither in the same package nor subclasses
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 8
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page9"></a>
+    </p>
+    <p align="center">
+        Access Protection
+    </p>
+    <p>
+        • The three access modifiers provide a variety of ways to produce the
+        many levels of access required
+    </p>
+    <p>
+        – private, public, and protected
+    </p>
+    <p>
+        • The following applies only to members of classes
+    </p>
+    <p>
+        <img
+            width="942"
+            height="47"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image006.jpg"
+        />
+    </p>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tbody>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        <strong>Private</strong>
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        <strong>No Modifier</strong>
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        <strong>Protected</strong>
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        <strong>Public</strong>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                    <p>
+                        Same class
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                    <p>
+                        Same package subclass
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                    <p>
+                        Same package non-subclass
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                    <p>
+                        Different package subclass
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                    <p>
+                        Different package non-subclass
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="167" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="148" valign="bottom">
+                    <p align="center">
+                        No
+                    </p>
+                </td>
+                <td width="123" valign="bottom">
+                    <p align="center">
+                        Yes
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td width="377" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+                <td width="167" valign="bottom">
+                </td>
+                <td width="148" valign="bottom">
+                </td>
+                <td width="123" valign="bottom">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 9
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page10"></a>
+    </p>
+    <p align="center">
+        Access Protection
+    </p>
+    <p>
+        • Anything declared <strong><em>public</em></strong> can be accessed
+        from anywhere
+    </p>
+    <p>
+        • Anything declared <strong><em>private</em></strong> cannot be seen
+        outside of its class
+    </p>
+    <p>
+        • When a member does not have an explicit access specification, it is
+visible to subclasses as well as to other classes in the same package (        <strong><em>default access</em></strong>)
+    </p>
+    <p>
+        • If you want to allow an element to be seen outside your current
+        package, but only to classes that subclass the class directly, then
+        declare that element <strong><em>protected</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 10
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page11"></a>
+    </p>
+    <p align="center">
+        Access Protection
+    </p>
+    <p>
+        • A non-nested class has only two possible access levels
+    </p>
+    <p>
+– <strong>default</strong> and <strong>public</strong> (others are        <strong>abstract</strong> and <strong>final</strong>)
+    </p>
+    <p>
+        • When a class is declared as public, it is accessible by any other
+        code
+    </p>
+    <p>
+        • If a class has default access, then it can only be accessed by other
+        code within its same package
+    </p>
+    <p>
+        • When a class is public, it must be the only public class declared in
+        the file, and the file must have the same name as the class
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 11
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page12"></a>
+    </p>
+    <p align="center">
+        <strong><em>Interface</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 12
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page13"></a>
+    </p>
+    <p align="center">
+        Interface
+    </p>
+    <p>
+        • We can call it a pure abstract class having no concrete methods
+    </p>
+    <p>
+– All methods declared in an interface are implicitly        <strong>public</strong> and <strong>abstract</strong>
+    </p>
+    <p>
+– All variables declared in an interface are implicitly<strong>public</strong>, <strong>static </strong>and        <strong> final</strong>
+    </p>
+    <p>
+        •
+        <em>
+            An interface can’t have instance variables, so can’t maintain state
+            information unlike class
+        </em>
+    </p>
+    <p>
+        • A class can only extend from a <strong>single class</strong>, but a
+        class can implement <strong>multiple interfaces</strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 13
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page14"></a>
+    </p>
+    <p align="center">
+        Implementing Interface
+    </p>
+    <p>
+        • When you implement an interface method, it must be declared as public
+    </p>
+    <p>
+        • By implementing an interface, a class signs a contract with the
+        compiler that it will definitely provide implementation of all the
+        methods
+    </p>
+    <p>
+        • If it fails to do so, the class will be considered as abstract
+    </p>
+    <p>
+        • Then it must be declared as abstract and no object of that class can
+        be created
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 14
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page15"></a>
+    </p>
+    <p align="center">
+        Simple Interface
+    </p>
+    <p>
+        <img
+            width="681"
+            height="569"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image008.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 15
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page16"></a>
+    </p>
+    <p align="center">
+        Applying Interfaces
+    </p>
+    <p>
+        <img
+            width="649"
+            height="569"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image010.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 16
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page17"></a>
+    </p>
+    <p align="center">
+        Variables in Interfaces
+    </p>
+    <p>
+        <img
+            width="505"
+            height="570"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image012.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 17
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page18"></a>
+    </p>
+    <p align="center">
+        Extending Interfaces
+    </p>
+    <p>
+        <img
+            width="689"
+            height="555"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image014.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 18
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page19"></a>
+    </p>
+    <p align="center">
+        Default Interface Methods
+    </p>
+    <p>
+        • Prior to JDK 8, an interface could not define any implementation
+        whatsoever
+    </p>
+    <p>
+        • The release of JDK 8 has changed this by adding a new capability to
+        interface called the <em>default method</em>
+    </p>
+    <p>
+        – A default method lets you define a default implementation for an
+        interface method
+    </p>
+    <p>
+        – Its primary motivation was to provide a means by which interfaces
+        could be expanded without breaking existing code
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 19
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page20"></a>
+    </p>
+    <p align="center">
+        Default Interface Methods
+    </p>
+    <p>
+        <img
+            width="681"
+            height="569"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image016.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 20
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page21"></a>
+    </p>
+    <p align="center">
+        Multiple Inheritance Issues
+    </p>
+    <p>
+        <img
+            width="943"
+            height="337"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image018.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 21
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page22"></a>
+    </p>
+    <p align="center">
+        Static Methods in Interface
+    </p>
+    <p>
+        <img
+            width="707"
+            height="491"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image020.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 22
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page23"></a>
+    </p>
+    <p align="center">
+        <strong><em>Exception</em></strong>
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 23
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page24"></a>
+    </p>
+    <p align="center">
+        Exception Handling
+    </p>
+    <p>
+        • Uncaught exceptions
+    </p>
+    <p>
+        • Caught exceptions
+    </p>
+    <p>
+        • try
+    </p>
+    <p>
+        • catch
+    </p>
+    <p>
+        • finally
+    </p>
+    <p>
+        • throw
+    </p>
+    <p>
+        • throws
+    </p>
+    <p>
+        • Creating custom exceptions
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 24
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page25"></a>
+    </p>
+    <p align="center">
+        Uncaught Exceptions
+    </p>
+    <p>
+        <img
+            width="914"
+            height="361"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image022.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 25
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page26"></a>
+    </p>
+    <p align="center">
+        Caught Exceptions
+    </p>
+    <p>
+        <img
+            width="730"
+            height="521"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image024.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 26
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page27"></a>
+    </p>
+    <p>
+        Caught Exceptions
+    </p>
+    <p>
+        <img
+            width="657"
+            height="277"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image026.jpg"
+        />
+    </p>
+    <p align="right">
+        <strong>
+            <em>catch(ArithmeticException | NullPointerException e)</em>
+        </strong>
+    </p>
+    <p>
+        <img
+            width="657"
+            height="277"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image028.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 27
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page28"></a>
+    </p>
+    <p align="center">
+        Throws
+    </p>
+    <p>
+        <img
+            width="657"
+            height="545"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image030.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        Prepared By - Rifat Shahriyar 28
+    </p>
+</div>
+<br clear="all"/>
+<div>
+    <p>
+        <a name="page29"></a>
+    </p>
+    <p align="center">
+        Creating Custom Exceptions
+    </p>
+    <p>
+        <img
+            width="625"
+            height="573"
+            src="file:///C:/Users/Lenovo/AppData/Local/Temp/msohtmlclip1/01/clip_image032.jpg"
+        />
+    </p>
+</div>
+<br clear="all"/>
+<p>
+    Prepared By - Rifat Shahriyar 29
+</p>

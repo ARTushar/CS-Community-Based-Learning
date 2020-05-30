@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane prefHeight="625.0" prefWidth="1070.0" style="-fx-background-color: c2d3da;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.TutorialPageController">
+   <children>
+      <WebView fx:id="webView" layoutY="26.0" prefHeight="553.0" prefWidth="735.0" />
+      <JFXButton fx:id="commentButton" buttonType="RAISED" layoutX="928.0" layoutY="589.0" onAction="#commentButtonHandle" prefHeight="25.0" prefWidth="135.0" style="-fx-background-color: #E6EFF3;" text="Post Comment">
+         <font>
+            <Font size="13.0" />
+         </font></JFXButton>
+      <Text fx:id="heading" fill="#580097" layoutX="248.0" layoutY="26.0" strokeWidth="0.0" textAlignment="CENTER" textOrigin="CENTER" underline="true" wrappingWidth="611.0" AnchorPane.topAnchor="14.029296875">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Text>
+      <Text fill="#03353e" layoutX="853.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Comment Area">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Text>
+      <ListView fx:id="commentList" editable="true" layoutX="747.0" layoutY="49.0" prefHeight="530.0" prefWidth="330.0" style="-fx-background-color: #E6EFF3;" />
+      <JFXButton buttonType="RAISED" layoutX="944.0" layoutY="34.0" onAction="#backButtonHandle" prefHeight="24.0" prefWidth="75.0" style="-fx-background-color: #72A2c0; -fx-text-fill: #282726;" text="&lt;&lt;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="writeComment" layoutX="3.0" layoutY="591.0" onAction="#commentButtonHandle" prefHeight="25.0" prefWidth="884.0" promptText="Write Your Comment Here" />
+      <Separator layoutX="736.0" layoutY="26.0" orientation="VERTICAL" prefHeight="553.0" prefWidth="10.0" />
+      <Separator layoutX="14.0" layoutY="581.0" prefHeight="9.0" prefWidth="1054.0" />
+   </children>
+</AnchorPane>

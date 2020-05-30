@@ -1,0 +1,16 @@
+.list-view {
+}
+
+.list-cell {
+    -fx-background-color: transparent, -fx-background ;
+    -fx-background-insets: 0px, 2px ;
+    -fx-font-size: 15;
+}
+
+.list-cell:empty {
+    -fx-background-color: transparent ;
+    -fx-background-insets: 0 ;
+}
+.text-area{
+    -fx-alignment: center;
+}

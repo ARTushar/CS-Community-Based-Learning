@@ -1,0 +1,310 @@
+<header class="entry-header">
+<h1 class="entry-title">Multiple Inheritance in C++</h1>
+<div class="divclass"><a title="Medium" href="https://www.geeksforgeeks.org/medium/"><span class="articleRating alignright level-3">3.5</span></a></div>
+</header>
+<div class="entry-content">
+<p>Multiple Inheritance is a feature of C++ where a class can inherit from more than one classes.<span id="more-24173"></span></p>
+<p>The constructors of inherited classes are called in the same order in which they are inherited. For example, in the following program, B&rsquo;s constructor is called before A&rsquo;s constructor.</p>
+<div>
+<div id="highlighter_343559" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">A</code></div>
+<div class="line number5 index4 alt2"><code class="cpp plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">A()&nbsp; { cout &lt;&lt; </code><code class="cpp string">"A's constructor called"</code> <code class="cpp plain">&lt;&lt; endl; }</code></div>
+<div class="line number8 index7 alt1"><code class="cpp plain">};</code></div>
+<div class="line number9 index8 alt2">&nbsp;</div>
+<div class="line number10 index9 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">B</code></div>
+<div class="line number11 index10 alt2"><code class="cpp plain">{</code></div>
+<div class="line number12 index11 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">B()&nbsp; { cout &lt;&lt; </code><code class="cpp string">"B's constructor called"</code> <code class="cpp plain">&lt;&lt; endl; }</code></div>
+<div class="line number14 index13 alt1"><code class="cpp plain">};</code></div>
+<div class="line number15 index14 alt2">&nbsp;</div>
+<div class="line number16 index15 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">C: </code><code class="cpp keyword bold">public</code> <code class="cpp plain">B, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">A&nbsp; </code><code class="cpp comments">// Note the order</code></div>
+<div class="line number17 index16 alt2"><code class="cpp plain">{</code></div>
+<div class="line number18 index17 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">C()&nbsp; { cout &lt;&lt; </code><code class="cpp string">"C's constructor called"</code> <code class="cpp plain">&lt;&lt; endl; }</code></div>
+<div class="line number20 index19 alt1"><code class="cpp plain">};</code></div>
+<div class="line number21 index20 alt2">&nbsp;</div>
+<div class="line number22 index21 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number23 index22 alt2"><code class="cpp plain">{</code></div>
+<div class="line number24 index23 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">C c;</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number26 index25 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>B's constructor called
+A's constructor called
+C's constructor called</pre>
+<p>The destructors are called in reverse order of constructors.</p>
+<p><strong>The diamond problem</strong><br />The diamond problem occurs when two superclasses of a class have a common base class. For example, in the following diagram, the TA class gets two copies of all attributes of Person class, this causes ambiguities.</p>
+<p><a href="https://www.geeksforgeeks.org/wp-content/uploads/MICPP.png"><img class="aligncenter size-full wp-image-24179" title="MICPP" src="https://www.geeksforgeeks.org/wp-content/uploads/MICPP.png" alt="" width="420" height="315" /></a></p>
+<p>For example, consider the following program.</p>
+<div>
+<div id="highlighter_55072" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Person {</code></div>
+<div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// Data members of person </code></div>
+<div class="line number5 index4 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Person(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x)&nbsp; { cout &lt;&lt; </code><code class="cpp string">"Person::Person(int ) called"</code> <code class="cpp plain">&lt;&lt; endl;&nbsp;&nbsp; }</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">};</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Faculty : </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// data members of Faculty</code></div>
+<div class="line number11 index10 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Faculty(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x)&nbsp;&nbsp; {</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Faculty::Faculty(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number14 index13 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number15 index14 alt2"><code class="cpp plain">};</code></div>
+<div class="line number16 index15 alt1">&nbsp;</div>
+<div class="line number17 index16 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Student : </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp comments">// data members of Student</code></div>
+<div class="line number19 index18 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Student(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x) {</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Student::Student(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number22 index21 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number23 index22 alt2"><code class="cpp plain">};</code></div>
+<div class="line number24 index23 alt1">&nbsp;</div>
+<div class="line number25 index24 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">TA : </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Faculty, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Student&nbsp; {</code></div>
+<div class="line number26 index25 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Student(x), Faculty(x)&nbsp;&nbsp; {</code></div>
+<div class="line number28 index27 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"TA::TA(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number30 index29 alt1"><code class="cpp plain">};</code></div>
+<div class="line number31 index30 alt2">&nbsp;</div>
+<div class="line number32 index31 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()&nbsp; {</code></div>
+<div class="line number33 index32 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA ta1(30);</code></div>
+<div class="line number34 index33 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<pre>Person::Person(int ) called
+Faculty::Faculty(int ) called
+Person::Person(int ) called
+Student::Student(int ) called
+TA::TA(int ) called</pre>
+<p>In the above program, constructor of &lsquo;Person&rsquo; is called two times. Destructor of &lsquo;Person&rsquo; will also be called two times when object &lsquo;ta1&rsquo; is destructed. So object &lsquo;ta1&rsquo; has two copies of all members of &lsquo;Person&rsquo;, this causes ambiguities.&nbsp;<em>The solution to this problem is &lsquo;virtual&rsquo; keyword</em>. We make the classes &lsquo;Faculty&rsquo; and &lsquo;Student&rsquo; as virtual base classes to avoid two copies of &lsquo;Person&rsquo; in &lsquo;TA&rsquo; class. For example, consider the following program.</p>
+<div>
+<div id="highlighter_53192" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Person {</code></div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Person(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x)&nbsp; { cout &lt;&lt; </code><code class="cpp string">"Person::Person(int ) called"</code> <code class="cpp plain">&lt;&lt; endl;&nbsp;&nbsp; }</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Person()&nbsp;&nbsp;&nbsp;&nbsp; { cout &lt;&lt; </code><code class="cpp string">"Person::Person() called"</code> <code class="cpp plain">&lt;&lt; endl;&nbsp;&nbsp; }</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">};</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Faculty : </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number10 index9 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Faculty(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x)&nbsp;&nbsp; {</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Faculty::Faculty(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number14 index13 alt1"><code class="cpp plain">};</code></div>
+<div class="line number15 index14 alt2">&nbsp;</div>
+<div class="line number16 index15 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">Student : </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number17 index16 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Student(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x) {</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Student::Student(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number21 index20 alt2"><code class="cpp plain">};</code></div>
+<div class="line number22 index21 alt1">&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">TA : </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Faculty, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Student&nbsp; {</code></div>
+<div class="line number24 index23 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Student(x), Faculty(x)&nbsp;&nbsp; {</code></div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"TA::TA(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number28 index27 alt1"><code class="cpp plain">};</code></div>
+<div class="line number29 index28 alt2">&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()&nbsp; {</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA ta1(30);</code></div>
+<div class="line number32 index31 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Person::Person() called
+Faculty::Faculty(int ) called
+Student::Student(int ) called
+TA::TA(int ) called</pre>
+<p>In the above program, constructor of &lsquo;Person&rsquo; is called once. One important thing to note in the above output is,&nbsp;<em>the default constructor of &lsquo;Person&rsquo; is called</em>. When we use &lsquo;virtual&rsquo; keyword, the default constructor of grandparent class is called by default even if the parent classes explicitly call parameterized constructor.</p>
+<p><strong>How to call the parameterized constructor of the &lsquo;Person&rsquo; class?&nbsp;</strong>The constructor has to be called in &lsquo;TA&rsquo; class. For example, see the following program.</p>
+<div>
+<div id="highlighter_404883" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Person {</code></div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Person(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x)&nbsp; { cout &lt;&lt; </code><code class="cpp string">"Person::Person(int ) called"</code> <code class="cpp plain">&lt;&lt; endl;&nbsp;&nbsp; }</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Person()&nbsp;&nbsp;&nbsp;&nbsp; { cout &lt;&lt; </code><code class="cpp string">"Person::Person() called"</code> <code class="cpp plain">&lt;&lt; endl;&nbsp;&nbsp; }</code></div>
+<div class="line number7 index6 alt2"><code class="cpp plain">};</code></div>
+<div class="line number8 index7 alt1">&nbsp;</div>
+<div class="line number9 index8 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">Faculty : </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number10 index9 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Faculty(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x)&nbsp;&nbsp; {</code></div>
+<div class="line number12 index11 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Faculty::Faculty(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number13 index12 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number14 index13 alt1"><code class="cpp plain">};</code></div>
+<div class="line number15 index14 alt2">&nbsp;</div>
+<div class="line number16 index15 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">Student : </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">Person {</code></div>
+<div class="line number17 index16 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number18 index17 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">Student(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Person(x) {</code></div>
+<div class="line number19 index18 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"Student::Student(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number20 index19 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number21 index20 alt2"><code class="cpp plain">};</code></div>
+<div class="line number22 index21 alt1">&nbsp;</div>
+<div class="line number23 index22 alt2"><code class="cpp keyword bold">class</code> <code class="cpp plain">TA : </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Faculty, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">Student&nbsp; {</code></div>
+<div class="line number24 index23 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number25 index24 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x):Student(x), Faculty(x), Person(x)&nbsp;&nbsp; {</code></div>
+<div class="line number26 index25 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">cout&lt;&lt;</code><code class="cpp string">"TA::TA(int ) called"</code><code class="cpp plain">&lt;&lt; endl;</code></div>
+<div class="line number27 index26 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">}</code></div>
+<div class="line number28 index27 alt1"><code class="cpp plain">};</code></div>
+<div class="line number29 index28 alt2">&nbsp;</div>
+<div class="line number30 index29 alt1"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()&nbsp; {</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">TA ta1(30);</code></div>
+<div class="line number32 index31 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p>Output:</p>
+<pre>Person::Person(int ) called
+Faculty::Faculty(int ) called
+Student::Student(int ) called
+TA::TA(int ) called</pre>
+<p>In general, it is not allowed to call the grandparent&rsquo;s constructor directly, it has to be called through parent class. It is allowed only when &lsquo;virtual&rsquo; keyword is used.</p>
+<p>As an exercise, predict the output of following programs.</p>
+<p><strong>Question 1</strong></p>
+<div>
+<div id="highlighter_733121" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">A</code></div>
+<div class="line number5 index4 alt2"><code class="cpp plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x;</code></div>
+<div class="line number7 index6 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">setX(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i) {x = i;}</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">print() { cout &lt;&lt; x; }</code></div>
+<div class="line number10 index9 alt1"><code class="cpp plain">};</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">B:&nbsp; </code><code class="cpp keyword bold">public</code> <code class="cpp plain">A</code></div>
+<div class="line number13 index12 alt2"><code class="cpp plain">{</code></div>
+<div class="line number14 index13 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">B()&nbsp; { setX(10); }</code></div>
+<div class="line number16 index15 alt1"><code class="cpp plain">};</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">C:&nbsp; </code><code class="cpp keyword bold">public</code> <code class="cpp plain">A&nbsp; </code></div>
+<div class="line number19 index18 alt2"><code class="cpp plain">{</code></div>
+<div class="line number20 index19 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">C()&nbsp; { setX(20); }</code></div>
+<div class="line number22 index21 alt1"><code class="cpp plain">};</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">D: </code><code class="cpp keyword bold">public</code> <code class="cpp plain">B, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">C {</code></div>
+<div class="line number25 index24 alt2"><code class="cpp plain">};</code></div>
+<div class="line number26 index25 alt1">&nbsp;</div>
+<div class="line number27 index26 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number28 index27 alt1"><code class="cpp plain">{</code></div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">D d;</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">d.print();</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number32 index31 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+<p><strong>Question 2</strong></p>
+<div>
+<div id="highlighter_344952" class="syntaxhighlighter nogutter  cpp">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="cpp preprocessor">#include&lt;iostream&gt;</code></div>
+<div class="line number2 index1 alt1"><code class="cpp keyword bold">using</code> <code class="cpp keyword bold">namespace</code> <code class="cpp plain">std;</code></div>
+<div class="line number3 index2 alt2">&nbsp;</div>
+<div class="line number4 index3 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">A</code></div>
+<div class="line number5 index4 alt2"><code class="cpp plain">{</code></div>
+<div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp color1 bold">int</code> <code class="cpp plain">x;</code></div>
+<div class="line number7 index6 alt2"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">A(</code><code class="cpp color1 bold">int</code> <code class="cpp plain">i) { x = i; }</code></div>
+<div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">void</code> <code class="cpp plain">print() { cout &lt;&lt; x; }</code></div>
+<div class="line number10 index9 alt1"><code class="cpp plain">};</code></div>
+<div class="line number11 index10 alt2">&nbsp;</div>
+<div class="line number12 index11 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">B: </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">A</code></div>
+<div class="line number13 index12 alt2"><code class="cpp plain">{</code></div>
+<div class="line number14 index13 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number15 index14 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">B():A(10) {&nbsp; }</code></div>
+<div class="line number16 index15 alt1"><code class="cpp plain">};</code></div>
+<div class="line number17 index16 alt2">&nbsp;</div>
+<div class="line number18 index17 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">C:&nbsp; </code><code class="cpp keyword bold">virtual</code> <code class="cpp keyword bold">public</code> <code class="cpp plain">A </code></div>
+<div class="line number19 index18 alt2"><code class="cpp plain">{</code></div>
+<div class="line number20 index19 alt1"><code class="cpp keyword bold">public</code><code class="cpp plain">:</code></div>
+<div class="line number21 index20 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">C():A(10) {&nbsp; }</code></div>
+<div class="line number22 index21 alt1"><code class="cpp plain">};</code></div>
+<div class="line number23 index22 alt2">&nbsp;</div>
+<div class="line number24 index23 alt1"><code class="cpp keyword bold">class</code> <code class="cpp plain">D: </code><code class="cpp keyword bold">public</code> <code class="cpp plain">B, </code><code class="cpp keyword bold">public</code> <code class="cpp plain">C {</code></div>
+<div class="line number25 index24 alt2"><code class="cpp plain">};</code></div>
+<div class="line number26 index25 alt1">&nbsp;</div>
+<div class="line number27 index26 alt2"><code class="cpp color1 bold">int</code> <code class="cpp plain">main()</code></div>
+<div class="line number28 index27 alt1"><code class="cpp plain">{</code></div>
+<div class="line number29 index28 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">D d;</code></div>
+<div class="line number30 index29 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">d.print();</code></div>
+<div class="line number31 index30 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp keyword bold">return</code> <code class="cpp plain">0;</code></div>
+<div class="line number32 index31 alt1"><code class="cpp plain">}</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<button class="runIdeBtn">Run on IDE</button></div>
+</div>
+</div>
