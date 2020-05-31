@@ -1,4 +1,4 @@
-CS COMMUNITY BASED LEARNING
+CS COMMUNITY BASED LEARNING (A LAN based Java Project where JAVAFX has been used for the GUI)
 
 Our project has 6 packages. util package consists of all of our utility classes that are – Comment, Question, Answer, CommentList, QuestionList, NetworkUtil and UserInfo. Main server class is located in the server package which name is ServerMain. After the connection is established with a client a new thread opens named ClientHandler and the rest of the communication with the client is done with this thread. 
 All the data files are located in the ‘file’ package and images in the ‘image’ package. 
